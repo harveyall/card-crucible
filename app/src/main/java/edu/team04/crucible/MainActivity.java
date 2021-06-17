@@ -11,4 +11,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    //TODO: add onClick function for Settings button
+
+    //TODO: add onClick function for Category Selection button
 }
