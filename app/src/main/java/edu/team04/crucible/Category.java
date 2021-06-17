@@ -40,6 +40,11 @@ public class Category {
         return this.cards.get(index);
     }
 
+    public void replaceCard(int oldCardIndex, Card editedCard){
+        //replaces old card with edited version
+        this.cards.set(oldCardIndex, editedCard);
+    }
+
     public void addCard(Card card){
         this.cards.add(card);
     }
