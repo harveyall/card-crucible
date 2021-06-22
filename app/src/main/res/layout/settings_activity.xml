@@ -1,9 +1,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/settings"
+    <Button
+        android:id="@+id/button_settings_home"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
+        android:background="#0FFFFFFF"
+        app:icon="@android:drawable/ic_menu_manage"
+        app:iconPadding="2dp"
+        app:iconTint="#000000"
+        app:strokeColor="#000000" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/settings_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="450dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/button_category_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
 </LinearLayout>
