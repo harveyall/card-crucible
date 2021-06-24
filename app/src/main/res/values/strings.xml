@@ -18,4 +18,13 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+    <!-- Add Card Activity-->
+    <string name="title_activity_addCards">Add Card</string>
+    <string name="EditTextCategory_hint">Category</string>
+    <string name="EditTextQuestion_hint">Question</string>
+    <string name="EditTextAnswer_hint">Answer</string>
+    <string name="addBtn">+</string>
+
 </resources>
