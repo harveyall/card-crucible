@@ -27,6 +27,16 @@ public class CategoryList {
         return this.categories.get(id);
     }
 
+    public Category getCategory(String name){
+        Category retrievedCategory = null;
+        for(Category category : this.categories){
+            if(category.getName().equals(name)){
+                retrievedCategory = category;
+            }
+        }
+        return retrievedCategory;
+    }
+
     public void deleteCategory(int id){
         this.categories.remove(id);
     }
