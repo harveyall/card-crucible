@@ -6,10 +6,10 @@ import android.os.Bundle;
 
 public class EditCategoryActivity extends AppCompatActivity {
 
-    // TODO: Edit or Delete selected card, add card if add button is pushed
+    // TODO: Go to EditCardActivity if Edit button is pressed
+    // TODO: Add Category to local storage file if add button is clicked
 
-    //TODO: Take care of all request from this class using EditCategoryHandler
-    // (i.e. Requests to/from Card or Category class)
+    // TODO: Take care of all request from this class using EditCategoryHandler
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
