@@ -8,8 +8,7 @@ import android.widget.EditText;
 
 public class AddCardsActivity extends AppCompatActivity {
     //This activity is called when an add button is clicked from the EditCategoryActivity
-    final private String filename = "./cardCrucible.txt";
-    final LocalStorageManager lsMgr= new LocalStorageManager(filename);
+    AddCardsHandler addCardsHandler = new AddCardsHandler();
 
     //TODO: gather input for Category, question, answer and add card to local storage
 
@@ -25,36 +24,7 @@ public class AddCardsActivity extends AppCompatActivity {
         EditText question = (EditText) findViewById(R.id.editTextQuestion);
         EditText answer = (EditText) findViewById(R.id.editTextAnswer);
 
-        String categoryString = category.getText().toString();
+        addCardsHandler.addCard(category.getText().toString(), question.getText().toString(), answer.getText().toString());
 
-        //TODO: Create new card based on input
-        Card newCard = new Card(0, question.getText().toString(), answer.getText().toString());
-
-        //TODO: Grab current category list from local storage
-        CategoryList categoryList = lsMgr.loadCategoryList();
-        //if categoryList file contains no data set categoryList = new CategoryList()
-        if (categoryList == null){
-            categoryList = new CategoryList();
-        }
-        //TODO: check if category already exists
-        Category cardCategory = categoryList.getCategory(categoryString);
-
-        //TODO: if category does not exist not add category
-        if(cardCategory == null){
-
-            //TODO: fix id (currently hard-coded)
-            Category newCategory = new Category(1, categoryString);
-            //add card to category
-            newCategory.addCard(newCard);
-            //add Category to list
-            categoryList.addCategory(newCategory);
-        }
-        //TODO: add new card to category
-        else{
-            cardCategory.addCard(newCard);
-        }
-
-        //TODO: save edited Category List to local file
-        lsMgr.saveCategoryList(categoryList);
     }
 }
