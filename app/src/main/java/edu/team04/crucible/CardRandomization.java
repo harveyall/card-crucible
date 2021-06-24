@@ -5,8 +5,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/** Class intended to be called from CardSelectionActivity in order to shuffle cards in categories
- * in preparation for study/game mode.
+/** Presenter class intended to be called from CardSelectionActivity in order to shuffle cards in
+ * categories in preparation for study/game mode.
  */
 public class CardRandomization {
     private ArrayList<Category> categoryList;
