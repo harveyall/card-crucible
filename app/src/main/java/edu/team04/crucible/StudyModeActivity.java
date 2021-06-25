@@ -1,18 +1,14 @@
 package edu.team04.crucible;
 
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-/**
- * This is the activity where cards are shown for study, with the ability to be flipped around
- * to see the answer.
- */
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+
 public class StudyModeActivity extends AppCompatActivity {
     //TODO: Begin game with card list from selected category that is sent from SelectCategory Activity
     // use StudyModeHandler to handle requests from this activity
@@ -29,7 +25,7 @@ public class StudyModeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_study);
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
 
         frontCard.setCameraDistance(8000 * scale);
@@ -56,14 +52,4 @@ public class StudyModeActivity extends AppCompatActivity {
             }
         });
     }
-
-    /**
-     * This button leads back to the Main Activity.
-     * @param button
-     */
-    public void backHome(View button) {
-        Intent addIntent = new Intent(this, MainActivity.class);
-        startActivity(addIntent);
-    }
-
 }

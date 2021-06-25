@@ -26,7 +26,7 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="118dp"
         android:layout_height="99dp"
-        android:layout_marginStart="143dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Button"
@@ -41,9 +41,11 @@
         android:layout_width="118dp"
         android:layout_height="99dp"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -54,16 +56,16 @@
         android:layout_marginTop="263dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="198dp"
-        android:gravity="center"
         android:background="@color/teal_700"
+        android:gravity="center"
         android:text="Front_Card"
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/card_back"
@@ -73,28 +75,26 @@
         android:layout_marginTop="263dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="198dp"
-        android:gravity="center"
+        android:alpha="0"
         android:background="@color/teal_200"
+        android:gravity="center"
         android:text="Back_Card"
         android:textAlignment="center"
         android:textSize="22sp"
-        android:alpha="0"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/flip_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="211dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="211dp"
-        android:layout_marginBottom="218dp"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="162dp"
         android:text="Flip"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_front" />
