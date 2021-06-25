@@ -34,13 +34,20 @@ public class CategoryList {
         return retrievedCategory;
     }
 
+    public Category getCategory(int index){
+        return this.categories.get(index);
+    }
+
     public void deleteCategory(String categoryName){
         for(Category category : this.categories){
             if(category.getName().equals(categoryName)){
                 this.categories.remove(category);
             }
         }
+    }
 
+    public void deleteCategory(int index){
+        this.categories.remove(index);
     }
 
     public void addCategory(Category category){
