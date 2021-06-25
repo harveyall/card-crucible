@@ -15,8 +15,8 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((android.widget.Button)findViewById(R.id.button_category_add)).setText(R.string.add_category);
-        ((android.widget.Button)findViewById(R.id.button_category_edit)).setText(R.string.edit_category);
+        //((android.widget.Button)findViewById(R.id.button_category_add)).setText(R.string.add_category);
+        //((android.widget.Button)findViewById(R.id.button_category_edit)).setText(R.string.edit_category);
         setContentView(R.layout.settings_activity);
     }
 
