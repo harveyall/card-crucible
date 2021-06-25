@@ -36,7 +36,7 @@ public class LocalStorageManager {
         CategoryList categoryList = null;
         try{
             File file = new File(applicationContext.getFilesDir(), FILENAME);
-            FileInputStream fis = this.applicationContext.openFileInput(FILENAME);
+            FileInputStream fis = this.applicationContext.openFileInput(file.getName());
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
             String text;
