@@ -16,7 +16,7 @@ public class CardSelectionActivity extends AppCompatActivity {
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
+        //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         setContentView(R.layout.activity_card_selection);
     }
 
