@@ -16,12 +16,12 @@ import java.io.InputStreamReader;
 public class LocalStorageManager {
     Gson gson = new Gson();
     final private String FILENAME;
-    Context applicationContext;
+    Context context;
     //This class deals with editing and adding to local json file for app
     //TODO: Figure out how to store local file on android device
 
     public LocalStorageManager(Context context, String filename){
-        this.applicationContext = context;
+        this.context = context;
         this.FILENAME = filename;
     }
 
@@ -35,8 +35,8 @@ public class LocalStorageManager {
         String data = "";
         CategoryList categoryList = null;
         try{
-            File file = new File(applicationContext.getFilesDir(), FILENAME);
-            FileInputStream fis = this.applicationContext.openFileInput(file.getName());
+            File file = new File(context.getFilesDir(), FILENAME);
+            FileInputStream fis = this.context.openFileInput(file.getName());
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
             String text;
@@ -59,13 +59,13 @@ public class LocalStorageManager {
         String json = gson.toJson(categoryList);
 
         try{
-            FileOutputStream fos = this.applicationContext.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            FileOutputStream fos = this.context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             fos.write(json.getBytes());
             fos.close();
-            Toast.makeText(this.applicationContext, "Card saved to " + this.applicationContext.getFilesDir() + "/" + FILENAME, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.context, "Card saved to " + this.context.getFilesDir() + "/" + FILENAME, Toast.LENGTH_SHORT).show();
         } catch(IOException ioe){
             ioe.printStackTrace();
-            Toast.makeText(this.applicationContext, "Error: Card not saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.context, "Error: Card not saved", Toast.LENGTH_SHORT).show();
         }
     }
 

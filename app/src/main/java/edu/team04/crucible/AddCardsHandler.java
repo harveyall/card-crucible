@@ -4,12 +4,16 @@ import android.content.Context;
 
 public class AddCardsHandler {
     final private String filename = "./cardCrucible.txt";
+    Context context;
 
+    public AddCardsHandler(Context context){
+        this.context = context;
+    }
 
-    public void manageCardAddition(Context context, String category, String question, String answer){
+    public void manageCardAddition(String category, String question, String answer){
         //TODO: Create new card based on input
 
-        final LocalStorageManager lsMgr = new LocalStorageManager(context, filename);
+        final LocalStorageManager lsMgr = new LocalStorageManager(this.context, filename);
 
         Card newCard = new Card(question, answer);
 

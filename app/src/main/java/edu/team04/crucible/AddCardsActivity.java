@@ -1,5 +1,6 @@
 package edu.team04.crucible;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * This activity is called when an add button is clicked from the EditCategoryActivity
  */
 public class AddCardsActivity extends AppCompatActivity {
-    AddCardsHandler addCardsHandler = new AddCardsHandler();
+    AddCardsHandler addCardsHandler = new AddCardsHandler(this);
 
     //TODO: gather input for Category, question, answer and add card to local storage
 
@@ -39,6 +40,8 @@ public class AddCardsActivity extends AppCompatActivity {
         EditText question = (EditText) findViewById(R.id.editTextQuestion);
         EditText answer = (EditText) findViewById(R.id.editTextAnswer);
 
-        addCardsHandler.manageCardAddition(getApplicationContext(), category.getText().toString(), question.getText().toString(), answer.getText().toString());
+        Context context = getApplicationContext();
+
+        addCardsHandler.manageCardAddition(category.getText().toString(), question.getText().toString(), answer.getText().toString());
     }
 }
