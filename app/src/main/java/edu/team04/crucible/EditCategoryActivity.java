@@ -1,9 +1,14 @@
 package edu.team04.crucible;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-
+/**
+ * This Activity allows the user to edit an already existing card category.
+ */
 public class EditCategoryActivity extends AppCompatActivity {
 
     // TODO: Go to EditCardActivity if Edit button is pressed
@@ -15,6 +20,15 @@ public class EditCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_category);
+    }
+
+    /**
+     * This button leads back to the Main Activity.
+     * @param button
+     */
+    public void backHome(View button) {
+        Intent addIntent = new Intent(this, MainActivity.class);
+        startActivity(addIntent);
     }
 
 }

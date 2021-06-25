@@ -6,4 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".EditCategoryActivity">
 
+    <Button
+        android:id="@+id/button_card_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/edit_view"
+        android:layout_width="374dp"
+        android:layout_height="480dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_card_edit" />
+
+    <Button
+        android:id="@+id/button_card_add"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_view" />
+
+    <Button
+        android:id="@+id/button_edit_back_home"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#0FFFFFFF"
+        android:onClick="backHome"
+        app:icon="@android:drawable/ic_menu_manage"
+        app:iconPadding="2dp"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#000000" />
 </androidx.constraintlayout.widget.ConstraintLayout>
