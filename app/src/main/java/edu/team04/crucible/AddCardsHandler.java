@@ -5,7 +5,7 @@ public class AddCardsHandler {
     final LocalStorageManager lsMgr = new LocalStorageManager(filename);
 
 
-    public void addCard(String category, String question, String answer){
+    public void manageCardAddition(String category, String question, String answer){
         //TODO: Create new card based on input
         Card newCard = new Card(question, answer);
 

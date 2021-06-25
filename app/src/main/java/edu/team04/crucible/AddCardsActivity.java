@@ -39,6 +39,6 @@ public class AddCardsActivity extends AppCompatActivity {
         EditText question = (EditText) findViewById(R.id.editTextQuestion);
         EditText answer = (EditText) findViewById(R.id.editTextAnswer);
 
-        addCardsHandler.addCard(category.getText().toString(), question.getText().toString(), answer.getText().toString());
+        addCardsHandler.manageCardAddition(category.getText().toString(), question.getText().toString(), answer.getText().toString());
     }
 }
