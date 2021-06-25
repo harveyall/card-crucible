@@ -21,37 +21,39 @@ public class StudyModeActivity extends AppCompatActivity {
     private AnimatorSet frontAnim;
     private AnimatorSet backAnim;
 
+    private boolean isFront = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
-        initViews();
 
         frontCard.setCameraDistance(8000 * scale);
         backCard.setCameraDistance(8000 * scale);
 
-        frontAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.front_animation);
-        backAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_animation);
+        frontAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.front_animatior);
+        backAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_animatior);
 
-        aButton.setOnClickListener(new View.OnClickListener(){
+        aButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View view){
+            public void onClick(View view) {
+
                 if (isFront) {
                     frontAnim.setTarget(frontCard);
                     backAnim.setTarget(backCard);
                     frontAnim.start();
                     backAnim.start();
-                    boolean isFront = false;
-                } else {
+                    isFront = false;
+                }
+                else {
                     frontAnim.setTarget(backCard);
                     backAnim.setTarget(frontCard);
                     backAnim.start();
                     frontAnim.start();
-                    boolean isFront = true;
+                    isFront = true;
                 }
             }
-        }
+        });
     }
 }
