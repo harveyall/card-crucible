@@ -1,12 +1,16 @@
 package edu.team04.crucible;
 
+import android.content.Context;
+
 public class AddCardsHandler {
     final private String filename = "./cardCrucible.txt";
-    final LocalStorageManager lsMgr = new LocalStorageManager(filename);
 
 
-    public void manageCardAddition(String category, String question, String answer){
+    public void manageCardAddition(Context context, String category, String question, String answer){
         //TODO: Create new card based on input
+
+        final LocalStorageManager lsMgr = new LocalStorageManager(context, filename);
+
         Card newCard = new Card(question, answer);
 
         //TODO: Grab current category list from local storage

@@ -1,23 +1,27 @@
 package edu.team04.crucible;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.InputStreamReader;
 
 public class LocalStorageManager {
     Gson gson = new Gson();
-    final private String filename;
+    final private String FILENAME;
+    Context applicationContext;
     //This class deals with editing and adding to local json file for app
     //TODO: Figure out how to store local file on android device
 
-    public LocalStorageManager(String filename){
-        this.filename = filename;
+    public LocalStorageManager(Context context, String filename){
+        this.applicationContext = context;
+        this.FILENAME = filename;
     }
 
     // Info on local data storage to android device
@@ -30,19 +34,20 @@ public class LocalStorageManager {
         String data = "";
         CategoryList categoryList = null;
         try{
-            BufferedReader br = new BufferedReader(new FileReader(this.filename));
-            String line = br.readLine();
-            while(line != null){
-                data += line;
-                line = br.readLine();
+            FileInputStream fis = this.applicationContext.openFileInput(FILENAME);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+
+            String text;
+            while((text = br.readLine()) != null){
+                data += text;
             }
-            categoryList = gson.fromJson(data, CategoryList.class);
+
+            } catch (IOException e) {
+            e.printStackTrace();
+        }
+        categoryList = gson.fromJson(data, CategoryList.class);
             // deserialize json that was read from file to create CategoryList
 
-
-        } catch(IOException ioe){
-            ioe.printStackTrace();
-        }
         return categoryList;
     }
 
@@ -52,11 +57,13 @@ public class LocalStorageManager {
         String json = gson.toJson(categoryList);
 
         try{
-            PrintWriter pw = new PrintWriter(new FileWriter(this.filename));
-            pw.print(json);
-            pw.close();
+            FileOutputStream fos = this.applicationContext.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            fos.write(json.getBytes());
+            fos.close();
+            Toast.makeText(this.applicationContext, "Card saved to " + this.applicationContext.getFilesDir() + "/" + FILENAME, Toast.LENGTH_SHORT).show();
         } catch(IOException ioe){
             ioe.printStackTrace();
+            Toast.makeText(this.applicationContext, "Error: Card not saved", Toast.LENGTH_SHORT).show();
         }
     }
 
