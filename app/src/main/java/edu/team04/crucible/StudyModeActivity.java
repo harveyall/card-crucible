@@ -1,14 +1,18 @@
 package edu.team04.crucible;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
-
+/**
+ * This is the activity where cards are shown for study, with the ability to be flipped around
+ * to see the answer.
+ */
 public class StudyModeActivity extends AppCompatActivity {
     //TODO: Begin game with card list from selected category that is sent from SelectCategory Activity
     // use StudyModeHandler to handle requests from this activity
@@ -52,4 +56,14 @@ public class StudyModeActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * This button leads back to the Main Activity.
+     * @param button
+     */
+    public void backHome(View button) {
+        Intent addIntent = new Intent(this, MainActivity.class);
+        startActivity(addIntent);
+    }
+
 }
