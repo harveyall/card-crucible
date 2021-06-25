@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CardCrucible">
+        <activity android:name=".GameModeActivity"></activity>
         <activity android:name=".AddCardsActivity" />
         <activity android:name=".CardSelectionActivity" />
         <activity android:name=".EditCardsActivity" />
@@ -21,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
     </application>
 
