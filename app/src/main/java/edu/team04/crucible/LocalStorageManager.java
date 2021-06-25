@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class LocalStorageManager {
         String data = "";
         CategoryList categoryList = null;
         try{
+            File file = new File(applicationContext.getFilesDir(), FILENAME);
             FileInputStream fis = this.applicationContext.openFileInput(FILENAME);
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
