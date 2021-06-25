@@ -14,10 +14,14 @@ public class LocalStorageManager {
     Gson gson = new Gson();
     final private String filename;
     //This class deals with editing and adding to local json file for app
+    //TODO: Figure out how to store local file on android device
 
     public LocalStorageManager(String filename){
         this.filename = filename;
     }
+
+    // Info on local data storage to android device
+    // https://developer.android.com/training/data-storage/app-specific
 
     public CategoryList loadCategoryList() {
         Log.d("LocalStorageManager", "Retrieving cards");
@@ -43,6 +47,8 @@ public class LocalStorageManager {
     }
 
     public void saveCategoryList(CategoryList categoryList){
+        //TODO: before saving to device query available space on device
+        //https://developer.android.com/training/data-storage/app-specific#query-free-space
         String json = gson.toJson(categoryList);
 
         try{
@@ -52,7 +58,6 @@ public class LocalStorageManager {
         } catch(IOException ioe){
             ioe.printStackTrace();
         }
-
     }
 
 }
