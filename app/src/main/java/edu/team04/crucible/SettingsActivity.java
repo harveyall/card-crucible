@@ -35,8 +35,8 @@ public class SettingsActivity extends AppCompatActivity {
      * @param button
      */
     public void addCategory(View button) {
-        Intent addIntent = new Intent(this, AddCardsActivity.class);
-          startActivity(addIntent);
+        //TODO: this method adds category to local storage as well as to the current list displayed on this activity
+        // May need to reload activity
     }
 
     /**

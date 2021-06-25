@@ -31,4 +31,31 @@ public class EditCategoryActivity extends AppCompatActivity {
         startActivity(addIntent);
     }
 
+    /**
+     * This button leads to the Add Card Activity.
+     * @param view
+     */
+    public void addCardtoCategory(View view){
+        Intent addIntent = new Intent(this, AddCardsActivity.class);
+        startActivity(addIntent);
+    }
+
+    /**
+     * This edit icon button leads to Edit Cards Activity.
+     * @param view
+     */
+    public void editCardinCategory(View view){
+        Intent addIntent = new Intent(this, EditCardsActivity.class);
+        startActivity(addIntent);
+    }
+
+    /**
+     * This trash icon button leads to Edit Cards Activity.
+     * @param card
+     */
+    public void deleteCardfromCategory(Card card){
+        //TODO: delete card on the same line as trash icon from Category,
+        // save edited to local storage,
+        // likely will need to reload activity after change
+    }
 }
