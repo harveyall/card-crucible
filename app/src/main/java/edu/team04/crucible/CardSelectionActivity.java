@@ -3,7 +3,6 @@ package edu.team04.crucible;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
@@ -26,4 +25,14 @@ public class CardSelectionActivity extends AppCompatActivity {
         ((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         setContentView(R.layout.activity_card_selection);
     }
+
+    /**
+     * This button leads back to the Main Activity.
+     * @param button
+     */
+    public void backHome(View button) {
+        Intent addIntent = new Intent(this, MainActivity.class);
+        startActivity(addIntent);
+    }
+
 }
