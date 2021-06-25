@@ -5,23 +5,14 @@ import java.util.List;
 
 public class Category {
 
-    private int id;
     private String name;
     private List<Card> cards;
 
-    public Category(int id, String name){
-        this.id = id;
+    public Category(String name){
         this.name = name;
         this.cards = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

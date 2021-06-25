@@ -19,7 +19,6 @@ public class AddCardsActivity extends AppCompatActivity {
     }
 
     public void AddNewCard(View view){
-        //TODO: figure out how we plan to set and use ID, temporarily hard-coding id to 0
         EditText category = (EditText) findViewById(R.id.editTextCategory);
         EditText question = (EditText) findViewById(R.id.editTextQuestion);
         EditText answer = (EditText) findViewById(R.id.editTextAnswer);

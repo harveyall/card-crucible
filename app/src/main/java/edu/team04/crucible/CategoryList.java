@@ -23,22 +23,24 @@ public class CategoryList {
         this.categories = categories;
     }
 
-    public Category getCategory(int id){
-        return this.categories.get(id);
-    }
 
-    public Category getCategory(String name){
+    public Category getCategory(String categoryName){
         Category retrievedCategory = null;
         for(Category category : this.categories){
-            if(category.getName().equals(name)){
+            if(category.getName().equals(categoryName)){
                 retrievedCategory = category;
             }
         }
         return retrievedCategory;
     }
 
-    public void deleteCategory(int id){
-        this.categories.remove(id);
+    public void deleteCategory(String categoryName){
+        for(Category category : this.categories){
+            if(category.getName().equals(categoryName)){
+                this.categories.remove(category);
+            }
+        }
+
     }
 
     public void addCategory(Category category){

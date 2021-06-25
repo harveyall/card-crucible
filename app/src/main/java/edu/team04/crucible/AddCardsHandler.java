@@ -2,12 +2,12 @@ package edu.team04.crucible;
 
 public class AddCardsHandler {
     final private String filename = "./cardCrucible.txt";
-    final LocalStorageManager lsMgr= new LocalStorageManager(filename);
+    final LocalStorageManager lsMgr = new LocalStorageManager(filename);
 
 
     public void addCard(String category, String question, String answer){
         //TODO: Create new card based on input
-        Card newCard = new Card(0, question, answer);
+        Card newCard = new Card(question, answer);
 
         //TODO: Grab current category list from local storage
         CategoryList categoryList = lsMgr.loadCategoryList();
@@ -21,8 +21,7 @@ public class AddCardsHandler {
         //TODO: if category does not exist add category
         if(cardCategory == null){
 
-            //TODO: fix id (currently hard-coded)
-            Category newCategory = new Category(1, category);
+            Category newCategory = new Category(category);
             //add card to category
             newCategory.addCard(newCard);
             //add Category to list
