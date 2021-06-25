@@ -18,12 +18,12 @@ public class CardSelectionActivity extends AppCompatActivity {
     Intent intent = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
     //TODO: Populate Listview/Recyclerview with Card Categories.
     //TODO: Add selected Categories to intent.
-        ((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         startActivity(intent);
     }
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         setContentView(R.layout.activity_card_selection);
     }
 }
