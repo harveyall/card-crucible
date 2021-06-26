@@ -29,7 +29,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -43,7 +43,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Button"
+        android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent" />
@@ -53,39 +53,31 @@
         android:layout_width="405dp"
         android:layout_height="297dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="263dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="198dp"
         android:background="@color/teal_700"
         android:gravity="center"
-        android:text="Front_Card"
         android:textAlignment="center"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/card_back"
         android:layout_width="405dp"
         android:layout_height="297dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="263dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="198dp"
-        android:alpha="0"
+        android:alpha="1"
         android:background="@color/teal_200"
         android:gravity="center"
-        android:text="Back_Card"
         android:textAlignment="center"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/flip_btn"
@@ -95,6 +87,7 @@
         android:layout_marginTop="73dp"
         android:layout_marginEnd="162dp"
         android:text="Flip"
+        android:onClick="flip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_front" />

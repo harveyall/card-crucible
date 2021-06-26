@@ -22,13 +22,13 @@ public class CardSelectionActivity extends AppCompatActivity {
 
     /**
      * This button takes the selected categories into the next Activity (Study or Game).
-     * @param view
+     * @param button
      */
-    public void Begin(View view) {
-        Intent intent = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
+    public void Begin(View button) {
+        Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
         //TODO: Populate Listview/Recyclerview with Card Categories.
         //TODO: Add selected Categories to intent.
-        startActivity(intent);
+        startActivity(studyModeActivity);
     }
 
     /**
