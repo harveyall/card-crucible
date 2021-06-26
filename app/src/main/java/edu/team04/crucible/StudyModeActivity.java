@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,44 +14,45 @@ import android.widget.TextView;
 public class StudyModeActivity extends AppCompatActivity {
     //TODO: Begin game with card list from selected category that is sent from SelectCategory Activity
     // use StudyModeHandler to handle requests from this activity
-    final TextView frontCard = (TextView) findViewById(R.id.card_front);
-    final TextView backCard = (TextView) findViewById(R.id.card_back);
+    private boolean visible = false;
 
-    final Button aButton = findViewById(R.id.flip_btn);
-
-    private AnimatorSet frontAnim;
-    private AnimatorSet backAnim;
-
-    private boolean isFront = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
-
-        frontCard.setCameraDistance(8000 * scale);
-        backCard.setCameraDistance(8000 * scale);
-
-        frontAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.front_animatior);
-        backAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_animatior);
-
-        aButton.setOnClickListener(view -> {
-
-            if (isFront) {
-                frontAnim.setTarget(frontCard);
-                backAnim.setTarget(backCard);
-                frontAnim.start();
-                backAnim.start();
-                isFront = false;
-            }
-            else {
-                frontAnim.setTarget(backCard);
-                backAnim.setTarget(frontCard);
-                backAnim.start();
-                frontAnim.start();
-                isFront = true;
-            }
-        });
+        TextView backCard = (TextView)findViewById(R.id.card_back);
+        backCard.setText("Back");
+        backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
+        TextView frontCard = (TextView)findViewById(R.id.card_front);
+        frontCard.setText("Front");
     }
+
+    /**
+     * This button leads back to the Main Activity.
+     * @param button
+     */
+    public void flip(View button) {
+        TextView backCard = (TextView)findViewById(R.id.card_back);
+        if(visible) {
+            backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
+            visible = false;
+        }
+        else {
+            backCard.setVisibility(View.VISIBLE); // For Visible/Appear
+            visible = true;
+        }
+    }
+
+    /**
+     * This button leads back to the Main Activity.
+     * @param button
+     */
+    public void backHome(View button) {
+        Intent addIntent = new Intent(this, MainActivity.class);
+        startActivity(addIntent);
+    }
+
+
 }
