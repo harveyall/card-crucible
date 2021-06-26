@@ -3,6 +3,10 @@ package edu.team04.crucible;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is a list of the Card Categories which in turn have lists of the cards that belong to
+ * said categories.
+ */
 public class CategoryList {
     //This class will contain all data that gets saved to localStorage
     // as well as methods to manipulate it's data
@@ -22,7 +26,6 @@ public class CategoryList {
     public void setCategories(List categories) {
         this.categories = categories;
     }
-
 
     public Category getCategory(String categoryName){
         Category retrievedCategory = null;

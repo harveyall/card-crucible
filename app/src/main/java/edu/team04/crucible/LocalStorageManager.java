@@ -2,8 +2,9 @@ package edu.team04.crucible;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
+
 import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -61,11 +62,13 @@ public class LocalStorageManager {
         try{
             FileOutputStream fos = this.context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             fos.write(json.getBytes());
+            Log.d("LocalStorageManager", "File Saved");
             fos.close();
-            Toast.makeText(this.context, "Card saved to " + this.context.getFilesDir() + "/" + FILENAME, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this.context, "Card saved to " + this.context.getFilesDir() + "/" + FILENAME, Toast.LENGTH_SHORT).show();
         } catch(IOException ioe){
             ioe.printStackTrace();
-            Toast.makeText(this.context, "Error: Card not saved", Toast.LENGTH_SHORT).show();
+            Log.d("LocalStorageManager", "File Save Exception caught!");
+            //Toast.makeText(this.context, "Error: Card not saved", Toast.LENGTH_SHORT).show();
         }
     }
 

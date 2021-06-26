@@ -7,7 +7,7 @@ import android.util.Log;
  * This class processes the logic of adding cards to a category, either existing or brand new.
  */
 public class AddCardsHandler implements Runnable {
-    final private String filename = "./cardCrucible.txt";
+    final private String filename = "cardCrucible.txt";
     Context context;
     String category;
     String question;
@@ -21,8 +21,6 @@ public class AddCardsHandler implements Runnable {
             this.answer = answer;
         }
 
-
-
         @Override
         public void run() {
             //TODO: Create new card based on input
@@ -30,7 +28,7 @@ public class AddCardsHandler implements Runnable {
             final LocalStorageManager lsMgr = new LocalStorageManager(this.context, filename);
 
             Card newCard = new Card(this.question, this.answer);
-            Log.d("AddCardsHandler", "Card Question: " + this.question + "Card Answer: " + this.answer);
+            Log.d("AddCardsHandler", "Card Question: " + this.question + " Card Answer: " + this.answer);
 
             //TODO: Grab current category list from local storage
             CategoryList categoryList = lsMgr.loadCategoryList();
@@ -56,6 +54,8 @@ public class AddCardsHandler implements Runnable {
             }
 
             //TODO: save edited Category List to local file
+            Log.d("AddCardsHandler", "Calling LocalStorageManager to Save the Category List");
+            Log.d("AddCardsHandler", "Category List is: " + categoryList);
             lsMgr.saveCategoryList(categoryList);
         }
     }
