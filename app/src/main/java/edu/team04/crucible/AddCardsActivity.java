@@ -2,6 +2,7 @@ package edu.team04.crucible;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -40,6 +41,8 @@ public class AddCardsActivity extends AppCompatActivity {
 
         AddCardsHandler addCardsHandler = new AddCardsHandler(getApplicationContext(), category.getText().toString(), question.getText().toString(), answer.getText().toString());
         Thread thread1 = new Thread(addCardsHandler, "AddCardsHandler");
+        Log.d("AddCardsActivity", "Context is: " + getApplicationContext());
+        Log.d("AddCardsActivity", "Calling AddCardsHandler on a background thread");
         thread1.start();
     }
 }

@@ -3,9 +3,7 @@ package edu.team04.crucible;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,11 +11,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * This class deals with editing and adding to local json file for app
+ */
 public class LocalStorageManager {
     Gson gson = new Gson();
     final private String FILENAME;
     Context context;
-    //This class deals with editing and adding to local json file for app
     //TODO: Figure out how to store local file on android device
 
     public LocalStorageManager(Context context, String filename){

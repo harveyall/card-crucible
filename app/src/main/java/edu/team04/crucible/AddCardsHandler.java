@@ -1,7 +1,11 @@
 package edu.team04.crucible;
 
 import android.content.Context;
+import android.util.Log;
 
+/**
+ * This class processes the logic of adding cards to a category, either existing or brand new.
+ */
 public class AddCardsHandler implements Runnable {
     final private String filename = "./cardCrucible.txt";
     Context context;
@@ -11,6 +15,7 @@ public class AddCardsHandler implements Runnable {
 
         public AddCardsHandler(Context context, String category, String question, String answer) {
             this.context = context;
+            Log.d("AddCardsHandler", "Context is: " + this.context);
             this.category = category;
             this.question = question;
             this.answer = answer;
@@ -25,6 +30,7 @@ public class AddCardsHandler implements Runnable {
             final LocalStorageManager lsMgr = new LocalStorageManager(this.context, filename);
 
             Card newCard = new Card(this.question, this.answer);
+            Log.d("AddCardsHandler", "Card Question: " + this.question + "Card Answer: " + this.answer);
 
             //TODO: Grab current category list from local storage
             CategoryList categoryList = lsMgr.loadCategoryList();
