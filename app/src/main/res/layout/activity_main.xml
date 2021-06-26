@@ -53,5 +53,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_settings"
-        app:srcCompat="@mipmap/ic_banner_personholdingsign_foreground" />
+        app:srcCompat="@mipmap/ic_banner_cardstackedlogo_foreground" />
 </androidx.constraintlayout.widget.ConstraintLayout>
