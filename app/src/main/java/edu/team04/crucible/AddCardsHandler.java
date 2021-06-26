@@ -16,7 +16,10 @@ public class AddCardsHandler implements Runnable {
             this.answer = answer;
         }
 
-        public void manageCardAddition() {
+
+
+        @Override
+        public void run() {
             //TODO: Create new card based on input
 
             final LocalStorageManager lsMgr = new LocalStorageManager(this.context, filename);
@@ -48,12 +51,6 @@ public class AddCardsHandler implements Runnable {
 
             //TODO: save edited Category List to local file
             lsMgr.saveCategoryList(categoryList);
-
-        }
-
-        @Override
-        public void run() {
-            manageCardAddition();
         }
     }
 
