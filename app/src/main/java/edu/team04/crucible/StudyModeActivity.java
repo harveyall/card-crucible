@@ -1,21 +1,20 @@
 package edu.team04.crucible;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
+
+/**
+ * Study Mode Activity, iterate through cards, flip them over to show the other side with the answer.
+ */
 public class StudyModeActivity extends AppCompatActivity {
     //TODO: Begin game with card list from selected category that is sent from SelectCategory Activity
     // use StudyModeHandler to handle requests from this activity
     private boolean visible = false;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class StudyModeActivity extends AppCompatActivity {
     }
 
     /**
-     * This button leads back to the Main Activity.
+     * This button flips the card over to show the other side.
      * @param button
      */
     public void flip(View button) {
@@ -53,6 +52,4 @@ public class StudyModeActivity extends AppCompatActivity {
         Intent addIntent = new Intent(this, MainActivity.class);
         startActivity(addIntent);
     }
-
-
 }
