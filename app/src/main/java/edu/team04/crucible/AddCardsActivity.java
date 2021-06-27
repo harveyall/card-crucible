@@ -39,9 +39,9 @@ public class AddCardsActivity extends AppCompatActivity {
         EditText question = (EditText) findViewById(R.id.editTextQuestion);
         EditText answer = (EditText) findViewById(R.id.editTextAnswer);
 
-        AddCardsHandler addCardsHandler = new AddCardsHandler(getApplicationContext(), category.getText().toString(), question.getText().toString(), answer.getText().toString());
+        AddCardsHandler addCardsHandler = new AddCardsHandler(this, category.getText().toString(), question.getText().toString(), answer.getText().toString());
         Thread thread1 = new Thread(addCardsHandler, "AddCardsHandler");
-        Log.d("AddCardsActivity", "Context is: " + getApplicationContext());
+        Log.d("AddCardsActivity", "Context is: " + this);
         Log.d("AddCardsActivity", "Calling AddCardsHandler on a background thread");
         thread1.start();
     }
