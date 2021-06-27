@@ -37,7 +37,9 @@ public class Category {
     }
 
     public void addCard(Card card){
-        this.cards.add(card);
+        if(this.cards.size() < 50) {
+            this.cards.add(card);
+        }
     }
 
     public void removeCard(Card card){
