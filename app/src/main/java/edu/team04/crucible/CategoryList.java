@@ -15,15 +15,15 @@ public class CategoryList {
     public CategoryList(){
         this.categories = new ArrayList();
     }
-    public CategoryList(ArrayList categories){
+    public CategoryList(List<Category> categories){
         this.categories = categories;
     }
 
-    public List getCategories() {
+    public List<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(List categories) {
+    public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
 
@@ -56,5 +56,12 @@ public class CategoryList {
     public void addCategory(Category category){
         this.categories.add(category);
 
+    }
+
+    @Override
+    public String toString() {
+        return "CategoryList{" +
+                "categories=" + categories +
+                '}';
     }
 }

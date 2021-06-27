@@ -26,4 +26,12 @@ public class Card {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    @Override
+    public java.lang.String toString() {
+        return "Card{" +
+                "question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
+    }
 }

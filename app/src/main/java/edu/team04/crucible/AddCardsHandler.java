@@ -57,6 +57,10 @@ public class AddCardsHandler implements Runnable {
             Log.d("AddCardsHandler", "Calling LocalStorageManager to Save the Category List");
             Log.d("AddCardsHandler", "Category List is: " + categoryList.getCategories());
             lsMgr.saveCategoryList(categoryList);
+
+            //this part is here temporarily just to make sure cards are loading appropriately
+            CategoryList loadedList = lsMgr.loadCategoryList();
+            Log.d("AddCardsHandler", "Category List is: " + loadedList.getCategories());
         }
     }
 

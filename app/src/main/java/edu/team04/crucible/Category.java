@@ -44,4 +44,12 @@ public class Category {
         this.cards.remove(card);
     }
 
+
+    @Override
+    public java.lang.String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+                ", cards=" + cards +
+                '}';
+    }
 }
