@@ -60,6 +60,11 @@ public class CategoryList {
 
     }
 
+    public void clearData(){
+        for(int i = 0; i < this.categories.size(); i++){
+            this.deleteCategory(i);
+        }
+    }
     @Override
     public String toString() {
         return "CategoryList{" +
