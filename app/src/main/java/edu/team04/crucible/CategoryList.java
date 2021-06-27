@@ -54,7 +54,9 @@ public class CategoryList {
     }
 
     public void addCategory(Category category){
-        this.categories.add(category);
+        if(this.categories.size() < 5) {
+            this.categories.add(category);
+        }
 
     }
 
