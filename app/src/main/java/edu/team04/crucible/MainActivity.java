@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
         //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.game_mode);
         setContentView(R.layout.activity_main);
+
+        TestData test = new TestData(this);
+        new Thread(test, "TestCategoryList").start();
     }
 
     /**
