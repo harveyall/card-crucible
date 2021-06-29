@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="#0FFFFFFF"
-        android:onClick="backToSettings"
+        android:onClick="backHome"
         app:icon="@android:drawable/ic_menu_close_clear_cancel"
         app:iconPadding="2dp"
         app:iconTint="#000000"
