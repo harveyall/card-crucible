@@ -3,6 +3,7 @@ package edu.team04.crucible;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,19 +32,26 @@ public class SettingsActivity extends AppCompatActivity {
      * This button leads to the Add Category Activity, to add a new Card Category.
      * @param button
      */
-    public void addCategory(View button) {
-        //TODO: this method adds category to local storage as well as to the current list displayed on this activity
-        // May need to reload activity
+    public void addCardsActivity(View button) {
+        Intent intent = new Intent(this, AddCardsActivity.class);
+        startActivity(intent);
     }
 
     /**
-     * This button leads to the Edit Category Activity, to edit the currently
-     * selected category via radio button.
+     * This button leads to the Edit Category Activity, to edit cards and filter them by category
      * @param button
      */
-    public void editCategory(View button) {
-        //TODO: Add selected category to be edited.
+    public void editCategoryActivity(View button) {
         Intent editIntent = new Intent(this, EditCategoryActivity.class);
         startActivity(editIntent);
+    }
+    /**
+     * This button leads to the Edit Theme Activity, edit the currently displayed theme
+     * @param button
+     */
+    public void editThemeActivity(View button) {
+//        Intent intent = new Intent(this, EditThemeActivity.class);
+//        startActivity(intent);
+        Toast.makeText(this, "This will lead to EditThemeActivity", Toast.LENGTH_LONG).show();
     }
 }
