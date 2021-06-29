@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 
 public class TestData implements Runnable{
-    final private String filename = "cardCrucible.txt";
     Context context;
 
     TestData(Context context){
@@ -15,7 +14,7 @@ public class TestData implements Runnable{
      */
     @Override
     public void run() {
-        LocalStorageManager lsMgr = new LocalStorageManager(this.context, filename);
+        LocalStorageManager lsMgr = new LocalStorageManager(this.context);
 
         CategoryList newCategoryList = new CategoryList();
         Category category1 = new Category("Category 1");

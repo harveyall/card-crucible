@@ -17,13 +17,12 @@ import java.io.InputStreamReader;
  */
 public class LocalStorageManager {
     Gson gson = new Gson();
-    final private String FILENAME;
+    final private String FILENAME = "cardCrucible.txt";;
     Context context;
     //TODO: Figure out how to store local file on android device
 
-    public LocalStorageManager(Context context, String filename){
+    public LocalStorageManager(Context context){
         this.context = context;
-        this.FILENAME = filename;
     }
 
     // Info on local data storage to android device
