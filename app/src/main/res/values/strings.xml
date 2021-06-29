@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">Card Crucible</string>
-    <string name="study_mode">Study Mode</string>
-    <string name="game_mode">Game Mode</string>
-    <string name="add_category">Add Category</string>
-    <string name="edit_category">Edit Category</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="card_crucible_logo">Card Crucible Logo</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -21,13 +17,17 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
-
     <!-- Settings Activity-->
+    <string name="title_activity_settings">Settings</string>
     <string name="btn_addCategory"> + Category</string>
-    <string name="btn_editCategory"> Edit Category</string>
+    <string name="btn_editCategory">Edit Category</string>
+
+    <!-- Add Category Activity-->
+    <string name="add_category">Add Category</string>
 
     <!-- Edit Category Activity-->
-    <string name="currentCategory"> Category Name Here - Placeholder</string>
+    <string name="edit_category">Edit Category</string>
+    <string name="currentCategory">Category Name Here - Placeholder</string>
     <string name="btn_addCard"> + Card</string>
 
     <!-- Add Card Activity-->
@@ -37,5 +37,13 @@
     <string name="EditTextAnswer_hint">Answer</string>
     <string name="addBtn">+</string>
 
+    <!-- Study Mode Activity-->
+    <string name="study_mode">Study Mode</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    <string name="flip">Flip</string>
+
+    <!-- Game Mode Activity-->
+    <string name="game_mode">Game Mode</string>
 
 </resources>

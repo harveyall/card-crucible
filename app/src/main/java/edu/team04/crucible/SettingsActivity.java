@@ -9,9 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    //TODO: When Begin button is pressed start EditCategoryActivity
-    // and send it the selected Category's Card List
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
