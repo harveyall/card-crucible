@@ -2,8 +2,14 @@ package edu.team04.crucible;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 /**
  * Card Selection Activity. In preparation for game/study mode, it displays a list of categories to
@@ -19,6 +25,27 @@ public class CardSelectionActivity extends AppCompatActivity {
             new ThemeHandler(this, getApplicationContext()).updateTheme();
         //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         setContentView(R.layout.activity_card_selection);
+        callHandler();
+    }
+
+    /**
+     * This button leads back to the Main Activity.
+     * @param button
+     */
+    public void backHome(View button) {
+        Intent addIntent = new Intent(this, MainActivity.class);
+        startActivity(addIntent);
+    }
+    void callHandler() {
+        CardSelectionHandler handleIt = new CardSelectionHandler(this);
+        new Thread((Runnable) handleIt).start();
+    }
+
+    void populateListView(List<String> categoryList) {
+        Log.d("CardSelectionActivity", "Populating Category Listview with: " + categoryList);
+        ArrayAdapter<String> ListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categoryList);
+        ListView listview = (ListView) findViewById(R.id.category_view);
+        listview.setAdapter(ListAdapter);
     }
 
     /**
@@ -31,14 +58,4 @@ public class CardSelectionActivity extends AppCompatActivity {
         //TODO: Add selected Categories to intent.
         startActivity(studyModeActivity);
     }
-
-    /**
-     * This button leads back to the Main Activity.
-     * @param button
-     */
-    public void backHome(View button) {
-        Intent addIntent = new Intent(this, MainActivity.class);
-        startActivity(addIntent);
-    }
-
 }

@@ -13,7 +13,6 @@ public class Category {
         this.cards = new ArrayList<>();
     }
 
-
     public String getName() {
         return name;
     }
@@ -45,7 +44,6 @@ public class Category {
     public void removeCard(Card card){
         this.cards.remove(card);
     }
-
 
     @Override
     public java.lang.String toString() {

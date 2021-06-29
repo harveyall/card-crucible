@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class CategoryList {
     //This class will contain all data that gets saved to localStorage
-    // as well as methods to manipulate it's data
+    // as well as methods to manipulate its data
     List<Category> categories;
 
     public CategoryList(){
@@ -57,7 +57,6 @@ public class CategoryList {
         if(this.categories.size() < 5) {
             this.categories.add(category);
         }
-
     }
 
     public void clearData(){
@@ -65,6 +64,7 @@ public class CategoryList {
             this.deleteCategory(i);
         }
     }
+
     @Override
     public String toString() {
         return "CategoryList{" +

@@ -70,5 +70,4 @@ public class LocalStorageManager {
             //Toast.makeText(this.context, "Error: Card not saved", Toast.LENGTH_SHORT).show();
         }
     }
-
 }

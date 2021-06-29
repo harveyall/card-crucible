@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/category_view"
         android:layout_width="374dp"
         android:layout_height="480dp"
