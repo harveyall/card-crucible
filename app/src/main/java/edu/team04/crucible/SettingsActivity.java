@@ -52,6 +52,5 @@ public class SettingsActivity extends AppCompatActivity {
     public void editThemeActivity(View button) {
 //        Intent intent = new Intent(this, EditThemeActivity.class);
 //        startActivity(intent);
-        Toast.makeText(this, "This will lead to EditThemeActivity", Toast.LENGTH_LONG).show();
     }
 }
