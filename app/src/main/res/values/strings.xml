@@ -27,8 +27,8 @@
 
     <!-- Edit Category Activity-->
     <string name="edit_category">Edit Category</string>
-    <string name="currentCategory">Category Name Here - Placeholder</string>
-    <string name="btn_addCard"> + Card</string>
+    <string name="editTextFilterCategory_hint">Category</string>
+    <string name="btn_filterCards"> Filter by Category</string>
 
     <!-- Add Card Activity-->
     <string name="title_activity_addCards">Add Card</string>
