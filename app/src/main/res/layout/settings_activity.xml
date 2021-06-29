@@ -21,18 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/edit_view"
-        android:layout_width="366dp"
-        android:layout_height="447dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_category_add" />
-
     <Button
         android:id="@+id/button_category_add"
         android:layout_width="wrap_content"
@@ -44,14 +32,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ListView
+        android:id="@+id/edit_view"
+        android:layout_width="380dp"
+        android:layout_height="448dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_category_add" />
+
     <Button
         android:id="@+id/button_category_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:onClick="editCategory"
         android:text="@string/btn_editCategory"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

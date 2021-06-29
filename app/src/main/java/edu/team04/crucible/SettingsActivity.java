@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-//import androidx.preference.PreferenceFragmentCompat;
 
+/**
+ * This class displays a list of categories, and allows the user to add or edit them in specially
+ * made categories for each of those purposes.
+ */
 public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //((android.widget.Button)findViewById(R.id.button_category_add)).setText(R.string.add_category);
-        //((android.widget.Button)findViewById(R.id.button_category_edit)).setText(R.string.edit_category);
         setContentView(R.layout.settings_activity);
     }
 
@@ -25,7 +26,6 @@ public class SettingsActivity extends AppCompatActivity {
         Intent addIntent = new Intent(this, MainActivity.class);
         startActivity(addIntent);
     }
-
 
     /**
      * This button leads to the Add Category Activity, to add a new Card Category.
