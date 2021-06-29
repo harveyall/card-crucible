@@ -8,9 +8,9 @@
 
     <Button
         android:id="@+id/button_cardFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="16dp"
         android:onClick="filterCategories"
         android:text="@string/btn_filterCards"
         android:textSize="14sp"
@@ -36,21 +36,27 @@
 
     <EditText
         android:id="@+id/editTextTextCategoryFilter"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/EditTextCategory_hint"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/button_edit_back_home"
-        tools:layout_editor_absoluteX="109dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_edit_back_home" />
 
     <ListView
         android:id="@+id/ListViewEditCards"
         android:layout_width="363dp"
-        android:layout_height="462dp"
+        android:layout_height="439dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/button_cardFilter"
-        tools:layout_editor_absoluteX="24dp" />
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cardFilter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
