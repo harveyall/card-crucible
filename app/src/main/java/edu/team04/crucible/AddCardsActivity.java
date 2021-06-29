@@ -25,8 +25,8 @@ public class AddCardsActivity extends AppCompatActivity {
      * This button leads back to the Main Activity.
      * @param button
      */
-    public void backHome(View button) {
-        Intent addIntent = new Intent(this, MainActivity.class);
+    public void backToSettings(View button) {
+        Intent addIntent = new Intent(this, SettingsActivity.class);
         startActivity(addIntent);
     }
 
