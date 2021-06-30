@@ -44,6 +44,10 @@
     <string name="btn_editTheme">Edit Theme</string>
 
 
+    <!-- Card Selection Activity-->
+    <string name="btn_beginFlashCards">Begin</string>
+
+
     <!-- Study Mode Activity-->
     <string name="study_mode">Study Mode</string>
     <string name="next">Next</string>
