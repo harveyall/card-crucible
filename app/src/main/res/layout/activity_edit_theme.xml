@@ -21,4 +21,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000" />
 
+    <Button
+        android:id="@+id/blue_theme_btn"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="36dp"
+        android:text="Blue Theme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/default_theme_btn" />
+
+    <Button
+        android:id="@+id/red_theme_btn"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="36dp"
+        android:text="Red Theme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blue_theme_btn" />
+
+    <Button
+        android:id="@+id/default_theme_btn"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="132dp"
+        android:text="Default Theme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_study_home2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
