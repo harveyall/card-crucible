@@ -16,7 +16,7 @@ public class CardSelectionActivity extends AppCompatActivity {
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            new ThemeUpdate(this, getApplicationContext()).updateTheme();
+            new ThemeHandler(this, getApplicationContext()).updateTheme();
         //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         setContentView(R.layout.activity_card_selection);
     }

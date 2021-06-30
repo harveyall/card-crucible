@@ -19,7 +19,7 @@ public class EditCategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new ThemeUpdate(this, getApplicationContext()).updateTheme();
+        new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_category);
     }
 

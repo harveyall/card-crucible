@@ -2,7 +2,6 @@ package edu.team04.crucible;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,7 +10,7 @@ public class EditThemeActivity extends ThemeActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new ThemeUpdate(this, getApplicationContext()).updateTheme();
+        new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_theme);
         ((Button)findViewById(R.id.default_theme_btn)).setOnClickListener(this);
         ((Button)findViewById(R.id.blue_theme_btn)).setOnClickListener(this);

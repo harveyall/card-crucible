@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new ThemeUpdate(this, getApplicationContext()).updateTheme();
+        new ThemeHandler(this, getApplicationContext()).updateTheme();
         //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.game_mode);
         setContentView(R.layout.activity_main);

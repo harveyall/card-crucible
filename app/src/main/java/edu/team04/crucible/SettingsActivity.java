@@ -3,8 +3,6 @@ package edu.team04.crucible;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +15,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new ThemeUpdate(this, getApplicationContext()).updateTheme();
+        new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.settings_activity);
     }
 

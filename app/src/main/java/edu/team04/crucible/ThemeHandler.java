@@ -3,10 +3,10 @@ package edu.team04.crucible;
 import android.app.Activity;
 import android.content.Context;
 
-public class ThemeUpdate {
+public class ThemeHandler {
     Activity activity;
     Context context;
-    public ThemeUpdate(Activity activity, Context context){
+    public ThemeHandler(Activity activity, Context context){
         this.context = context;
         this.activity = activity;
     }
