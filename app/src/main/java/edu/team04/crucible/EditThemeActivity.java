@@ -11,6 +11,7 @@ public class EditThemeActivity extends ThemeActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new ThemeUpdate(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_theme);
         ((Button)findViewById(R.id.default_theme_btn)).setOnClickListener(this);
         ((Button)findViewById(R.id.blue_theme_btn)).setOnClickListener(this);

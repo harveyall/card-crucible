@@ -19,6 +19,7 @@ public class StudyModeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new ThemeUpdate(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_study);
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
         TextView backCard = (TextView)findViewById(R.id.card_back);

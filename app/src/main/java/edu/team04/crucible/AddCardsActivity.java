@@ -11,13 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * This activity is called when an add button is clicked from the EditCategoryActivity
  */
-public class AddCardsActivity extends AppCompatActivity {
+public class AddCardsActivity extends AppCompatActivity{
 
     //TODO: gather input for Category, question, answer and add card to local storage
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new ThemeUpdate(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_add_cards);
     }
 

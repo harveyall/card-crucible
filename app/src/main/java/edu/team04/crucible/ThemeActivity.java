@@ -25,4 +25,16 @@ public class ThemeActivity extends AppCompatActivity {
             setTheme(R.style.AppTheme_Red);
         }
     }
+    public static int getThemeBlue() {
+        return THEME_BLUE;
+    }
+
+    public static int getThemeRed() {
+        return THEME_RED;
+    }
+
+    public static int getThemeDefault() {
+        return THEME_DEFAULT;
+    }
+
 }
