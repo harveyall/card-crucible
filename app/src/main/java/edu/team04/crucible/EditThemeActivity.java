@@ -6,15 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class EditCardsActivity extends AppCompatActivity {
-//This activity is called when an edit button is clicked from the EditCategoryActivity
-
-    //TODO: edit card specified by EditCategoryActivity - change questions, answer, or category
+public class EditThemeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_cards);
+        setContentView(R.layout.activity_edit_theme);
     }
 
     public void backToSettings(View button) {

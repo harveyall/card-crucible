@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CardCrucible">
-        <activity android:name=".GameModeActivity"></activity>
+        <activity android:name=".EditThemeActivity"></activity>
+        <activity android:name=".GameModeActivity" />
         <activity android:name=".AddCardsActivity" />
         <activity android:name=".CardSelectionActivity" />
         <activity android:name=".EditCardsActivity" />

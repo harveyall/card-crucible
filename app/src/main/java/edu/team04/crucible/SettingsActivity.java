@@ -51,7 +51,7 @@ public class SettingsActivity extends AppCompatActivity {
      * @param button
      */
     public void editThemeActivity(View button) {
-//        Intent intent = new Intent(this, EditThemeActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, EditThemeActivity.class);
+        startActivity(intent);
     }
 }
