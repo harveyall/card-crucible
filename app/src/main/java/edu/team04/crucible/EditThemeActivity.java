@@ -18,20 +18,18 @@ public class EditThemeActivity extends ThemeActivity implements View.OnClickList
     }
 
 
+    @Override
     public void onClick(View view){
         switch(view.getId()){
             case R.id.default_theme_btn:
-                Log.d("EditThemeActivity", "Default button pressed");
                 SharedPreferenceManager.setTheme(getApplicationContext(), 1);
                 recreateActivity();
                 break;
             case R.id.blue_theme_btn:
-                Log.d("EditThemeActivity", "Blue button pressed");
                 SharedPreferenceManager.setTheme(getApplicationContext(), 2);
                 recreateActivity();
                 break;
             case R.id.red_theme_btn:
-                Log.d("EditThemeActivity", "Red button pressed");
                 SharedPreferenceManager.setTheme(getApplicationContext(), 3);
                 recreateActivity();
                 break;

@@ -8,7 +8,7 @@ import androidx.preference.PreferenceManager;
 public class SharedPreferenceManager {
     public static void setTheme(Context context, int theme){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        sp.edit().putInt("theme", theme);
+        sp.edit().putInt("theme", theme).apply();
     }
     public static int getTheme(Context context) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
