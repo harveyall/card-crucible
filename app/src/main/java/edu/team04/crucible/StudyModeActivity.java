@@ -22,6 +22,7 @@ public class StudyModeActivity extends AppCompatActivity {
         new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_study);
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
+
         TextView backCard = (TextView)findViewById(R.id.card_back);
         backCard.setText("Back");
         backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
@@ -46,7 +47,31 @@ public class StudyModeActivity extends AppCompatActivity {
     }
 
     /**
-     * This button leads back to the Main Activity.
+     * This button moves to the next side and will set the card to being face up.
+     * @param button
+     */
+    public void next(View button) {
+        TextView backCard = (TextView)findViewById(R.id.card_back);
+        if(visible) {
+            backCard.setVisibility(View.VISIBLE);  // For Invisible/Disappear
+            visible = true;
+        }
+    }
+
+    /**
+     * This button moves to the previous side and will set the card to being face up.
+     * @param button
+     */
+    public void prev(View button) {
+        TextView backCard = (TextView)findViewById(R.id.card_back);
+        if(visible) {
+            backCard.setVisibility(View.VISIBLE);  // For Invisible/Disappear
+            visible = true;
+        }
+    }
+
+    /**
+     * This button sends the user back to the home menu.
      * @param button
      */
     public void backHome(View button) {

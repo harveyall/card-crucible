@@ -23,7 +23,7 @@
         app:strokeColor="#000000" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/next_btn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="118dp"
         android:layout_height="99dp"
@@ -31,13 +31,13 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/next"
+        android:onClick="next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button1" />
+        app:layout_constraintHorizontal_bias="1.0" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/prev_btn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="118dp"
         android:layout_height="99dp"
@@ -45,8 +45,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="@string/prev"
+        android:onClick="prev"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
