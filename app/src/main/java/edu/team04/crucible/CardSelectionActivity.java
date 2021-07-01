@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +17,11 @@ import java.util.List;
  * Randomization, and comes back shuffled, and then fed into the next activity.
  */
 public class CardSelectionActivity extends AppCompatActivity {
+    public CategoryList categoryList;
+    public CategoryList categories;
     //TODO: When begin button is clicked send selected category to StudyModeActivity
 
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
             new ThemeHandler(this, getApplicationContext()).updateTheme();
@@ -62,7 +65,13 @@ public class CardSelectionActivity extends AppCompatActivity {
      */
     public void Begin(View button) {
         Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
-        //TODO: Populate Listview/Recyclerview with Card Categories.
+        Log.d("CardSelectionActivity", "About to create intent with " + categoryList);
+        categories = new CategoryList();
+        categories.addCategory(categoryList.getCategory(0));
+        categories.addCategory(categoryList.getCategory(1));
+        Gson gson = new Gson();
+        String intentJson = gson.toJson(categoryList);
+        studyModeActivity.putExtra("CATEGORIES", intentJson);
         //TODO: Add selected Categories to intent.
         startActivity(studyModeActivity);
     }
