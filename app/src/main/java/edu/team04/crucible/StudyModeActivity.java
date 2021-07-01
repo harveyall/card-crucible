@@ -65,10 +65,16 @@ public class StudyModeActivity extends AppCompatActivity {
         TextView backCard = (TextView)findViewById(R.id.card_back);
         View btn_prev = findViewById(R.id.prev_btn);
 
-        if(!prev_button_visible) { //Remove the ! in latter version
+        if(prev_button_visible) { //Needs to be for when there is no previous card
             btn_prev.setVisibility(View.GONE);
             prev_button_visible = false;
         }
+        else {
+            btn_prev.setVisibility(View.VISIBLE);
+            prev_button_visible = true;
+        }
+
+
         if(back_card_visible) {
             backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
             back_card_visible = false;
@@ -83,10 +89,15 @@ public class StudyModeActivity extends AppCompatActivity {
         TextView backCard = (TextView)findViewById(R.id.card_back);
         View btn_next = findViewById(R.id.next_btn);
 
-        if(!next_button_visible) { //Remove the ! in latter version
+        if(next_button_visible) { //Needs to be for when there is no next card
             btn_next.setVisibility(View.GONE);
             next_button_visible = false;
         }
+        else {
+            btn_next.setVisibility(View.VISIBLE);
+            next_button_visible = true;
+        }
+
         if(back_card_visible) {
             backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
             back_card_visible = false;
