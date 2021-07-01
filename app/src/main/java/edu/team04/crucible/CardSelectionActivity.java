@@ -31,7 +31,7 @@ public class CardSelectionActivity extends AppCompatActivity {
         //new Thread((Runnable) handleIt).start();
         //callHandler();
 
-        CategoryList categoryList = new LocalStorageManager(this).loadCategoryList();
+        categoryList = new LocalStorageManager(this).loadCategoryList();
         ArrayList<String> nameList = new ArrayList<>();
         for(Category cat : categoryList.getCategories()) {
             String name = cat.getName();
