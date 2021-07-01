@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class EditCardSelectionActivity extends AppCompatActivity {
     Gson gson = new Gson();
+    CategoryList categoryList;
 
     // TODO: Go to EditCardActivity if Edit button is pressed
     // TODO: Add Category to local storage file if add button is clicked
@@ -26,6 +27,7 @@ public class EditCardSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_category);
+        categoryList = new LocalStorageManager(this).loadCategoryList();
     }
 
     /**
