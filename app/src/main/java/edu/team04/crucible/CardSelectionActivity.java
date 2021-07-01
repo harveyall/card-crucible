@@ -19,7 +19,8 @@ import java.util.List;
 public class CardSelectionActivity extends AppCompatActivity {
     public CategoryList categoryList;
     public CategoryList categories;
-    //TODO: When begin button is clicked send selected category to StudyModeActivity
+    //TODO: Make checkboxes or another selection mechanism for the ListView show.
+    //TODO: When begin button is clicked send selected category to StudyModeActivity.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
