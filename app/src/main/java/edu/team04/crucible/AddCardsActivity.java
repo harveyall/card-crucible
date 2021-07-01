@@ -35,9 +35,9 @@ public class AddCardsActivity extends AppCompatActivity{
      * @param view
      */
     public void AddNewCard(View view){
-        EditText category = (EditText) findViewById(R.id.editTextCategory);
-        EditText question = (EditText) findViewById(R.id.editTextQuestion);
-        EditText answer = (EditText) findViewById(R.id.editTextAnswer);
+        EditText category = (EditText) findViewById(R.id.editCardTextCategory);
+        EditText question = (EditText) findViewById(R.id.editCardTextQuestion);
+        EditText answer = (EditText) findViewById(R.id.editCardTextAnswer);
 
         AddCardsHandler addCardsHandler = new AddCardsHandler(this, category.getText().toString(), question.getText().toString(), answer.getText().toString());
         Thread thread1 = new Thread(addCardsHandler, "AddCardsHandler");
