@@ -22,6 +22,7 @@
     <string name="btn_addCards"> + Cards</string>
     <string name="btn_editCards">Edit Cards</string>
 
+
     <!-- Add Category Activity-->
     <string name="add_category">Add Category</string>
 
@@ -38,15 +39,13 @@
     <string name="addBtn">+</string>
 
     <!-- Edit Card Activity-->
-
+    <string name="btn_editTheme">Edit Theme</string>
 
     <!-- Edit Theme Activity-->
-    <string name="btn_editTheme">Edit Theme</string>
 
 
     <!-- Card Selection Activity-->
     <string name="btn_beginFlashCards">Begin</string>
-
 
     <!-- Study Mode Activity-->
     <string name="study_mode">Study Mode</string>

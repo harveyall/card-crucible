@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
      * @param button
      */
     public void editCategoryActivity(View button) {
-        Intent editIntent = new Intent(this, EditCategoryActivity.class);
+        Intent editIntent = new Intent(this, EditCardSelectionActivity.class);
         startActivity(editIntent);
     }
     /**

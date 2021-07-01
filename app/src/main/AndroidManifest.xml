@@ -14,7 +14,7 @@
         <activity android:name=".AddCardsActivity" />
         <activity android:name=".CardSelectionActivity" />
         <activity android:name=".EditCardsActivity" />
-        <activity android:name=".EditCategoryActivity" />
+        <activity android:name=".EditCardSelectionActivity" />
         <activity android:name=".StudyModeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

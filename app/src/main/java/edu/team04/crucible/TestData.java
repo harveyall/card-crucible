@@ -55,18 +55,9 @@ public class TestData implements Runnable{
 
         Log.d("TestData", "Calling LocalStorageManager to Load the Category List");
         CategoryList oldCategoryList = lsMgr.loadCategoryList();
-
-        if (!oldCategoryList.equals(newCategoryList)) {
-            Log.d("TestData", "Clearing current data Category List data");
-            oldCategoryList.clearData();
-
-            lsMgr.saveCategoryList(newCategoryList);
-            Log.d("TestData", "Test data saved");
-        }
-        else{
-            Log.d("TestData", "Test data not saved because it already exists");
-        }
+        Log.d("TestData", "Clearing current data Category List data");
+        oldCategoryList.clearData();
+        lsMgr.saveCategoryList(newCategoryList);
+        Log.d("TestData", "Test data saved");
     }
-
-    }
-
+}

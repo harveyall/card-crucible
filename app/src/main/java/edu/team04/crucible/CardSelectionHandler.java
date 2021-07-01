@@ -1,7 +1,6 @@
 package edu.team04.crucible;
 
 import android.content.Context;
-
 import java.util.ArrayList;
 
 /**
@@ -11,7 +10,7 @@ public class CardSelectionHandler implements Runnable {
     private CardSelectionActivity activity;
     private Context context;
 
-    public CardSelectionHandler(CardSelectionActivity activity) {
+    public CardSelectionHandler(CardSelectionActivity activity, Context context) {
     }
 
     /**
@@ -22,7 +21,7 @@ public class CardSelectionHandler implements Runnable {
     public void run() {
         // TODO App crashes entering the CardSelectionActivity!
         //  Need to figure out the correct context argument for the LocalStorageManager call.
-        CategoryList categoryList = new LocalStorageManager(activity.getBaseContext()).loadCategoryList();
+        CategoryList categoryList = new LocalStorageManager(context).loadCategoryList();
         ArrayList<String> nameList = new ArrayList<>();
         for(Category cat : categoryList.getCategories()) {
             String name = cat.getName();

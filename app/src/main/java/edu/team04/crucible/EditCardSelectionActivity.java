@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * This Activity allows the user to edit an already existing card category.
  */
-public class EditCategoryActivity extends AppCompatActivity {
+public class EditCardSelectionActivity extends AppCompatActivity {
 
     // TODO: Go to EditCardActivity if Edit button is pressed
     // TODO: Add Category to local storage file if add button is clicked
@@ -50,7 +50,7 @@ public class EditCategoryActivity extends AppCompatActivity {
     }
 
     /**
-     * This trash icon button leads to Edit Cards Activity.
+     * This trash icon button leads to Delete Cards Activity.
      * @param card
      */
     public void deleteCardFromFile(Card card){

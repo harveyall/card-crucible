@@ -37,7 +37,8 @@ public class CardSelectionActivity extends AppCompatActivity {
         startActivity(addIntent);
     }
     void callHandler() {
-        CardSelectionHandler handleIt = new CardSelectionHandler(this);
+        Log.d("CardSelectionActivity", "Passing Activity: " + this + "Context: " + this);
+        CardSelectionHandler handleIt = new CardSelectionHandler(this, this);
         new Thread((Runnable) handleIt).start();
     }
 
