@@ -6,10 +6,15 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+
+import java.util.List;
+
 /**
  * This Activity allows the user to edit an already existing card category.
  */
 public class EditCardSelectionActivity extends AppCompatActivity {
+    Gson gson = new Gson();
 
     // TODO: Go to EditCardActivity if Edit button is pressed
     // TODO: Add Category to local storage file if add button is clicked
@@ -44,16 +49,33 @@ public class EditCardSelectionActivity extends AppCompatActivity {
      * This edit icon button leads to Edit Cards Activity.
      * @param view
      */
-    public void editCardActivity(View view){
-        Intent addIntent = new Intent(this, EditCardsActivity.class);
-        startActivity(addIntent);
+    public void editSelectedCard(View view){
+        //TODO: get name of category card is in
+        //temporarily hard coded
+        String categoryName = "Category 1";
+        //end of temporarily hard coded data
+
+        //TODO: get Card- this info we could hopefully get just by clicking on the edit button next to the card info
+        //temporarily hard coded
+        String question = "Unedited Question";
+        String answer = "Unedited Answer";
+        Card card = new Card(question, answer);
+        //end of temporarily hard coded data
+
+        String json = gson.toJson(card);
+
+        Intent intent = new Intent(this, EditCardsActivity.class);
+        //TODO: putExtra with info category name, question, answer info
+        intent.putExtra("CATEGORY_NAME", categoryName);
+        intent.putExtra("CARD_DATA", json);
+        startActivity(intent);
     }
 
     /**
      * This trash icon button leads to Delete Cards Activity.
-     * @param card
+     * @param view
      */
-    public void deleteCardFromFile(Card card){
+    public void deleteSelectedCard(View view){
         //TODO: delete card on the same line as trash icon from Category,
         // save edited to local storage,
         // likely will need to reload activity after change
