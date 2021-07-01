@@ -53,8 +53,8 @@ public class StudyModeActivity extends AppCompatActivity {
     public void next(View button) {
         TextView backCard = (TextView)findViewById(R.id.card_back);
         if(visible) {
-            backCard.setVisibility(View.VISIBLE);  // For Invisible/Disappear
-            visible = true;
+            backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
+            visible = false;
         }
     }
 
@@ -65,8 +65,8 @@ public class StudyModeActivity extends AppCompatActivity {
     public void prev(View button) {
         TextView backCard = (TextView)findViewById(R.id.card_back);
         if(visible) {
-            backCard.setVisibility(View.VISIBLE);  // For Invisible/Disappear
-            visible = true;
+            backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
+            visible = false;
         }
     }
 
