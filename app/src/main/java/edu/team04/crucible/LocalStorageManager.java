@@ -2,9 +2,7 @@ package edu.team04.crucible;
 
 import android.content.Context;
 import android.util.Log;
-
 import com.google.gson.Gson;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,9 +30,11 @@ public class LocalStorageManager {
         Log.d("LocalStorageManager", "Retrieving cards");
 
         //Read data from file
+        Log.d("LocalStorageManager", "Context is: " + context);
         String data = "";
         CategoryList categoryList = null;
         try{
+
             File file = new File(context.getFilesDir(), FILENAME);
             FileInputStream fis = this.context.openFileInput(file.getName());
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));

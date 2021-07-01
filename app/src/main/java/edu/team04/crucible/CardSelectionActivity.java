@@ -6,9 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,9 +22,19 @@ public class CardSelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
             new ThemeHandler(this, getApplicationContext()).updateTheme();
-        //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
         setContentView(R.layout.activity_card_selection);
-        callHandler();
+        Log.d("CardSelectionActivity", "Passing Activity: " + this + "Context: " + this);
+        //CardSelectionHandler handleIt = new CardSelectionHandler(this, this);
+        //new Thread((Runnable) handleIt).start();
+        //callHandler();
+
+        CategoryList categoryList = new LocalStorageManager(this).loadCategoryList();
+        ArrayList<String> nameList = new ArrayList<>();
+        for(Category cat : categoryList.getCategories()) {
+            String name = cat.getName();
+            nameList.add(name);
+        }
+        populateListView(nameList);
     }
 
     /**
@@ -36,11 +45,9 @@ public class CardSelectionActivity extends AppCompatActivity {
         Intent addIntent = new Intent(this, MainActivity.class);
         startActivity(addIntent);
     }
-    void callHandler() {
-        Log.d("CardSelectionActivity", "Passing Activity: " + this + "Context: " + this);
-        CardSelectionHandler handleIt = new CardSelectionHandler(this, this);
-        new Thread((Runnable) handleIt).start();
-    }
+    /*void callHandler() {
+
+    }*/
 
     void populateListView(List<String> categoryList) {
         Log.d("CardSelectionActivity", "Populating Category Listview with: " + categoryList);

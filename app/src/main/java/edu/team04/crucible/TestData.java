@@ -39,7 +39,7 @@ public class TestData implements Runnable{
         category3.addCard(new Card("cat3question7", "cat3answer7"));
         category3.addCard(new Card("cat3question8", "cat3answer8"));
 
-        Category category4 = new Category("Category 4");
+        Category category4 = new Category("Category 4 Four");
         category4.addCard(new Card("cat4question1", "cat4answer1"));
         category4.addCard(new Card("cat4question2", "cat4answer2"));
         category4.addCard(new Card("cat4question3", "cat4answer3"));
@@ -53,10 +53,6 @@ public class TestData implements Runnable{
         newCategoryList.addCategory(category3);
         newCategoryList.addCategory(category4);
 
-        Log.d("TestData", "Calling LocalStorageManager to Load the Category List");
-        CategoryList oldCategoryList = lsMgr.loadCategoryList();
-        Log.d("TestData", "Clearing current data Category List data");
-        oldCategoryList.clearData();
         lsMgr.saveCategoryList(newCategoryList);
         Log.d("TestData", "Test data saved");
     }
