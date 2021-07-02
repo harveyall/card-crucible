@@ -63,6 +63,7 @@ public class AddCardsHandler implements Runnable {
             Log.d("AddCardsHandler", "Category List is: " + categoryList.getCategories());
             lsMgr.saveCategoryList(categoryList);
 
+            ((AddCardsActivity)this.activity).resetInput();
 
             //this part is here temporarily just to make sure cards are loading appropriately
             CategoryList loadedList = lsMgr.loadCategoryList();
