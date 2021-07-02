@@ -8,7 +8,7 @@
     tools:context=".AddCardsActivity">
 
     <Button
-        android:id="@+id/button_add_back_home"
+        android:id="@+id/button_edit_cards_back_home"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
@@ -23,7 +23,7 @@
         app:strokeColor="#000000" />
 
     <EditText
-        android:id="@+id/editTextCategory"
+        android:id="@+id/editCardTextCategory"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -34,10 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCardIntro" />
+        app:layout_constraintTop_toBottomOf="@+id/editCardIntro" />
 
     <Button
-        android:id="@+id/addBtn"
+        android:id="@+id/button_commitEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -47,10 +47,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAnswer" />
+        app:layout_constraintTop_toBottomOf="@+id/editCardTextAnswer" />
 
     <EditText
-        android:id="@+id/editTextQuestion"
+        android:id="@+id/editCardTextQuestion"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -61,10 +61,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/editCardTextCategory" />
 
     <EditText
-        android:id="@+id/editTextAnswer"
+        android:id="@+id/editCardTextAnswer"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -75,10 +75,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextQuestion" />
+        app:layout_constraintTop_toBottomOf="@+id/editCardTextQuestion" />
 
     <TextView
-        android:id="@+id/addCardIntro"
+        android:id="@+id/editCardIntro"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:orientation="horizontal"
@@ -86,5 +86,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_add_back_home" />
+        app:layout_constraintTop_toBottomOf="@+id/button_edit_cards_back_home" />
 </androidx.constraintlayout.widget.ConstraintLayout>

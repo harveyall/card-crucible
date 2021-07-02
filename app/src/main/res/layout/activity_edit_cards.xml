@@ -7,18 +7,86 @@
     android:layout_height="match_parent"
     tools:context=".EditCardsActivity">
 
+    <TextView
+        android:id="@+id/editCardIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal"
+        android:text="@string/edit_card_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add_back_home2" />
+
+    <EditText
+        android:id="@+id/editCardTextCategory"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:autofillHints="Enter Category"
+        android:ems="10"
+        android:hint="@string/EditTextCategory_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCardIntro" />
+
+    <EditText
+        android:id="@+id/editCardTextQuestion"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints="Enter Question"
+        android:ems="10"
+        android:hint="@string/EditTextQuestion_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCardTextCategory" />
+
+    <EditText
+        android:id="@+id/editCardTextAnswer"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints="Enter Answer"
+        android:ems="10"
+        android:hint="@string/EditTextAnswer_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCardTextQuestion" />
+
     <Button
-        android:id="@+id/button_study_home3"
+        android:id="@+id/button_commitEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="commit_edited_card"
+        android:text="@string/edit_button_text_save"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCardTextAnswer" />
+
+    <Button
+        android:id="@+id/button_add_back_home2"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="#0FFFFFFF"
         android:onClick="backToSettings"
-        app:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:icon="@android:drawable/ic_menu_manage"
         app:iconPadding="2dp"
         app:iconTint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
