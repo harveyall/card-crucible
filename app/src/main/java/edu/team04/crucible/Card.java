@@ -37,9 +37,10 @@ public class Card {
     }
 
     @Override
-    public java.lang.String toString() {
+    public String toString() {
         return "Card{" +
-                "question='" + question + '\'' +
+                "category='" + category + '\'' +
+                ", question='" + question + '\'' +
                 ", answer='" + answer + '\'' +
                 '}';
     }
