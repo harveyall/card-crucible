@@ -2,14 +2,23 @@ package edu.team04.crucible;
 
 public class Card {
 
+    private String category;
     private String question;
     private String answer;
 
-    public Card(String question, String answer){
+    public Card(String category, String question, String answer){
+        this.category = category;
         this.question = question;
         this.answer = answer;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public String getQuestion() {
         return question;

@@ -26,7 +26,7 @@ public class AddCardsHandler implements Runnable {
 
             final LocalStorageManager lsMgr = new LocalStorageManager(this.context);
 
-            Card newCard = new Card(this.question, this.answer);
+            Card newCard = new Card(this.category, this.question, this.answer);
             Log.d("AddCardsHandler", "Card Question: " + this.question + " Card Answer: " + this.answer);
 
             //TODO: Grab current category list from local storage

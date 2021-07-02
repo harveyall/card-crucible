@@ -52,23 +52,19 @@ public class EditCardSelectionActivity extends AppCompatActivity {
      * @param view
      */
     public void editSelectedCard(View view){
-        //TODO: get name of category card is in
-        //temporarily hard coded
-        String categoryName = "Category 1";
-        //end of temporarily hard coded data
 
         //TODO: get Card- this info we could hopefully get just by clicking on the edit button next to the card info
         //temporarily hard coded
+        String categoryName = "Category 1";
         String question = "Unedited Question";
         String answer = "Unedited Answer";
-        Card card = new Card(question, answer);
+        Card card = new Card(categoryName, question, answer);
         //end of temporarily hard coded data
 
         String json = gson.toJson(card);
 
         Intent intent = new Intent(this, EditCardsActivity.class);
         //TODO: putExtra with info category name, question, answer info
-        intent.putExtra("CATEGORY_NAME", categoryName);
         intent.putExtra("CARD_DATA", json);
         startActivity(intent);
     }
