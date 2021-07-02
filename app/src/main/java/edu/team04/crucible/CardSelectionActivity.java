@@ -55,7 +55,7 @@ public class CardSelectionActivity extends AppCompatActivity {
 
     void populateListView(List<String> categoryList) {
         Log.d("CardSelectionActivity", "Populating Category Listview with: " + categoryList);
-        ArrayAdapter<String> ListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categoryList);
+        ArrayAdapter<String> ListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, categoryList);
         ListView listview = (ListView) findViewById(R.id.category_view);
         listview.setAdapter(ListAdapter);
     }
