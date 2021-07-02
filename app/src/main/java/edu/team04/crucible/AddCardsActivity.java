@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
@@ -12,7 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class AddCardsActivity extends AppCompatActivity{
 
-    //TODO: gather input for Category, question, answer and add card to local storage
+    //Gather input for Category, question, answer and add card to local storage
+    EditText category;
+    EditText question;
+    EditText answer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +41,20 @@ public class AddCardsActivity extends AppCompatActivity{
      * @param view
      */
     public void AddNewCard(View view){
-        EditText category = (EditText) findViewById(R.id.editCardTextCategory);
-        EditText question = (EditText) findViewById(R.id.editCardTextQuestion);
-        EditText answer = (EditText) findViewById(R.id.editCardTextAnswer);
+        category = (EditText) findViewById(R.id.editCardTextCategory);
+        question = (EditText) findViewById(R.id.editCardTextQuestion);
+        answer = (EditText) findViewById(R.id.editCardTextAnswer);
 
-        AddCardsHandler addCardsHandler = new AddCardsHandler(this, category.getText().toString(), question.getText().toString(), answer.getText().toString());
+        AddCardsHandler addCardsHandler = new AddCardsHandler(this, this, category.getText().toString(), question.getText().toString(), answer.getText().toString());
         Thread thread1 = new Thread(addCardsHandler, "AddCardsHandler");
         Log.d("AddCardsActivity", "Context is: " + this);
         Log.d("AddCardsActivity", "Calling AddCardsHandler on a background thread");
         thread1.start();
+    }
+
+    public void resetInput(){
+        category.setText("");
+        question.setText("");
+        answer.setText("");
     }
 }
