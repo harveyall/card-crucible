@@ -65,6 +65,9 @@ public class AddCardsHandler implements Runnable {
 
             ((AddCardsActivity)this.activity).resetInput();
 
+            //TODO: add toast if card is save successfully
+            //TODO: add toast to tell user if they have already exceeded # of categories or cards/category
+
             //this part is here temporarily just to make sure cards are loading appropriately
             CategoryList loadedList = lsMgr.loadCategoryList();
             Log.d("AddCardsHandler", "Category List is: " + loadedList.getCategories());
