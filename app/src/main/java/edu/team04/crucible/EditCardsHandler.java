@@ -30,7 +30,7 @@ public class EditCardsHandler implements Runnable {
     public void run() {
         // This will hopefully use the index of the existing card to be replaced by the edited card.
         final LocalStorageManager lsMgr = new LocalStorageManager(this.context);
-        Card editedCard = new Card(this.question, this.answer);
+        Card editedCard = new Card(this.category, this.question, this.answer);
         Log.d("EditCardsHandler", "Card Question: " + this.question + " Card Answer: " + this.answer);
 
         CategoryList categoryList = lsMgr.loadCategoryList();

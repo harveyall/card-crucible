@@ -55,10 +55,7 @@ public class EditCardSelectionActivity extends AppCompatActivity {
 
         //TODO: get Card- this info we could hopefully get just by clicking on the edit button next to the card info
         //temporarily hard coded
-        String categoryName = "Category 1";
-        String question = "Unedited Question";
-        String answer = "Unedited Answer";
-        Card card = new Card(categoryName, question, answer);
+        Card card = this.categoryList.getCategory(0).getCard(0);
         //end of temporarily hard coded data
 
         String json = gson.toJson(card);
