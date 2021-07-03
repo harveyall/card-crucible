@@ -36,9 +36,14 @@ public class Category {
     }
 
     public void addCard(Card card){
-        if(this.cards.size() < 50) {
+        if(this.canAddCards()) {
             this.cards.add(card);
         }
+    }
+
+    /** This method returns true if there are less than 50 cards in this category's list of cards and false if not */
+    public boolean canAddCards(){
+        return this.cards.size() < 50;
     }
 
     public void removeCard(Card card){
