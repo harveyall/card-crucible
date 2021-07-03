@@ -52,6 +52,9 @@ public class AddCardsActivity extends AppCompatActivity{
         thread1.start();
     }
 
+    /**
+     * Reset all EditText inputs to empty strings.
+     */
     public void resetInput(){
         category.setText("");
         question.setText("");
