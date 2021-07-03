@@ -65,6 +65,10 @@ public class CategoryList {
         }
     }
 
+    public boolean canAddCategories(){
+        return this.categories.size() < 50;
+    }
+
     @Override
     public String toString() {
         return "CategoryList{" +
