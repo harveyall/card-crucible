@@ -68,8 +68,8 @@ public class AddCardsHandler implements Runnable {
             //TODO: add toast if card is save successfully
 
             //TODO: add toast to tell user if they have already exceeded # of categories or cards/category
-            //if categoryList.canAddCategories() == true
-            //if category.canAddCards() == true
+            //if categoryList.canAddCategories() == false
+            //if category.canAddCards() == false
 
             //this part is here temporarily just to make sure cards are loading appropriately
             CategoryList loadedList = lsMgr.loadCategoryList();
