@@ -54,7 +54,7 @@ public class CategoryList {
     }
 
     public void addCategory(Category category){
-        if(this.canAddCategories()) {
+        if(this.canAddCategory()) {
             this.categories.add(category);
         }
     }
@@ -65,7 +65,7 @@ public class CategoryList {
         }
     }
     /** This method returns true if there are less than 5 categories in the categories list and false if not */
-    public boolean canAddCategories(){
+    public boolean canAddCategory(){
         return this.categories.size() < 5;
     }
 

@@ -44,10 +44,11 @@ public class AddCardsHandler implements Runnable {
             //TODO: Add code so the user doesn't add the same card twice to the same category
             //TODO: Do not allow card to be added with empty fields
 
-            //Get category from category if it exists
+            //Get category from category if it exists, if it does not exist cardCategory is null
             Category cardCategory = categoryList.getCategory(this.category);
 
-            if (cardCategory == null && categoryList.canAddCategories()) {
+            if (cardCategory == null && !inputIsEmpty() && categoryList.canAddCategory()) {
+                //if category does not yet exist, the input fields are not empty, and the category max have not been met
                 // create a new category
                 cardCategory = new Category(this.category);
                 //add category to list
@@ -56,12 +57,17 @@ public class AddCardsHandler implements Runnable {
                 }
 
 
-            //add card to category if it has less than 50 cards and there are less than 5 categories in the list
-            if(cardCategory != null && cardCategory.canAddCards()){
+
+            if(inputIsEmpty()){
+                toastOnUIThread("Please fill in ALL input fields");
+            }
+            else if(cardCategory != null && cardCategory.canAddCards()){
+                //add card to category if it has < 50 cards and there are < 5 categories in the list
                 //add card to category
                 cardCategory.addCard(newCard);
                 toastOnUIThread("Card Saved");
-            } else if(cardCategory == null && !categoryList.canAddCategories()){
+            } else if(cardCategory == null && !categoryList.canAddCategory()){
+                //cardCategory will still be null at this point if there are < 5 categories in the list
                 toastOnUIThread("                   Card NOT saved\n" +
                         "Max of 5 categories already reached");
             }else if(!cardCategory.canAddCards()){
@@ -75,12 +81,24 @@ public class AddCardsHandler implements Runnable {
             Log.d("AddCardsHandler", "Category List is: " + categoryList.getCategories());
             lsMgr.saveCategoryList(categoryList);
 
-            ((AddCardsActivity)this.activity).resetInput();
+            //do not reset input if not all field were filled in before pushing the add button
+            if(!inputIsEmpty()) {
+                ((AddCardsActivity) this.activity).resetInput();
+            }
 
 
             //this part is here temporarily just to make sure cards are loading appropriately
             CategoryList loadedList = lsMgr.loadCategoryList();
             Log.d("AddCardsHandler", "Category List is: " + loadedList.getCategories());
+        }
+
+        public boolean inputIsEmpty(){
+            if(category.equals("") || question.equals("") || answer.equals("")){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
         public void toastOnUIThread(String message){
