@@ -46,7 +46,7 @@ public class AddCardsHandler implements Runnable {
             //Get category from category if it exists, if it does not exist cardCategory is null
             Category cardCategory = categoryList.getCategory(this.category);
 
-            if (cardCategory == null && !inputIsEmpty()) {
+            if (cardCategory == null && !inputIsEmpty() && categoryList.canAddCategory()) {
                 //if category does not yet exist, the input fields are not empty, and the category max have not been met
                 // create a new category
                 cardCategory = new Category(this.category);
@@ -59,21 +59,24 @@ public class AddCardsHandler implements Runnable {
 
             if(inputIsEmpty()){
                 toastOnUIThread("Please fill in ALL input fields");
-            }
-            else if(cardCategory.containsCard(newCard)){
+            } else if(cardCategory == null){
+                //cardCategory will be null if:
+                // the input fields are not empty,
+                // the category does not exit,
+                // and new categories cannot be added
+
+                toastOnUIThread("                   Card NOT saved\n" +
+                        "Max of 5 categories already reached");
+            }else if(cardCategory.containsCard(newCard)){
                 toastOnUIThread("This card already exists in this category");
-            } else if(cardCategory != null && cardCategory.canAddCards()  && categoryList.canAddCategory()){
+            }else if(!cardCategory.canAddCards()){
+                toastOnUIThread("                   Card NOT saved\n" +
+                        "Max of 50 cards already reached for this category");
+            } else{
                 //add card to category if it has < 50 cards and there are < 5 categories in the list
                 //add card to category
                 cardCategory.addCard(newCard); //card will not be added if 50 cards already in category
                 toastOnUIThread("Card Saved");
-            } else if(cardCategory == null){
-                //cardCategory will still be null at this point if there are already 5 categories in the list
-                toastOnUIThread("                   Card NOT saved\n" +
-                        "Max of 5 categories already reached");
-            }else if(!cardCategory.canAddCards()){
-                toastOnUIThread("                   Card NOT saved\n" +
-                        "Max of 50 cards already reached for this category");
             }
 
 
