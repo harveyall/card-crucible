@@ -3,7 +3,7 @@ package edu.team04.crucible;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Category {
+public class Category extends Selectable {
 
     private String name;
     private List<Card> cards;
