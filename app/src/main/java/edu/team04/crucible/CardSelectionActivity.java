@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +22,7 @@ import java.util.List;
  */
 public class CardSelectionActivity extends AppCompatActivity {
     public CategoryList categoryList;
-    public CategoryList categories;
-    //TODO: Make checkboxes or another selection mechanism for the ListView show.
-    //TODO: When begin button is clicked send selected category to StudyModeActivity.
+    public CategoryList categories = new CategoryList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +55,32 @@ public class CardSelectionActivity extends AppCompatActivity {
 
     }*/
 
-    void populateListView(List<String> categoryList) {
-        Log.d("CardSelectionActivity", "Populating Category Listview with: " + categoryList);
-        ArrayAdapter<String> ListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, categoryList);
-        ListView listview = (ListView) findViewById(R.id.category_view);
+    /**
+     * This method takes the Category name ist from the Handler and displays it on the ListView,
+     * it also handles the actual selection logic thanks to the new Selectable abstract class.
+     * @param nameList List of category names from CardSelectionHandler
+     */
+    void populateListView(List<String> nameList) {
+        Log.d("CardSelectionActivity", "Populating Category Listview with: " + nameList);
+        ArrayAdapter<String> ListAdapter = new ArrayAdapter<>
+                (this, android.R.layout.simple_list_item_multiple_choice, nameList);
+        ListView listview = findViewById(R.id.category_view);
         listview.setAdapter(ListAdapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
+                String row = nameList.get(position);
+                Log.d("Card Selection Activity", "Selected row: " + row);
+                Category selected = categoryList.getCategory(row);
+                if (selected.isSelected()) {
+                    selected.setSelected(false);
+                    Log.d("Card Selection Activity", "Selected row: " + selected.getName());
+                } else {
+                    selected.setSelected(true);
+                }
+            }
+        });
     }
 
     /**
@@ -66,14 +89,17 @@ public class CardSelectionActivity extends AppCompatActivity {
      */
     public void Begin(View button) {
         Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
-        Log.d("CardSelectionActivity", "About to create intent with " + categoryList);
-        categories = new CategoryList();
-        categories.addCategory(categoryList.getCategory(0));
-        categories.addCategory(categoryList.getCategory(1));
+        for(Category selected : categoryList.getCategories()) {
+            if (selected.isSelected()) {
+                categories.addCategory(selected);
+            }
+        }
+        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + categories);
         Gson gson = new Gson();
-        String intentJson = gson.toJson(categoryList);
+        String intentJson = gson.toJson(categories);
         studyModeActivity.putExtra("CATEGORIES", intentJson);
-        //TODO: Add selected Categories to intent.
+        //TODO: Figure out whether Study Mode or Game Activity comes next, and launch the right activity.
+        //TODO: Communicate with Sean on the Json objects being passed to Studymodeactivity.
         startActivity(studyModeActivity);
     }
 }

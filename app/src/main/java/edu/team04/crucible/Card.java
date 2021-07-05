@@ -1,6 +1,6 @@
 package edu.team04.crucible;
 
-public class Card {
+public class Card extends Selectable {
 
     private String category;
     private String question;
