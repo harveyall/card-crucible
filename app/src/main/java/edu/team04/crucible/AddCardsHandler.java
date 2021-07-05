@@ -32,7 +32,7 @@ public class AddCardsHandler implements Runnable {
 
             //Create new card based on input
             Card newCard = new Card(this.category, this.question, this.answer);
-            Log.d("AddCardsHandler", "Card Question: " + this.question + " Card Answer: " + this.answer);
+            Log.d("AddCardsHandler", "Card Category: " + this.category + "Card Question: " + this.question + " Card Answer: " + this.answer);
 
             //Grab category list data from local storage
             CategoryList categoryList = lsMgr.loadCategoryList();
@@ -41,7 +41,6 @@ public class AddCardsHandler implements Runnable {
             if (categoryList == null) {
                 categoryList = new CategoryList();
             }
-            //TODO: Add code so the user doesn't add the same card twice to the same category
 
             //Get category from category if it exists, if it does not exist cardCategory is null
             Category cardCategory = categoryList.getCategory(this.category);
