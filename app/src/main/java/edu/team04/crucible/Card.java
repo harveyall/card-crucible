@@ -36,6 +36,19 @@ public class Card extends Selectable {
         this.answer = answer;
     }
 
+    /**
+     * Return true if data in this card has the same data as the inputted card.
+     * @param card2
+     */
+    public boolean isEqual(Card card2){
+        if(this.category.equals(card2.category) && this.question.equals(card2.question) && this.answer.equals(card2.answer)){
+            return true;
+
+        }  else{
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         return "Card{" +

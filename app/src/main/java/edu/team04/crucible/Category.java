@@ -72,6 +72,16 @@ public class Category extends Selectable {
         this.cards.remove(card);
     }
 
+
+    public boolean containsCard(Card card){
+        for(Card cardItem : this.cards) {
+            if(cardItem.isEqual(card)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /** Return a string representing this category*/
     @Override
     public java.lang.String toString() {
