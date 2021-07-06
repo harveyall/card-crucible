@@ -1,6 +1,7 @@
 package edu.team04.crucible;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Category extends Selectable {
@@ -58,6 +59,16 @@ public class Category extends Selectable {
         if(this.canAddCards()) {
             this.cards.add(card);
         }
+    }
+
+    /**
+     * Shuffles the cards belonging to the specified Category.
+     * @param toRandomize The Category which cards are to be shuffled.
+     * @return The same Category after the cards have been shuffled.
+     */
+    public Category randomizeCategory(Category toRandomize) {
+        Collections.shuffle(toRandomize.getCards());
+        return toRandomize;
     }
 
     /** This method returns true if there are less than 50 cards in this category's list of cards and false if not */
