@@ -67,10 +67,10 @@ public class AddCardsHandler implements Runnable {
                 toastOnUIThread("                   Card NOT saved\n" +
                         "Max of 5 categories already reached");
             }else if(cardCategory.containsCard(newCard)){
-                toastOnUIThread("This card already exists in this category");
+                toastOnUIThread("This card already exists in " + this.category);
             }else if(!cardCategory.canAddCards()){
                 toastOnUIThread("                   Card NOT saved\n" +
-                        "Max of 50 cards already reached for this category");
+                        "Max of 50 cards already reached for " + this.category);
             } else{
                 //add card to category if it has < 50 cards and there are < 5 categories in the list
                 //add card to category
