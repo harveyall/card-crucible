@@ -2,7 +2,6 @@ package edu.team04.crucible;
 
 import android.content.Context;
 import android.util.Log;
-import java.util.ArrayList;
 
 /**
  * This class takes care of any requests made by the CardSelectionActivity
@@ -10,8 +9,12 @@ import java.util.ArrayList;
 public class CardSelectionHandler implements Runnable {
     private CardSelectionActivity activity;
     private Context context;
+    private CategoryList categories;
 
-    public CardSelectionHandler(CardSelectionActivity activity, Context context) {
+    public CardSelectionHandler(CardSelectionActivity activity, Context context, CategoryList categories) {
+        this.activity = activity;
+        this.context = context;
+        this.categories = categories;
     }
 
     /**
@@ -20,16 +23,16 @@ public class CardSelectionHandler implements Runnable {
      */
     @Override
     public void run() {
-        // TODO App crashes entering the CardSelectionActivity!
-        //  Need to figure out the correct context argument for the LocalStorageManager call.
         Log.d("CardSelectionHandler", "Context is: " + context);
-        //Log.d("CardSelectionHandler", "App context is: " + context.getApplicationContext());
-        CategoryList categoryList = new LocalStorageManager(context).loadCategoryList();
-        ArrayList<String> nameList = new ArrayList<>();
-        for(Category cat : categoryList.getCategories()) {
-            String name = cat.getName();
-            nameList.add(name);
+
+        CategoryList shuffledCards = new CategoryList();
+        for(Category selected : categories.getCategories()) {
+            Log.d("CardSelectionHandler", "Categories are: " + selected);
+            selected.randomizeCategory(selected);
+            Log.d("CardSelectionHandler", "Shuffled contents: " + selected);
+            shuffledCards.addCategory(selected);
+            Log.d("CardSelectionHandler", "Final CategoryList is: " + shuffledCards);
         }
-        activity.populateListView(nameList);
+        activity.nextActivity(shuffledCards);
     }
 }

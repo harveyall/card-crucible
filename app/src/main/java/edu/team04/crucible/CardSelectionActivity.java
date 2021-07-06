@@ -22,7 +22,6 @@ import java.util.List;
  */
 public class CardSelectionActivity extends AppCompatActivity {
     public CategoryList categoryList;
-    public CategoryList categories = new CategoryList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +29,6 @@ public class CardSelectionActivity extends AppCompatActivity {
             new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_card_selection);
         Log.d("CardSelectionActivity", "Passing Activity: " + this + "Context: " + this);
-        //CardSelectionHandler handleIt = new CardSelectionHandler(this, this);
-        //new Thread((Runnable) handleIt).start();
-        //callHandler();
-
         categoryList = new LocalStorageManager(this).loadCategoryList();
         ArrayList<String> nameList = new ArrayList<>();
         for(Category cat : categoryList.getCategories()) {
@@ -45,7 +40,7 @@ public class CardSelectionActivity extends AppCompatActivity {
 
     /**
      * This button leads back to the Main Activity.
-     * @param button
+     * @param button The Back Home button
      */
     public void backHome(View button) {
         Intent addIntent = new Intent(this, MainActivity.class);
@@ -71,7 +66,6 @@ public class CardSelectionActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 String row = nameList.get(position);
-                Log.d("Card Selection Activity", "Selected row: " + row);
                 Category selected = categoryList.getCategory(row);
                 if (selected.isSelected()) {
                     selected.setSelected(false);
@@ -84,22 +78,33 @@ public class CardSelectionActivity extends AppCompatActivity {
     }
 
     /**
-     * This button takes the selected categories into the next Activity (Study or Game).
-     * @param button
+     * This button feeds the category list into the CardSelectionHandler for shuffling.
+     * @param button The Begin button
      */
     public void Begin(View button) {
-        Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
-        for(Category selected : categoryList.getCategories()) {
-            if (selected.isSelected()) {
-                categories.addCategory(selected);
+        CategoryList categories = new CategoryList();
+        for (int i = 0; i < categoryList.getCategories().size(); i++) {
+            if (categoryList.getCategory(i).isSelected()) {
+                categories.addCategory(categoryList.getCategory(i));
             }
         }
-        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + categories);
+        Log.d("CardSelectionActivity", "Categories to be shuffled: " + categories);
+        CardSelectionHandler handleIt = new CardSelectionHandler(this, this, categories);
+        new Thread((Runnable) handleIt).start();
+    }
+
+    /**
+     * This method calls the next Activity (Study or Game).
+     * @param shuffledCards Is the List of Categories with shuffled cards from the CardSelectionHandler.
+     */
+    public void nextActivity(CategoryList shuffledCards) {
+        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledCards);
+        Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
         Gson gson = new Gson();
-        String intentJson = gson.toJson(categories);
+        String intentJson = gson.toJson(shuffledCards);
         studyModeActivity.putExtra("CATEGORIES", intentJson);
         //TODO: Figure out whether Study Mode or Game Activity comes next, and launch the right activity.
-        //TODO: Communicate with Sean on the Json objects being passed to Studymodeactivity.
+        //TODO: Communicate with Sean on the Json objects being passed to Study Mode Activity.
         startActivity(studyModeActivity);
     }
 }
