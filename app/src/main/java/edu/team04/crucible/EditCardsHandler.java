@@ -1,12 +1,15 @@
 package edu.team04.crucible;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * This class does the behind the scenes work (Array & file operations) for the Edit Cards Activity.
  */
 public class EditCardsHandler implements Runnable {
+    Activity activity;
     Context context;
     String index;
     String category;
@@ -32,7 +35,6 @@ public class EditCardsHandler implements Runnable {
         final LocalStorageManager lsMgr = new LocalStorageManager(this.context);
         Card editedCard = new Card(this.category, this.question, this.answer);
         Log.d("EditCardsHandler", "Card Question: " + this.question + " Card Answer: " + this.answer);
-
         CategoryList categoryList = lsMgr.loadCategoryList();
         Category cardCategory = categoryList.getCategory(this.category);
         cardCategory.replaceCard(Integer.parseInt(index), editedCard);
