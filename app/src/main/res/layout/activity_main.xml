@@ -51,9 +51,9 @@
         android:layout_width="400dp"
         android:layout_height="250dp"
         android:layout_marginTop="50dp"
+        android:contentDescription="@string/card_crucible_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_settings"
-        app:srcCompat="@mipmap/ic_banner_cardstackedlogo_foreground"
-        android:contentDescription="@string/card_crucible_logo" />
+        app:srcCompat="@drawable/card_crucible_transparent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
