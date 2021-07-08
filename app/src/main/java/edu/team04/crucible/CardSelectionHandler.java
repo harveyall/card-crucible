@@ -9,30 +9,36 @@ import android.util.Log;
 public class CardSelectionHandler implements Runnable {
     private CardSelectionActivity activity;
     private Context context;
-    private CategoryList categories;
+    private CategoryList categoryList;
 
-    public CardSelectionHandler(CardSelectionActivity activity, Context context, CategoryList categories) {
+    public CardSelectionHandler(CardSelectionActivity activity, Context context, CategoryList categoryList) {
         this.activity = activity;
         this.context = context;
-        this.categories = categories;
+        this.categoryList = categoryList;
     }
 
     /**
-     * This override method calls a LocalStorageManager to Load the Category List, then slices
-     * the list for the individual category names, to then send back to the CardSelectionActivity.
+     * This override method finds the selected cards by the user, adds them to a new ad-hoc category,
+     * shuffles those cards, and sends them to the next Activity via CardSelectionActivity.
      */
     @Override
     public void run() {
-        Log.d("CardSelectionHandler", "Context is: " + context);
+        CategoryList category = new CategoryList();
+        Category shuffledCards = new Category("Shuffled");
+        for (int i = 0; i < categoryList.getCategories().size(); i++) {
+            if (categoryList.getCategory(i).isSelected()) {
+                for (int j = 0; j < categoryList.getCategory(i).getCards().size(); j++) {
+                    shuffledCards.addCard(categoryList.getCategory(i).getCard(j));
 
-        CategoryList shuffledCards = new CategoryList();
-        for(Category selected : categories.getCategories()) {
-            Log.d("CardSelectionHandler", "Categories are: " + selected);
-            selected.randomizeCategory(selected);
-            Log.d("CardSelectionHandler", "Shuffled contents: " + selected);
-            shuffledCards.addCategory(selected);
-            Log.d("CardSelectionHandler", "Final CategoryList is: " + shuffledCards);
+                }
+            categoryList.getCategory(i).setSelected(false);
+            }
         }
-        activity.nextActivity(shuffledCards);
+        Log.d("CardSelectionHandler", "Original contents: " + shuffledCards);
+        shuffledCards.randomizeCategory(shuffledCards);
+        Log.d("CardSelectionHandler", "Shuffled contents: " + shuffledCards);
+        category.addCategory(shuffledCards);
+
+        activity.nextActivity(category);
     }
 }

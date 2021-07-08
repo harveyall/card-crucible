@@ -84,14 +84,7 @@ public class CardSelectionActivity extends AppCompatActivity {
      * @param button The Begin button
      */
     public void Begin(View button) {
-        CategoryList categories = new CategoryList();
-        for (int i = 0; i < categoryList.getCategories().size(); i++) {
-            if (categoryList.getCategory(i).isSelected()) {
-                categories.addCategory(categoryList.getCategory(i));
-            }
-        }
-        Log.d("CardSelectionActivity", "Categories to be shuffled: " + categories);
-        CardSelectionHandler handleIt = new CardSelectionHandler(this, this, categories);
+        CardSelectionHandler handleIt = new CardSelectionHandler(this, this, categoryList);
         new Thread((Runnable) handleIt).start();
     }
 
@@ -100,10 +93,14 @@ public class CardSelectionActivity extends AppCompatActivity {
      * @param shuffledCards Is the List of Categories with shuffled cards from the CardSelectionHandler.
      */
     public void nextActivity(CategoryList shuffledCards) {
-        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledCards);
-        //TODO: Communicate with Sean on the Json objects being passed to Study Mode Activity.
+        Category shuffledCategory = new Category("shuffledCategory");
+        for (int i = 0; i < shuffledCards.getCategory(0).getCards().size(); i++) {
+            shuffledCategory.addCard(shuffledCards.getCategory(0).getCard(i));
+        }
         Gson gson = new Gson();
-        String intentJson = gson.toJson(shuffledCards);
+        String intentJson = gson.toJson(shuffledCategory);
+        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledCategory);
+        //TODO Test that the correct Json object is being passed once a running build is available.
         if (nextActivity.equals("Study")) {
             Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
             studyModeActivity.putExtra("CATEGORIES", intentJson);
