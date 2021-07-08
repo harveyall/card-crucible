@@ -2,11 +2,14 @@ package edu.team04.crucible;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.gson.Gson;
 
 
 /**
@@ -15,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class StudyModeActivity extends AppCompatActivity {
     //TODO: Begin game with card list from selected category that is sent from SelectCategory Activity
     // use StudyModeHandler to handle requests from this activity
+    Gson gson = new Gson();
     private boolean back_card_visible = false;
     private boolean prev_button_visible = true;
     private boolean next_button_visible = true;
@@ -24,6 +28,18 @@ public class StudyModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_study);
+
+
+        String data = getIntent().getStringExtra("CATEGORIES");
+        CategoryList categoryList = gson.fromJson(data, CategoryList.class);
+
+        StudyModeHandler studyModeHandler = new StudyModeHandler(this, this, categoryList);
+        Thread thread1 = new Thread(studyModeHandler, "StudyModeHandler");
+        Log.d("StudyModeActivity", "Context is: " + this);
+        Log.d("StudyModeActivity", "Calling StudyModeHandler on a background thread");
+        thread1.start();
+
+
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
 
         TextView frontCard = (TextView)findViewById(R.id.card_front);
