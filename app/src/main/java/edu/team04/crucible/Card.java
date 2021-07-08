@@ -51,10 +51,7 @@ public class Card extends Selectable {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "category='" + category + '\'' +
-                ", question='" + question + '\'' +
-                ", answer='" + answer + '\'' +
-                '}';
+        return String.format("Category: %s%nQuestion: %s%nAnswer: %s%n",
+                this.category, this.question, this.answer);
     }
 }
