@@ -21,7 +21,9 @@ import java.util.List;
  * Randomization, and comes back shuffled, and then fed into the next activity.
  */
 public class CardSelectionActivity extends AppCompatActivity {
+
     public CategoryList categoryList;
+    private final String nextActivity = getIntent().getStringExtra("ACTIVITY");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,12 +101,17 @@ public class CardSelectionActivity extends AppCompatActivity {
      */
     public void nextActivity(CategoryList shuffledCards) {
         Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledCards);
-        Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
+        //TODO: Communicate with Sean on the Json objects being passed to Study Mode Activity.
         Gson gson = new Gson();
         String intentJson = gson.toJson(shuffledCards);
-        studyModeActivity.putExtra("CATEGORIES", intentJson);
-        //TODO: Figure out whether Study Mode or Game Activity comes next, and launch the right activity.
-        //TODO: Communicate with Sean on the Json objects being passed to Study Mode Activity.
-        startActivity(studyModeActivity);
+        if (nextActivity.equals("Study")) {
+            Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
+            studyModeActivity.putExtra("CATEGORIES", intentJson);
+            startActivity(studyModeActivity);
+        } else {
+            Intent gameModeActivity = new Intent(CardSelectionActivity.this, GameModeActivity.class);
+            gameModeActivity.putExtra("CATEGORIES", intentJson);
+            startActivity(gameModeActivity);
+        }
     }
 }
