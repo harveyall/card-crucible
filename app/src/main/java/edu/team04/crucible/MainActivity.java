@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Button to Settings Activity.
-     * @param button
+     * @param button Settings Activity button
      */
     public void settings (View button) {
         Intent settingsActivity = new Intent(this, SettingsActivity.class);
@@ -34,22 +34,21 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Button to Card Selection Activity with Study Mode intent.
-     * @param button
+     * @param button Study Mode button
      */
     public void cardSelectForStudy (View button) {
-        //TODO: Pass the Study mode intent.
         Intent cardSelectionActivity = new Intent(this, CardSelectionActivity.class);
+        cardSelectionActivity.putExtra("ACTIVITY","Study");
         startActivity(cardSelectionActivity);
     }
 
     /**
      * Button to Card Selection Activity with Game Mode intent.
-     * @param button
+     * @param button Game Mode button
      */
     public void cardSelectForGame (View button) {
-        //TODO: Pass the Game mode intent.
         Intent cardSelectionActivity = new Intent(this, CardSelectionActivity.class);
+        cardSelectionActivity.putExtra("ACTIVITY","Game");
         startActivity(cardSelectionActivity);
     }
-
 }

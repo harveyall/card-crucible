@@ -2,7 +2,7 @@ package edu.team04.crucible;
 
 /**
  * This abstract class lets Cards and Categories be selectable on ListViews, which will be useful
- * for several activities.
+ * for several activities with item selection via ListView.
  */
 public abstract class Selectable {
     boolean isSelected;
