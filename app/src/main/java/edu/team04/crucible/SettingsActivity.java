@@ -21,7 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * This button leads back to the Main Activity.
-     * @param button
+     * @param button Back to the Main Activity.
      */
     public void backHome(View button) {
         Intent addIntent = new Intent(this, MainActivity.class);
@@ -30,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * This button leads to the Add Category Activity, to add a new Card Category.
-     * @param button
+     * @param button Add Category Activity button
      */
     public void addCardsActivity(View button) {
         Intent intent = new Intent(this, AddCardsActivity.class);
@@ -39,7 +39,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * This button leads to the Edit Category Activity, to edit cards and filter them by category
-     * @param button
+     * @param button Edit Category Activity button
      */
     public void editCategoryActivity(View button) {
         Intent editIntent = new Intent(this, EditCardSelectionActivity.class);
@@ -47,7 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
     /**
      * This button leads to the Edit Theme Activity, edit the currently displayed theme
-     * @param button
+     * @param button Edit Theme Activity button
      */
     public void editThemeActivity(View button) {
         Intent intent = new Intent(this, EditThemeActivity.class);

@@ -26,6 +26,10 @@ public class LocalStorageManager {
     // Info on local data storage to android device
     // https://developer.android.com/training/data-storage/app-specific
 
+    /**
+     * This method loads the Category file from Shared Preferences and returns the list of categories.
+     * @return The list of Categories
+     */
     public CategoryList loadCategoryList() {
         Log.d("LocalStorageManager", "Retrieving cards");
 
@@ -53,6 +57,9 @@ public class LocalStorageManager {
         return categoryList;
     }
 
+    /**
+     * This method saves the list of categories on the Category file from Shared Preferences.
+     */
     public void saveCategoryList(CategoryList categoryList){
         //TODO: before saving to device query available space on device
         //https://developer.android.com/training/data-storage/app-specific#query-free-space

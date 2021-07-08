@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * This activity lets the user choose from three different themes for the application.
+ */
 public class EditThemeActivity extends ThemeActivity implements View.OnClickListener{
 
     @Override
@@ -18,6 +21,10 @@ public class EditThemeActivity extends ThemeActivity implements View.OnClickList
     }
 
 
+    /**
+     * This method gets called when the user presses the button.
+     * @param view The current view
+     */
     @Override
     public void onClick(View view){
         switch(view.getId()){
@@ -37,11 +44,19 @@ public class EditThemeActivity extends ThemeActivity implements View.OnClickList
 
     }
 
+    /**
+     * This button leads back to the Settings Activity.
+     * @param button button
+     */
     public void backToSettings(View button) {
         Intent addIntent = new Intent(this, SettingsActivity.class);
         startActivity(addIntent);
     }
 
+
+    /**
+     * This method is called by onClick, and applies the theme to the current activity.
+     */
     public void recreateActivity(){
         Intent intent = getIntent();
         startActivity(intent);
