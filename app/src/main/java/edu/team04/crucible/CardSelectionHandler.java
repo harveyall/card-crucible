@@ -11,6 +11,12 @@ public class CardSelectionHandler implements Runnable {
     private Context context;
     private CategoryList categoryList;
 
+    /**
+     * Class constructor
+     * @param activity The activity calling this class.
+     * @param context The context of the activity calling this class.
+     * @param categoryList The master list of categories to be shuffled.
+     */
     public CardSelectionHandler(CardSelectionActivity activity, Context context, CategoryList categoryList) {
         this.activity = activity;
         this.context = context;
@@ -29,16 +35,15 @@ public class CardSelectionHandler implements Runnable {
             if (categoryList.getCategory(i).isSelected()) {
                 for (int j = 0; j < categoryList.getCategory(i).getCards().size(); j++) {
                     shuffledCards.addCard(categoryList.getCategory(i).getCard(j));
-
                 }
             categoryList.getCategory(i).setSelected(false);
             }
         }
         Log.d("CardSelectionHandler", "Original contents: " + shuffledCards);
-        shuffledCards.randomizeCategory(shuffledCards);
+        //Shuffles the cards in the category.
+        shuffledCards.randomizeCards(shuffledCards);
         Log.d("CardSelectionHandler", "Shuffled contents: " + shuffledCards);
         category.addCategory(shuffledCards);
-
         activity.nextActivity(category);
     }
 }

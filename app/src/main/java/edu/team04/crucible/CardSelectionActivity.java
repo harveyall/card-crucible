@@ -48,9 +48,6 @@ public class CardSelectionActivity extends AppCompatActivity {
         Intent addIntent = new Intent(this, MainActivity.class);
         startActivity(addIntent);
     }
-    /*void callHandler() {
-
-    }*/
 
     /**
      * This method takes the Category name ist from the Handler and displays it on the ListView,
@@ -71,9 +68,9 @@ public class CardSelectionActivity extends AppCompatActivity {
                 Category selected = categoryList.getCategory(row);
                 if (selected.isSelected()) {
                     selected.setSelected(false);
-                    Log.d("Card Selection Activity", "Selected row: " + selected.getName());
                 } else {
                     selected.setSelected(true);
+                    Log.d("Card Selection Activity", "Selected row: " + selected.getName());
                 }
             }
         });
@@ -90,16 +87,16 @@ public class CardSelectionActivity extends AppCompatActivity {
 
     /**
      * This method calls the next Activity (Study or Game).
-     * @param shuffledCards Is the List of Categories with shuffled cards from the CardSelectionHandler.
+     * @param shuffledCards The List of Categories with shuffled cards from the CardSelectionHandler.
      */
     public void nextActivity(CategoryList shuffledCards) {
-        Category shuffledCategory = new Category("shuffledCategory");
+        CardList shuffledList = new CardList();
         for (int i = 0; i < shuffledCards.getCategory(0).getCards().size(); i++) {
-            shuffledCategory.addCard(shuffledCards.getCategory(0).getCard(i));
+            shuffledList.addCard(shuffledCards.getCategory(0).getCard(i));
         }
         Gson gson = new Gson();
-        String intentJson = gson.toJson(shuffledCategory);
-        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledCategory);
+        String intentJson = gson.toJson(shuffledList);
+        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledList);
         //TODO Test that the correct Json object is being passed once a running build is available.
         if (nextActivity.equals("Study")) {
             Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
