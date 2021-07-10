@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -21,15 +20,14 @@ import java.util.List;
  * Randomization, and comes back shuffled, and then fed into the next activity.
  */
 public class CardSelectionActivity extends AppCompatActivity {
-
     public CategoryList categoryList;
-    private final String nextActivity = getIntent().getStringExtra("ACTIVITY");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            new ThemeHandler(this, getApplicationContext()).updateTheme();
+        new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_card_selection);
+
         Log.d("CardSelectionActivity", "Passing Activity: " + this + "Context: " + this);
         categoryList = new LocalStorageManager(this).loadCategoryList();
         ArrayList<String> nameList = new ArrayList<>();
@@ -56,22 +54,18 @@ public class CardSelectionActivity extends AppCompatActivity {
      */
     void populateListView(List<String> nameList) {
         Log.d("CardSelectionActivity", "Populating Category Listview with: " + nameList);
-        ArrayAdapter<String> ListAdapter = new ArrayAdapter<>
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<>
                 (this, android.R.layout.simple_list_item_multiple_choice, nameList);
         ListView listview = findViewById(R.id.category_view);
-        listview.setAdapter(ListAdapter);
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                String row = nameList.get(position);
-                Category selected = categoryList.getCategory(row);
-                if (selected.isSelected()) {
-                    selected.setSelected(false);
-                } else {
-                    selected.setSelected(true);
-                    Log.d("Card Selection Activity", "Selected row: " + selected.getName());
-                }
+        listview.setAdapter(listAdapter);
+        listview.setOnItemClickListener((parent, view, position, l) -> {
+            String row = nameList.get(position);
+            Category selected = categoryList.getCategory(row);
+            if (selected.isSelected()) {
+                selected.setSelected(false);
+            } else {
+                selected.setSelected(true);
+                Log.d("Card Selection Activity", "Selected row: " + selected.getName());
             }
         });
     }
@@ -82,7 +76,7 @@ public class CardSelectionActivity extends AppCompatActivity {
      */
     public void Begin(View button) {
         CardSelectionHandler handleIt = new CardSelectionHandler(this, this, categoryList);
-        new Thread((Runnable) handleIt).start();
+        new Thread(handleIt).start();
     }
 
     /**
@@ -90,13 +84,14 @@ public class CardSelectionActivity extends AppCompatActivity {
      * @param shuffledCards The List of Categories with shuffled cards from the CardSelectionHandler.
      */
     public void nextActivity(CategoryList shuffledCards) {
+        final String nextActivity = getIntent().getStringExtra("ACTIVITY");
         CardList shuffledList = new CardList();
         for (int i = 0; i < shuffledCards.getCategory(0).getCards().size(); i++) {
             shuffledList.addCard(shuffledCards.getCategory(0).getCard(i));
         }
         Gson gson = new Gson();
         String intentJson = gson.toJson(shuffledList);
-        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledList);
+        Log.d("CardSelectionActivity", "About to pass intent to Next Activity with: " + shuffledList.getCards());
         //TODO Test that the correct Json object is being passed once a running build is available.
         if (nextActivity.equals("Study")) {
             Intent studyModeActivity = new Intent(CardSelectionActivity.this, StudyModeActivity.class);
