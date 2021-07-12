@@ -8,12 +8,18 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    //colors for testing temporary themes
+    //colors for blue theme
     <color name="primaryColor_blue">#2196F3</color>
     <color name="primaryColorDark_blue">#1976D2</color>
     <color name="primaryAccent_blue">#E3F2FD</color>
 
+    //colors for red/ default theme
     <color name="primaryColor_red">#F44336</color>
     <color name="primaryColorDark_red">#D32F2F</color>
     <color name="primaryAccent_red">#FFEBEE</color>
+
+    //colors for orange theme
+    <color name="primaryColor_orange">#ED7014</color>
+    <color name="primaryColorDark_orange">#DD571C</color>
+
 </resources>

@@ -22,7 +22,7 @@ public class ThemeActivity extends AppCompatActivity {
         }else if(SharedPreferenceManager.getTheme(getApplicationContext()) == THEME_BLUE){
             setTheme(R.style.AppTheme_Blue);
         } else if(SharedPreferenceManager.getTheme(getApplicationContext()) == THEME_RED){
-            setTheme(R.style.AppTheme_Red);
+            setTheme(R.style.AppTheme_Orange);
         }
     }
     public static int getThemeBlue() {
