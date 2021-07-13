@@ -25,8 +25,8 @@
         android:id="@+id/blue_theme_btn"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="36dp"
-        android:text="Blue Theme"
+        android:layout_marginTop="76dp"
+        android:text="Blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +36,8 @@
         android:id="@+id/red_theme_btn"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="36dp"
-        android:text="Orange Theme"
+        android:layout_marginTop="76dp"
+        android:text="Orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,10 +47,19 @@
         android:id="@+id/default_theme_btn"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="132dp"
-        android:text="Default Theme"
+        android:layout_marginTop="176dp"
+        android:text="Default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Theme"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_study_home2" />
 
