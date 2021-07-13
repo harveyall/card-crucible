@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.team04.crucible">
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="com.android.alarm.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -8,6 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:permission=""
         android:theme="@style/Theme.CardCrucible">
         <activity android:name=".EditThemeActivity"></activity>
         <activity android:name=".GameModeActivity" />
@@ -23,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".NotificationPublisher" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
