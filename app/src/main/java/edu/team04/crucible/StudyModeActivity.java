@@ -19,6 +19,7 @@ public class StudyModeActivity extends AppCompatActivity {
     //TODO: Begin game with card list from selected category that is sent from SelectCategory Activity
     // use StudyModeHandler to handle requests from this activity
     Gson gson = new Gson();
+    CardList cardList;
     private boolean back_card_visible = false;
     private boolean prev_button_visible = true;
     private boolean next_button_visible = true;
@@ -31,9 +32,10 @@ public class StudyModeActivity extends AppCompatActivity {
 
 
         String data = getIntent().getStringExtra("CATEGORIES");
-        CategoryList categoryList = gson.fromJson(data, CategoryList.class);
+        cardList= gson.fromJson(data, CardList.class);
+        Log.d("StudyModeActivity", cardList.toString());
 
-        StudyModeHandler studyModeHandler = new StudyModeHandler(this, this, categoryList);
+        StudyModeHandler studyModeHandler = new StudyModeHandler(this, this, cardList);
         Thread thread1 = new Thread(studyModeHandler, "StudyModeHandler");
         Log.d("StudyModeActivity", "Context is: " + this);
         Log.d("StudyModeActivity", "Calling StudyModeHandler on a background thread");

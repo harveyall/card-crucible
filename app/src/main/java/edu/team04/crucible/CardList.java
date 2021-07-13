@@ -68,4 +68,13 @@ public class CardList {
     public void deleteCard(int index){
         this.cards.remove(index);
     }
+
+
+    /** Return a string representation of this CardList*/
+    @Override
+    public String toString() {
+        return "CardList{" +
+                "cards=" + cards +
+                '}';
+    }
 }

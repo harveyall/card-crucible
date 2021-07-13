@@ -9,38 +9,20 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudyModeHandler<categoryList> implements Runnable{
+public class StudyModeHandler implements Runnable{
     Activity activity;
     Context context;
-    CategoryList categoryList;
-    List<Card> cards;
-    public StudyModeHandler(Activity activity, Context context, CategoryList categoryList){
+    CardList cards;
+    public StudyModeHandler(Activity activity, Context context, CardList cards){
         this.activity = activity;
         this.context = context;
-        this.categoryList = categoryList;
-        this.cards = createCardList();
+        this.cards = cards;
     }
 
     @Override
     public void run() {
-        //TODO: make sure cards != null where necessary.
-        // cards would == null if the user hasn't added any cards yet
+
     }
     //This class takes care of any requests by the StudyModeHelper
 
-
-    //TODO: remove this method later if it gets used instead in the CardSelectionActivity.
-    /** Takes the categoryList returned by the cardSelectionActivity and turns it into a cardList*/
-    public ArrayList<Card> createCardList(){
-        ArrayList<Card> cards = new ArrayList<>();
-        if(categoryList != null) {
-            for (Category category : this.categoryList.getCategories()) {
-                cards.addAll(category.getCards());
-            }
-        }
-        else{
-            cards = null;
-        }
-        return cards;
-    }
 }
