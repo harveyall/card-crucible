@@ -66,7 +66,7 @@ public class Category extends Selectable {
      * @param toRandomize The Category which cards are to be shuffled.
      * @return The same Category after the cards have been shuffled.
      */
-    public Category randomizeCategory(Category toRandomize) {
+    public Category randomizeCards(Category toRandomize) {
         Collections.shuffle(toRandomize.getCards());
         return toRandomize;
     }
