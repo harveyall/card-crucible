@@ -10,14 +10,31 @@ import java.util.List;
 public class CardList {
     List<Card> cards;
 
+
+    /** Constructs a CardList with an empty array list*/
     public CardList(){
         this.cards = new ArrayList<>();
     }
 
+    /** Constructs a CardList with a specified list of cards*/
     public CardList(List<Card> cards){
         this.cards = cards;
     }
 
+    /** Constructs a CardList with a specified list of cards from a categoryList*/
+    public CardList(CategoryList categoryList){
+        if(categoryList != null) {
+            cards = new ArrayList<>();
+            for (Category category : categoryList.getCategories()) {
+                for (Card card : category.getCards()) {
+                    cards.add(card);
+                }
+            }
+        }
+        else{
+            cards = null;
+        }
+    }
     /**
      * This method returns a list of Card objects belonging to this list.
      * @return The list of Card objects.

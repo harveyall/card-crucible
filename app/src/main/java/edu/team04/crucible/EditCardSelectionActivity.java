@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class EditCardSelectionActivity extends AppCompatActivity {
     Gson gson = new Gson();
     CategoryList categoryList;
-    ArrayList<Card> cardList;
+    CardList cardList;
     RecyclerView rvEditItem;
     CardView cvEditItem;
 
@@ -38,7 +38,7 @@ public class EditCardSelectionActivity extends AppCompatActivity {
         new Thread(new TestData(getApplicationContext())).start();
 
         categoryList = new LocalStorageManager(this).loadCategoryList();
-        cardList = makeCardList();
+        cardList = new CardList(categoryList);
 
         rvEditItem = (RecyclerView) findViewById(R.id.categoryRecycler);
         rvEditItem.setHasFixedSize(true);
@@ -100,18 +100,18 @@ public class EditCardSelectionActivity extends AppCompatActivity {
         // likely will need to reload activity after change
     }
 
-    public ArrayList<Card> makeCardList() {
-        ArrayList<Card> cards = new ArrayList<>();
-        if(categoryList != null) {
-            for (Category category : this.categoryList.getCategories()) {
-                for (Card card : category.getCards()) {
-                    cards.add(card);
-                }
-            }
-        }
-        else{
-            cards = null;
-        }
-        return cardList;
-    }
+//    public ArrayList<Card> makeCardList() {
+//        ArrayList<Card> cards = new ArrayList<>();
+//        if(categoryList != null) {
+//            for (Category category : this.categoryList.getCategories()) {
+//                for (Card card : category.getCards()) {
+//                    cards.add(card);
+//                }
+//            }
+//        }
+//        else{
+//            cards = null;
+//        }
+//        return cardList;
+//    }
 }

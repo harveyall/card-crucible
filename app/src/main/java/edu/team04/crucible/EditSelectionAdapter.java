@@ -17,9 +17,9 @@ import java.util.Objects;
 
 public class EditSelectionAdapter extends RecyclerView.Adapter<EditSelectionAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<Card> cardList;
+    private CardList cardList;
 
-    public EditSelectionAdapter(Context context, ArrayList<Card> cardList) {
+    public EditSelectionAdapter(Context context, CardList cardList) {
         this.context = context;
         this.cardList = cardList;
     }
@@ -55,7 +55,7 @@ public class EditSelectionAdapter extends RecyclerView.Adapter<EditSelectionAdap
 
     @Override
     public void onBindViewHolder(@NonNull  EditSelectionAdapter.ViewHolder holder, int position) {
-        Card card = cardList.get(position);
+        Card card = cardList.getCards().get(position);
         holder.categoryText.setText("Category: " + card.getCategory());
         holder.multiLine.setText("Q:" + card.getQuestion() +
                 "A:" + card.getAnswer());
