@@ -33,6 +33,8 @@ public class StudyModeActivity extends AppCompatActivity {
 
         String data = getIntent().getStringExtra("CATEGORIES");
         cardList= gson.fromJson(data, CardList.class);
+        //each card contains information about the category it belongs to, question and answer.
+        //You can view the data in the cardList in the Logcat
         Log.d("StudyModeActivity", cardList.toString());
 
         StudyModeHandler studyModeHandler = new StudyModeHandler(this, this, cardList);
