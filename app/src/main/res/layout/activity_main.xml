@@ -25,10 +25,12 @@
 
     <Button
         android:id="@+id/button_study"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:onClick="cardSelectForStudy"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:text="@string/study_mode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -37,10 +39,12 @@
 
     <Button
         android:id="@+id/button_game"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:onClick="cardSelectForGame"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:text="@string/game_mode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
