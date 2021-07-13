@@ -23,7 +23,8 @@ public class StudyModeHandler<categoryList> implements Runnable{
 
     @Override
     public void run() {
-
+        //TODO: make sure cards != null where necessary.
+        // cards would == null if the user hasn't added any cards yet
     }
     //This class takes care of any requests by the StudyModeHelper
 
