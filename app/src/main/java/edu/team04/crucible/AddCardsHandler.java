@@ -56,8 +56,6 @@ public class AddCardsHandler implements Runnable {
 
                 }
 
-
-
             if(inputIsEmpty()){
                 toastOnUIThread("Please fill in ALL input fields");
 
@@ -82,7 +80,6 @@ public class AddCardsHandler implements Runnable {
                 toastOnUIThread("Card Saved");
             }
 
-
             //Save edited Category List to local file
             Log.d("AddCardsHandler", "Calling LocalStorageManager to Save the Category List");
             Log.d("AddCardsHandler", "Category List is: " + categoryList.getCategories());
@@ -92,7 +89,6 @@ public class AddCardsHandler implements Runnable {
             if(!inputIsEmpty()) {
                 ((AddCardsActivity) this.activity).resetInput();
             }
-
 
             //this part is here temporarily just to make sure cards are loading appropriately
             CategoryList loadedList = lsMgr.loadCategoryList();
@@ -122,5 +118,3 @@ public class AddCardsHandler implements Runnable {
             });
         }
     }
-
-
