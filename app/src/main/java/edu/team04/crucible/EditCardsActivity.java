@@ -21,10 +21,10 @@ import java.util.regex.Pattern;
 public class EditCardsActivity extends AppCompatActivity {
     //These next four values are the keys that should be put into this activity's intent.
     //Index is a String for now, need to negotiate whether an Int or String.
-    private static final String index = "Index";
-    private static final String cat = "Cat";
-    private static final String ques = "Ques";
-    private static final String answ = "Answ";
+    private static  String index = "Index";
+    private static  String cat = "Cat";
+    private static  String ques = "Ques";
+    private static  String answ = "Answ";
 
     private final EditText category_field = findViewById( R.id.editCardTextCategory);
     private final EditText question_field = findViewById( R.id.editCardTextQuestion);

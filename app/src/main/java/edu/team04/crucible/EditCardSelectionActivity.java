@@ -3,12 +3,18 @@ package edu.team04.crucible;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * This Activity allows the user to edit an already existing card category.
@@ -16,6 +22,9 @@ import java.util.List;
 public class EditCardSelectionActivity extends AppCompatActivity {
     Gson gson = new Gson();
     CategoryList categoryList;
+    ArrayList<Card> cardList;
+    RecyclerView rvEditItem;
+    CardView cvEditItem;
 
     // TODO: Go to EditCardActivity if Edit button is pressed
     // TODO: Add Category to local storage file if add button is clicked
@@ -25,9 +34,24 @@ public class EditCardSelectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_category);
+        new Thread(new TestData(getApplicationContext())).start();
+
         categoryList = new LocalStorageManager(this).loadCategoryList();
+        cardList = makeCardList();
+
+        rvEditItem = (RecyclerView) findViewById(R.id.categoryRecycler);
+        rvEditItem.setHasFixedSize(true);
+        rvEditItem.setHasFixedSize(true);
+
+
+        rvEditItem.addItemDecoration( new DividerItemDecoration(rvEditItem.getContext(), DividerItemDecoration.VERTICAL));
+
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
+        rvEditItem.setLayoutManager(manager);
+
+        EditSelectionAdapter adapter = new EditSelectionAdapter(this,cardList);
+        rvEditItem.setAdapter(adapter);
     }
 
     /**
@@ -74,5 +98,20 @@ public class EditCardSelectionActivity extends AppCompatActivity {
         //TODO: delete card on the same line as trash icon from Category,
         // save edited to local storage,
         // likely will need to reload activity after change
+    }
+
+    public ArrayList<Card> makeCardList() {
+        ArrayList<Card> cards = new ArrayList<>();
+        if(categoryList != null) {
+            for (Category category : this.categoryList.getCategories()) {
+                for (Card card : category.getCards()) {
+                    cards.add(card);
+                }
+            }
+        }
+        else{
+            cards = null;
+        }
+        return cardList;
     }
 }
