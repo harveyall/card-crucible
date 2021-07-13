@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         TestData test = new TestData(this);
         new Thread(test, "TestCategoryList").start();
-        scheduleNotification(getNotification("It's Study time!"), 20000);
+        //Notification is set at 20 seconds from entering the Main Activity.
+        int delay = 20000;
+        scheduleNotification(getNotification("It's Study time!"), delay);
     }
 
     /**
@@ -64,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(cardSelectionActivity);
     }
 
+    /**
+     * This method schedules the Study Reminder notification to happen a certain time from the user
+     * entering the Main Activity.
+     * @param notification
+     * @param delay
+     */
     private void scheduleNotification(Notification notification, int delay) {
         Intent notificationIntent = new Intent(this, NotificationPublisher.class);
         notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
@@ -74,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         assert alarmManager != null;
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
     }
+
+    /** This method builds the notification configuration (icon, vibration, LED pattern, sound).
+     * @param content
+     * @return
+     */
     private Notification getNotification(String content) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, default_notification_channel_id);
         builder.setContentTitle("Card Crucible");
