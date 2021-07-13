@@ -1,7 +1,6 @@
 package edu.team04.crucible;
 
 import android.content.BroadcastReceiver;
-
 import android.app.Notification ;
 import android.app.NotificationChannel ;
 import android.app.NotificationManager ;
@@ -9,6 +8,9 @@ import android.content.Context ;
 import android.content.Intent ;
 import static edu.team04.crucible.MainActivity.NOTIFICATION_CHANNEL_ID;
 
+/**
+ * This class handles the notification channel (settings associated to a notification).
+ */
 public class NotificationPublisher extends BroadcastReceiver {
     public static String NOTIFICATION_ID = "notification-id";
     public static String NOTIFICATION = "notification";
