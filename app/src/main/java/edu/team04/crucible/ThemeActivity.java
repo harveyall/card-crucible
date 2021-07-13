@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ThemeActivity extends AppCompatActivity {
     private final static int THEME_DEFAULT = 1;
     private final static int THEME_BLUE = 2;
-    private final static int THEME_RED = 3;
+    private final static int THEME_ORANGE = 3;
 
 
     @Override
@@ -21,7 +21,7 @@ public class ThemeActivity extends AppCompatActivity {
             setTheme(R.style.AppTheme_Default);
         }else if(SharedPreferenceManager.getTheme(getApplicationContext()) == THEME_BLUE){
             setTheme(R.style.AppTheme_Blue);
-        } else if(SharedPreferenceManager.getTheme(getApplicationContext()) == THEME_RED){
+        } else if(SharedPreferenceManager.getTheme(getApplicationContext()) == THEME_ORANGE){
             setTheme(R.style.AppTheme_Orange);
         }
     }
@@ -29,8 +29,8 @@ public class ThemeActivity extends AppCompatActivity {
         return THEME_BLUE;
     }
 
-    public static int getThemeRed() {
-        return THEME_RED;
+    public static int getThemeOrange() {
+        return THEME_ORANGE;
     }
 
     public static int getThemeDefault() {

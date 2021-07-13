@@ -15,7 +15,7 @@ public class ThemeHandler {
             this.activity.setTheme(R.style.AppTheme_Default);
         }else if(SharedPreferenceManager.getTheme(this.context) == ThemeActivity.getThemeBlue()){
             this.activity.setTheme(R.style.AppTheme_Blue);
-        } else if(SharedPreferenceManager.getTheme(this.context) == ThemeActivity.getThemeRed()){
+        } else if(SharedPreferenceManager.getTheme(this.context) == ThemeActivity.getThemeOrange()){
             this.activity.setTheme(R.style.AppTheme_Orange);
         }
     }
