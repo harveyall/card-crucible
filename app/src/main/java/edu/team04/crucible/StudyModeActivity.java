@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +22,7 @@ public class StudyModeActivity extends AppCompatActivity {
     private boolean back_card_visible = false;
     private boolean prev_button_visible = true;
     private boolean next_button_visible = true;
+    int i = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +43,15 @@ public class StudyModeActivity extends AppCompatActivity {
         Log.d("StudyModeActivity", "Calling StudyModeHandler on a background thread");
         thread1.start();
 
-
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
 
+        TextView categoryText = (TextView)findViewById(R.id.category_text);
         TextView frontCard = (TextView)findViewById(R.id.card_front);
         TextView backCard = (TextView)findViewById(R.id.card_back);
 
         backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
 
+        categoryText.setText("Category!");
         frontCard.setText("Front");
         backCard.setText("Back");
 

@@ -29,9 +29,7 @@ public class Card extends Selectable {
     }
 
     /** Returns the question for this Card*/
-    public String getQuestion() {
-        return question;
-    }
+    public String getQuestion() { return question; }
 
     /** Sets the question of this Card to a new string value*/
     public void setQuestion(String question) {
