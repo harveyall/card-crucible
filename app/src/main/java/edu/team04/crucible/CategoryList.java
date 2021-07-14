@@ -41,6 +41,18 @@ public class CategoryList {
         return this.categories.get(index);
     }
 
+
+    /** Return index of a specified category if it exists, else return -1
+     * @param category
+     * */
+    public int getCategoryIndex(Category category){
+        for(int i = 0; i < this.categories.size(); i++){
+            if(categories.get(i).getName().equals(category.getName())){
+                return i;
+            }
+        }
+        return -1;
+    }
     public void deleteCategory(String categoryName){
         for(Category category : this.categories){
             if(category.getName().equals(categoryName)){

@@ -43,6 +43,17 @@ public class Category extends Selectable {
         return this.cards.get(index);
     }
 
+    /** Return index of a specified card if it exists, else return -1*/
+    public int getCardIndex(Card card){
+        for(int i = 0; i < this.cards.size(); i++){
+            if(cards.get(i).getQuestion().equals(card.getQuestion()) &&
+                    cards.get(i).getAnswer().equals(card.getAnswer())){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     /** Replace an card with it's edited version using the index of the original card
      * @param oldCardIndex
      * @param editedCard
