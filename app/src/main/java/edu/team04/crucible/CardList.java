@@ -94,4 +94,8 @@ public class CardList {
                 "cards=" + cards +
                 '}';
     }
+/*added rh*/
+    public int size() {
+        return 0;
+    }
 }

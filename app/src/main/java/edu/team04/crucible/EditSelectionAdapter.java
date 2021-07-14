@@ -1,6 +1,8 @@
 package edu.team04.crucible;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,58 +14,72 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class EditSelectionAdapter extends RecyclerView.Adapter<EditSelectionAdapter.ViewHolder> {
+public class EditSelectionAdapter extends
+        RecyclerView.Adapter<EditSelectionAdapter.ViewHolder> {
     private Context context;
     private CardList cardList;
 
-    public EditSelectionAdapter(Context context, CardList cardList) {
+
+    public EditSelectionAdapter(CardList cardList) {
         this.context = context;
         this.cardList = cardList;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-          public CardView cv_editableItem;
-          public Button editBtn;
-          public Button trashBtn;
-          public TextView categoryText;
-          public EditText multiLine;
+        public CardView cv_editableItem;
+        public Button editBtn;
+        public Button deleteBtn;
+        public TextView categoryText;
+        public TextView questionText;
+        public TextView answerText;
 
-        public ViewHolder(View view) {
-            super(view);
+        public ViewHolder(@NonNull @NotNull View itemView) {
+            super(itemView);
+            cv_editableItem = (CardView) itemView.findViewById(R.id.cv_editableItem);
+            editBtn = (Button) itemView.findViewById(R.id.edit_button);
+            deleteBtn = (Button) itemView.findViewById(R.id.trash_button);
+            categoryText = (TextView) itemView.findViewById(R.id.textView_category);
+            questionText = (TextView) itemView.findViewById(R.id.textView_question);
+            answerText = (TextView) itemView.findViewById(R.id.textView_answer);
         }
-    }
-    public void ViewHolder(@NonNull View itemView) {
-        //super(itemView);
-        Button editBtn = (Button) itemView.findViewById(R.id.edit_button);
-        Button deletBin = (Button) itemView.findViewById(R.id.trash_button);
-        TextView categoryText = (TextView) itemView.findViewById(R.id.category_text);
-        EditText multiline = (EditText) itemView.findViewById(R.id.MultiLine);
-
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
+    public EditSelectionAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.edit_category, parent, false);
+        View view = inflater.inflate(R.layout.edit_category_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  EditSelectionAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull EditSelectionAdapter.ViewHolder holder, int position) {
         Card card = cardList.getCards().get(position);
         holder.categoryText.setText("Category: " + card.getCategory());
-        holder.multiLine.setText("Q:" + card.getQuestion() +
-                "A:" + card.getAnswer());
+        holder.questionText.setText("Question: " + card.getQuestion());
+        holder.answerText.setText("Answer: " + card.getAnswer());
+        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent editCardActivity = new Intent(context, EditCardsActivity.class);
+//                editCardActivity.putExtra("CARD", card);
+                editCardActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivities(new Intent[]{editCardActivity});
+
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return cardList.size();
     }
 
 

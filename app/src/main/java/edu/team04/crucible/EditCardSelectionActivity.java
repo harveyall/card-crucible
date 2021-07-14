@@ -35,22 +35,24 @@ public class EditCardSelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_category);
-        new Thread(new TestData(getApplicationContext())).start();
+       new Thread(new TestData(getApplicationContext())).start();
+        RecyclerView rvEditItem = (RecyclerView) findViewById(R.id.rvEditItem);
 
         categoryList = new LocalStorageManager(this).loadCategoryList();
         cardList = new CardList(categoryList);
 
-        rvEditItem = (RecyclerView) findViewById(R.id.categoryRecycler);
+        /* rvEditItem = (RecyclerView) findViewById(R.id.rvEditItem); */
         rvEditItem.setHasFixedSize(true);
+        cvEditItem = (CardView) findViewById(R.id.cv_editableItem);
         rvEditItem.setHasFixedSize(true);
 
 
         rvEditItem.addItemDecoration( new DividerItemDecoration(rvEditItem.getContext(), DividerItemDecoration.VERTICAL));
-
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         rvEditItem.setLayoutManager(manager);
-
-        EditSelectionAdapter adapter = new EditSelectionAdapter(this,cardList);
+        /* Create adapter passing in the sample user data */
+        EditSelectionAdapter adapter = new EditSelectionAdapter(cardList);
+        /* Attach the adapter to the recyclerview to populate items */
         rvEditItem.setAdapter(adapter);
     }
 
