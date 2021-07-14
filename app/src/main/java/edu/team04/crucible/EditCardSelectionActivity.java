@@ -2,6 +2,7 @@ package edu.team04.crucible;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -36,20 +37,22 @@ public class EditCardSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_category);
        new Thread(new TestData(getApplicationContext())).start();
-        RecyclerView rvEditItem = (RecyclerView) findViewById(R.id.rvEditItem);
+
 
         categoryList = new LocalStorageManager(this).loadCategoryList();
         cardList = new CardList(categoryList);
+        Log.d("EditSelectionActivity", cardList.toString());
 
-        /* rvEditItem = (RecyclerView) findViewById(R.id.rvEditItem); */
+        rvEditItem = (RecyclerView) findViewById(R.id.rvEditItem);
         rvEditItem.setHasFixedSize(true);
         cvEditItem = (CardView) findViewById(R.id.cv_editableItem);
-        rvEditItem.setHasFixedSize(true);
 
 
         rvEditItem.addItemDecoration( new DividerItemDecoration(rvEditItem.getContext(), DividerItemDecoration.VERTICAL));
+
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         rvEditItem.setLayoutManager(manager);
+
         /* Create adapter passing in the sample user data */
         EditSelectionAdapter adapter = new EditSelectionAdapter(cardList);
         /* Attach the adapter to the recyclerview to populate items */

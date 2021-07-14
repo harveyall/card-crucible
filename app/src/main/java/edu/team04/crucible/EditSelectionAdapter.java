@@ -17,17 +17,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class EditSelectionAdapter extends
         RecyclerView.Adapter<EditSelectionAdapter.ViewHolder> {
     private Context context;
-    private CardList cardList;
+//    private CardList cardList;
+    private List<Card> cards;
 
 
     public EditSelectionAdapter(CardList cardList) {
         this.context = context;
-        this.cardList = cardList;
+        this.cards = cardList.getCards();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -41,8 +43,8 @@ public class EditSelectionAdapter extends
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             cv_editableItem = (CardView) itemView.findViewById(R.id.cv_editableItem);
-            editBtn = (Button) itemView.findViewById(R.id.edit_button);
-            deleteBtn = (Button) itemView.findViewById(R.id.trash_button);
+            editBtn = (Button) itemView.findViewById(R.id.button_editCard);
+            deleteBtn = (Button) itemView.findViewById(R.id.button_deleteCard);
             categoryText = (TextView) itemView.findViewById(R.id.textView_category);
             questionText = (TextView) itemView.findViewById(R.id.textView_question);
             answerText = (TextView) itemView.findViewById(R.id.textView_answer);
@@ -60,7 +62,7 @@ public class EditSelectionAdapter extends
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull EditSelectionAdapter.ViewHolder holder, int position) {
-        Card card = cardList.getCards().get(position);
+        Card card = cards.get(position);
         holder.categoryText.setText("Category: " + card.getCategory());
         holder.questionText.setText("Question: " + card.getQuestion());
         holder.answerText.setText("Answer: " + card.getAnswer());
@@ -79,7 +81,11 @@ public class EditSelectionAdapter extends
 
     @Override
     public int getItemCount() {
-        return cardList.size();
+        if (cards != null){
+            return cards.size();
+        }
+
+        return 0;
     }
 
 
