@@ -6,32 +6,44 @@ public class Card extends Selectable {
     private String question;
     private String answer;
 
+
+    /** Constructs a Card with a specified values for category, question, and answer
+     * @param category
+     * @param question
+     * @param answer
+     * */
     public Card(String category, String question, String answer){
         this.category = category;
         this.question = question;
         this.answer = answer;
     }
 
+    /** Returns the name of the category for this Card*/
     public String getCategory() {
         return category;
     }
 
+    /** Sets the name of the category of this Card to a new string value*/
     public void setCategory(String category) {
         this.category = category;
     }
 
+    /** Returns the question for this Card*/
     public String getQuestion() {
         return question;
     }
 
+    /** Sets the question of this Card to a new string value*/
     public void setQuestion(String question) {
         this.question = question;
     }
 
+    /** Returns the answer for this Card*/
     public String getAnswer() {
         return answer;
     }
 
+    /** Sets the answer of this Card to a new string value*/
     public void setAnswer(String answer) {
         this.answer = answer;
     }
@@ -49,6 +61,7 @@ public class Card extends Selectable {
         }
     }
 
+    /** Return a string representation of this Card*/
     @Override
     public String toString() {
         return String.format("Category: %s%nQuestion: %s%nAnswer: %s%n",
