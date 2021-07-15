@@ -35,6 +35,7 @@ public class EditCardsActivity extends AppCompatActivity {
         question_field = findViewById( R.id.editCardTextQuestion);
         answer_field = findViewById( R.id.editCardTextAnswer);
 
+        Card card = (Card) getIntent().getSerializableExtra("CARD");
         category_field.setText(cat, TextView.BufferType.NORMAL);
         question_field.setText(ques, TextView.BufferType.EDITABLE);
         answer_field.setText(answ, TextView.BufferType.EDITABLE);
