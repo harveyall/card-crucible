@@ -22,22 +22,22 @@ public class EditCardsActivity extends AppCompatActivity {
     //These next four values are the keys that should be put into this activity's intent.
     //Index is a String for now, need to negotiate whether an Int or String.
     private static  String index = "Index";
-    private static  String cat = "Cat";
-    private static  String ques = "Ques";
-    private static  String answ = "Answ";
-
-    private final EditText category_field = findViewById( R.id.editCardTextCategory);
-    private final EditText question_field = findViewById( R.id.editCardTextQuestion);
-    private final EditText answer_field = findViewById( R.id.editCardTextAnswer);
+    private EditText category_field;
+    private EditText question_field;
+    private EditText answer_field;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_cards);
-           category_field.setText(cat, TextView.BufferType.NORMAL);
-           question_field.setText(ques, TextView.BufferType.EDITABLE);
-           answer_field.setText(answ, TextView.BufferType.EDITABLE);
+        category_field = findViewById( R.id.editCardTextCategory);
+        question_field = findViewById( R.id.editCardTextQuestion);
+        answer_field = findViewById( R.id.editCardTextAnswer);
+
+        category_field.setText(cat, TextView.BufferType.NORMAL);
+        question_field.setText(ques, TextView.BufferType.EDITABLE);
+        answer_field.setText(answ, TextView.BufferType.EDITABLE);
     }
     /**
      * This button leads back to the Settings Activity.
