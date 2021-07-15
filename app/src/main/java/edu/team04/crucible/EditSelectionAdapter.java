@@ -3,6 +3,7 @@ package edu.team04.crucible;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,9 +94,9 @@ public class EditSelectionAdapter extends
                 notifyItemRemoved(cardIndex);
 
                 //remove card from internally stored categoryList
-                Category currentCategory = categoryList.getCategory(card.getCategory());
-                currentCategory.removeCard(card);
-                lsm.saveCategoryList(categoryList);
+                Log.d("EditSelectionAdapter", "Beginning removeCardHandler thread");
+                Thread removeCardInHandler = new Thread(new EditCardSelectionHandler(context, categoryList, card));
+                removeCardInHandler.start();
             }
         });
     }
