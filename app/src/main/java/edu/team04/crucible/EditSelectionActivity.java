@@ -24,11 +24,6 @@ public class EditSelectionActivity extends AppCompatActivity {
     RecyclerView rvEditItem;
     CardView cvEditItem;
 
-    // TODO: Go to EditCardActivity if Edit button is pressed
-    // TODO: Add Category to local storage file if add button is clicked
-
-    // TODO: Take care of all request from this class using EditCategoryHandler
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
