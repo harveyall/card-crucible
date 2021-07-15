@@ -19,12 +19,11 @@ import java.util.regex.Pattern;
  * saving the changes on top of the same card through its handler.
  */
 public class EditCardsActivity extends AppCompatActivity {
-    //These next four values are the keys that should be put into this activity's intent.
-    //Index is a String for now, need to negotiate whether an Int or String.
-    private static  String index = "Index";
+
     private EditText category_field;
     private EditText question_field;
     private EditText answer_field;
+    Card card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,8 @@ public class EditCardsActivity extends AppCompatActivity {
         question_field = findViewById( R.id.editCardTextQuestion);
         answer_field = findViewById( R.id.editCardTextAnswer);
 
-        Card card = (Card) getIntent().getSerializableExtra("CARD");
+        card = (Card) getIntent().getSerializableExtra("CARD");
+
         category_field.setText(card.getCategory(), TextView.BufferType.NORMAL);
         question_field.setText(card.getQuestion(), TextView.BufferType.EDITABLE);
         answer_field.setText(card.getAnswer(), TextView.BufferType.EDITABLE);
@@ -109,7 +109,7 @@ public class EditCardsActivity extends AppCompatActivity {
             }
         });
         //Calling EditCardsHandler to save the now edited card.
-        EditCardsHandler editCardsHandler = new EditCardsHandler(this, index, category.getText().toString(), question.getText().toString(), answer.getText().toString());
+        EditCardsHandler editCardsHandler = new EditCardsHandler(this, card, category.getText().toString(), question.getText().toString(), answer.getText().toString());
         Log.d("EditCardsActivity", "Context is: " + this);
         Log.d("EditCardsActivity", "Calling EditCardsHandler on a background thread");
         new Thread(editCardsHandler).start();

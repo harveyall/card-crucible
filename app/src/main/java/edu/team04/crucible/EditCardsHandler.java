@@ -11,15 +11,16 @@ import android.widget.Toast;
 public class EditCardsHandler implements Runnable {
     Activity activity;
     Context context;
-    String index;
     String category;
     String question;
     String answer;
+    Card originalCard;
+    int index;
 
-    public EditCardsHandler(Context context, String index, String category, String question, String answer) {
+    public EditCardsHandler(Context context, Card originalCard, String category, String question, String answer) {
         this.context = context;
-        Log.d("EditCardsHandler", "Context is: " + this.context);
-        this.index = index;
+        this.originalCard = originalCard;
+
         this.category = category;
         this.question = question;
         this.answer = answer;
@@ -37,7 +38,8 @@ public class EditCardsHandler implements Runnable {
         Log.d("EditCardsHandler", "Card Question: " + this.question + " Card Answer: " + this.answer);
         CategoryList categoryList = lsMgr.loadCategoryList();
         Category cardCategory = categoryList.getCategory(this.category);
-        cardCategory.replaceCard(Integer.parseInt(index), editedCard);
+        index = cardCategory.getCardIndex(originalCard);
+        cardCategory.replaceCard(index, editedCard);
         Log.d("AddCardsHandler", "Calling LocalStorageManager to Save the Category List");
         Log.d("AddCardsHandler", "Category List is: " + categoryList.getCategories());
         lsMgr.saveCategoryList(categoryList);
