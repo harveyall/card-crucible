@@ -22,7 +22,7 @@
                 android:id="@+id/button_editCard"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="20dp"
                 android:text="Button"
                 app:backgroundTint="@color/white"
                 app:icon="@android:drawable/ic_menu_edit"
