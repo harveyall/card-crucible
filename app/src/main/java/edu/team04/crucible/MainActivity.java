@@ -26,17 +26,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new ThemeHandler(this, getApplicationContext()).updateTheme();
-        //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.study_mode);
-        //((android.widget.Button)findViewById(R.id.button_begin)).setText(R.string.game_mode);
         setContentView(R.layout.activity_main);
-
         TestData test = new TestData(this);
         new Thread(test, "TestCategoryList").start();
-        //Notification is set at 20 seconds from entering the Main Activity.
-        int delay = 20000;
-        scheduleNotification(getNotification("It's Study time!"), delay);
     }
 
+    /**
+     * When leaving the activity, a notification is scheduled to happen one minute later.
+     */
+    @Override
+    protected void onStop() {
+        // call the superclass method first
+        super.onStop();
+        //Notification is set at 60 seconds from entering the Main Activity.
+        int delay = 60000;
+        scheduleNotification(getNotification("It's Study time!"), delay);
+    }
     /**
      * Button to Settings Activity.
      * @param button Settings Activity button
