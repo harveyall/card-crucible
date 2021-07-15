@@ -21,8 +21,6 @@ import java.util.ArrayList;
  * This Activity allows the user to edit an already existing card category.
  */
 public class EditCardSelectionActivity extends AppCompatActivity {
-    CategoryList categoryList;
-    CardList cardList;
     RecyclerView rvEditItem;
     CardView cvEditItem;
 
@@ -38,10 +36,6 @@ public class EditCardSelectionActivity extends AppCompatActivity {
        new Thread(new TestData(getApplicationContext())).start();
 
 
-        categoryList = new LocalStorageManager(this).loadCategoryList();
-        cardList = new CardList(categoryList);
-
-
         rvEditItem = (RecyclerView) findViewById(R.id.rvEditItem);
         rvEditItem.setHasFixedSize(true);
         cvEditItem = (CardView) findViewById(R.id.cv_editableItem);
@@ -53,7 +47,7 @@ public class EditCardSelectionActivity extends AppCompatActivity {
         rvEditItem.setLayoutManager(manager);
 
         /* Create adapter passing in the sample user data */
-        EditSelectionAdapter adapter = new EditSelectionAdapter(getApplicationContext(), cardList);
+        EditSelectionAdapter adapter = new EditSelectionAdapter(getApplicationContext());
         /* Attach the adapter to the recyclerview to populate items */
         rvEditItem.setAdapter(adapter);
     }

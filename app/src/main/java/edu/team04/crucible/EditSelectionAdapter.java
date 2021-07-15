@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -23,13 +24,14 @@ import java.util.Objects;
 public class EditSelectionAdapter extends
         RecyclerView.Adapter<EditSelectionAdapter.ViewHolder> {
     private Context context;
-//    private CardList cardList;
+    private CategoryList categoryList;
     private List<Card> cards;
 
 
-    public EditSelectionAdapter(Context context, CardList cardList) {
+    public EditSelectionAdapter(Context context) {
         this.context = context;
-        this.cards = cardList.getCards();
+        this.categoryList = new LocalStorageManager(context).loadCategoryList();
+        this.cards = new CardList(categoryList).getCards();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -73,6 +75,24 @@ public class EditSelectionAdapter extends
                 editCardActivity.putExtra("CARD", card);
                 editCardActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(editCardActivity);
+            }
+        });
+
+        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "deleted: " + card.toString(), Toast.LENGTH_LONG).show();
+//               Category currentCategory = categoryList.getCategory(card.getCategoryName());
+//               for(int i = 0; i <  currentCategory.getCards().size(); currentCategory.getCards()){
+//                   if(card.isEqual(currentCategory.getCard(i))){
+//                       currentCategory.removeCard(i);
+//                       break;
+//                   }
+//               }
+//               lsm.saveCategoryList(categoryList);
+//                Log.d("EditSelectionActivity", "position: " + position);
+                cards.remove(position);
+                notifyItemRemoved(position);
             }
         });
     }

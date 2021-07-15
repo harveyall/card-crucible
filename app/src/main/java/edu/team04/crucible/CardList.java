@@ -26,9 +26,7 @@ public class CardList {
         if(categoryList != null) {
             cards = new ArrayList<>();
             for (Category category : categoryList.getCategories()) {
-                for (Card card : category.getCards()) {
-                    cards.add(card);
-                }
+                cards.addAll(category.getCards());
             }
         }
         else{
@@ -84,6 +82,18 @@ public class CardList {
      */
     public void deleteCard(int index){
         this.cards.remove(index);
+    }
+
+    /** Return index of a specified card if it exists, else return -1
+     * @param card
+     * */
+    public int getCardIndex(Card card){
+        for(int i = 0; i < this.cards.size(); i++){
+            if(cards.get(i).equals(card)){
+                return i;
+            }
+        }
+        return -1;
     }
 
 
