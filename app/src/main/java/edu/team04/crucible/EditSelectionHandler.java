@@ -6,12 +6,12 @@ package edu.team04.crucible;
 import android.content.Context;
 import android.util.Log;
 
-public class EditCardSelectionHandler implements Runnable{
+public class EditSelectionHandler implements Runnable{
     //This class takes care of any requests made by the EditCategoryAdapter
     Context context;
     CategoryList categoryList;
     Card cardToDelete;
-    public EditCardSelectionHandler(Context context, CategoryList savedCategoryList, Card cardToDelete){
+    public EditSelectionHandler(Context context, CategoryList savedCategoryList, Card cardToDelete){
         this.context = context;
         this.categoryList = savedCategoryList;
         this.cardToDelete = cardToDelete;

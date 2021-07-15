@@ -2,13 +2,11 @@ package edu.team04.crucible;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class EditSelectionAdapter extends
         RecyclerView.Adapter<EditSelectionAdapter.ViewHolder> {
@@ -95,7 +91,7 @@ public class EditSelectionAdapter extends
 
                 //remove card from internally stored categoryList
                 Log.d("EditSelectionAdapter", "Beginning removeCardHandler thread");
-                Thread removeCardInHandler = new Thread(new EditCardSelectionHandler(context, categoryList, card));
+                Thread removeCardInHandler = new Thread(new EditSelectionHandler(context, categoryList, card));
                 removeCardInHandler.start();
             }
         });
