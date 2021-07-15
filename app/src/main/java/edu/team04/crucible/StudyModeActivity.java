@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
+import java.util.List;
+
 
 /**
  * Study Mode Activity, iterate through cards, flip them over to show the other side with the answer.
@@ -20,9 +22,8 @@ public class StudyModeActivity extends AppCompatActivity {
     Gson gson = new Gson();
     CardList cardList;
     private boolean back_card_visible = false;
-    private boolean prev_button_visible = true;
-    private boolean next_button_visible = true;
-    int i = 1;
+    int i = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +46,27 @@ public class StudyModeActivity extends AppCompatActivity {
 
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
 
+        List<Card> cards = cardList.getCards();
+
+        int size = cards.size();
+        Card card = cards.get(i);
+
+        String category = card.getCategory();
+        String question = card.getQuestion();
+        String answer = card.getAnswer();
+
         TextView categoryText = (TextView)findViewById(R.id.category_text);
         TextView frontCard = (TextView)findViewById(R.id.card_front);
         TextView backCard = (TextView)findViewById(R.id.card_back);
 
         backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
 
-        categoryText.setText("Category!");
-        frontCard.setText("Front");
-        backCard.setText("Back");
+        categoryText.setText(category);
+        frontCard.setText(question);
+        backCard.setText(answer);
 
         View btn_prev = findViewById(R.id.prev_btn);
-        btn_prev.setVisibility(View.VISIBLE);
+        btn_prev.setVisibility(View.INVISIBLE);
 
         View btn_next = findViewById(R.id.next_btn);
         btn_next.setVisibility(View.VISIBLE);
@@ -84,22 +94,9 @@ public class StudyModeActivity extends AppCompatActivity {
      */
     public void prev(View button) {
         TextView backCard = (TextView)findViewById(R.id.card_back);
-        View btn_prev = findViewById(R.id.prev_btn);
-
-        if(prev_button_visible) { //Needs to be for when there is no previous card
-            btn_prev.setVisibility(View.GONE);
-            prev_button_visible = false;
-        }
-        else {
-            btn_prev.setVisibility(View.VISIBLE);
-            prev_button_visible = true;
-        }
-
-
-        if(back_card_visible) {
-            backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
-            back_card_visible = false;
-        }
+        i--;
+        updateCard();
+        updateButton();
     }
 
     /**
@@ -108,20 +105,53 @@ public class StudyModeActivity extends AppCompatActivity {
      */
     public void next(View button) {
         TextView backCard = (TextView)findViewById(R.id.card_back);
-        View btn_next = findViewById(R.id.next_btn);
+        i++;
+        updateCard();
+        updateButton();
+    }
 
-        if(next_button_visible) { //Needs to be for when there is no next card
-            btn_next.setVisibility(View.GONE);
-            next_button_visible = false;
-        }
-        else {
+    public void updateCard(){
+        List<Card> cards = cardList.getCards();
+
+        Card card = cards.get(i);
+
+        String category = card.getCategory();
+        String question = card.getQuestion();
+        String answer = card.getAnswer();
+
+        TextView categoryText = (TextView)findViewById(R.id.category_text);
+        TextView frontCard = (TextView)findViewById(R.id.card_front);
+        TextView backCard = (TextView)findViewById(R.id.card_back);
+
+        categoryText.setText(category);
+        frontCard.setText(question);
+        backCard.setText(answer);
+    }
+
+    public void updateButton(){
+        TextView backCard = (TextView)findViewById(R.id.card_back);
+        View btn_next = findViewById(R.id.next_btn);
+        View btn_prev = findViewById(R.id.prev_btn);
+
+        List<Card> cards = cardList.getCards();
+        int size = cards.size();
+
+        if(i < size - 1) { //Needs to be for when there is no next card
             btn_next.setVisibility(View.VISIBLE);
-            next_button_visible = true;
+        }
+        else{
+            btn_next.setVisibility(View.INVISIBLE);
+        }
+
+        if(i > 0) { //Needs to be for when there is no previous card
+            btn_prev.setVisibility(View.VISIBLE);
+        }
+        else{
+            btn_prev.setVisibility(View.INVISIBLE);
         }
 
         if(back_card_visible) {
             backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
-            back_card_visible = false;
         }
     }
 
