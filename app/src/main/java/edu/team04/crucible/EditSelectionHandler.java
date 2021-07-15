@@ -20,6 +20,9 @@ public class EditSelectionHandler implements Runnable{
     public void run() {
         Category currentCategory = this.categoryList.getCategory(this.cardToDelete.getCategory());
         currentCategory.removeCard(cardToDelete);
+        if (currentCategory.getCards().isEmpty()){
+            categoryList.removeCategory(currentCategory);
+        }
         new LocalStorageManager(this.context).saveCategoryList(categoryList);
     }
 

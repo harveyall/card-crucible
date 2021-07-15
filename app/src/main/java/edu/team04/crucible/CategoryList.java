@@ -69,20 +69,16 @@ public class CategoryList {
     }
 
     /** Remove a specified category from the category list
-     * @param categoryName
+     * @param category
      * */
-    public void deleteCategory(String categoryName){
-        for(Category category : this.categories){
-            if(category.getName().equals(categoryName)){
-                this.categories.remove(category);
-            }
-        }
+    public void removeCategory(Category category){
+        this.categories.remove(category);
     }
 
     /** Remove a specified category from the category list
      * @param index
      * */
-    public void deleteCategory(int index){
+    public void removeCategory(int index){
         this.categories.remove(index);
     }
 
@@ -98,7 +94,7 @@ public class CategoryList {
     /** Remove all categories in the category list */
     public void clearData(){
         for(int i = 0; i < this.categories.size(); i++){
-            this.deleteCategory(i);
+            this.removeCategory(i);
         }
     }
     /** This method returns true if there are less than 5 categories in the categories list and false if not */
