@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,15 +41,19 @@ public class EditSelectionAdapter extends
         public CardView cv_editableItem;
         public Button editBtn;
         public Button deleteBtn;
+        public Button filterBtn;
         public TextView categoryText;
         public TextView questionText;
         public TextView answerText;
+        public EditText categoryFilter;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
+            categoryFilter = (EditText)itemView.findViewById(R.id.editTextTextCategoryFilter);
             cv_editableItem = (CardView) itemView.findViewById(R.id.cv_editableItem);
             editBtn = (Button) itemView.findViewById(R.id.button_editCard);
             deleteBtn = (Button) itemView.findViewById(R.id.button_deleteCard);
+            filterBtn = (Button) itemView.findViewById(R.id.button_cardFilter);
             categoryText = (TextView) itemView.findViewById(R.id.textView_category);
             questionText = (TextView) itemView.findViewById(R.id.textView_question);
             answerText = (TextView) itemView.findViewById(R.id.textView_answer);
@@ -93,6 +98,12 @@ public class EditSelectionAdapter extends
                 Log.d("EditSelectionAdapter", "Beginning removeCardHandler thread");
                 Thread removeCardInHandler = new Thread(new EditSelectionHandler(context, categoryList, card));
                 removeCardInHandler.start();
+            }
+        });
+        holder.filterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String categoryName = holder.categoryFilter.getText().toString();
             }
         });
     }
