@@ -94,6 +94,12 @@ public class Category extends Selectable {
         this.cards.remove(card);
     }
 
+    /** Remove a card for this category's list of cards
+     * @param index
+     * */
+    public void removeCard(int index){
+        this.cards.remove(index);
+    }
 
     public boolean containsCard(Card card){
         for(Card cardItem : this.cards) {

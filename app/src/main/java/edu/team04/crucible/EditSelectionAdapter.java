@@ -23,15 +23,20 @@ import java.util.Objects;
 
 public class EditSelectionAdapter extends
         RecyclerView.Adapter<EditSelectionAdapter.ViewHolder> {
+    private final LocalStorageManager lsm;
     private Context context;
     private CategoryList categoryList;
+    private CardList cardList;
     private List<Card> cards;
+    private int cardIndex;
 
 
     public EditSelectionAdapter(Context context) {
         this.context = context;
-        this.categoryList = new LocalStorageManager(context).loadCategoryList();
-        this.cards = new CardList(categoryList).getCards();
+        this.lsm = new LocalStorageManager(context);
+        this.categoryList = lsm.loadCategoryList();
+        this.cardList = new CardList(categoryList);
+        this.cards = cardList.getCards();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -82,17 +87,15 @@ public class EditSelectionAdapter extends
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "deleted: " + card.toString(), Toast.LENGTH_LONG).show();
-//               Category currentCategory = categoryList.getCategory(card.getCategoryName());
-//               for(int i = 0; i <  currentCategory.getCards().size(); currentCategory.getCards()){
-//                   if(card.isEqual(currentCategory.getCard(i))){
-//                       currentCategory.removeCard(i);
-//                       break;
-//                   }
-//               }
-//               lsm.saveCategoryList(categoryList);
-//                Log.d("EditSelectionActivity", "position: " + position);
-                cards.remove(position);
-                notifyItemRemoved(position);
+                cardIndex = cardList.getCardIndex(card);
+                //remove card from recycler view
+                cards.remove(cardIndex);
+                notifyItemRemoved(cardIndex);
+
+                //remove card from internally stored categoryList
+                Category currentCategory = categoryList.getCategory(card.getCategory());
+                currentCategory.removeCard(cardIndex);
+                lsm.saveCategoryList(categoryList);
             }
         });
     }
