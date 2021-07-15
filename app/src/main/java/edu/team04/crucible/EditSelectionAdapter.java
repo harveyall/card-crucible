@@ -94,7 +94,7 @@ public class EditSelectionAdapter extends
 
                 //remove card from internally stored categoryList
                 Category currentCategory = categoryList.getCategory(card.getCategory());
-                currentCategory.removeCard(cardIndex);
+                currentCategory.removeCard(card);
                 lsm.saveCategoryList(categoryList);
             }
         });
