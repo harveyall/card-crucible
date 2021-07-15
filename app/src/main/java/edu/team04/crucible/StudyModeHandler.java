@@ -15,7 +15,6 @@ public class StudyModeHandler implements Runnable{
 
     @Override
     public void run() {
-
     }
     //This class takes care of any requests by the StudyModeHelper
 
