@@ -41,7 +41,7 @@ public class EditCardSelectionActivity extends AppCompatActivity {
 
         categoryList = new LocalStorageManager(this).loadCategoryList();
         cardList = new CardList(categoryList);
-        Log.d("EditSelectionActivity", cardList.toString());
+
 
         rvEditItem = (RecyclerView) findViewById(R.id.rvEditItem);
         rvEditItem.setHasFixedSize(true);

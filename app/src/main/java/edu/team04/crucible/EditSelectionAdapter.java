@@ -70,13 +70,11 @@ public class EditSelectionAdapter extends
             @Override
             public void onClick(View v) {
                 Intent editCardActivity = new Intent(context, EditCardsActivity.class);
-//                editCardActivity.putExtra("CARD", card);
+                editCardActivity.putExtra("CARD", card);
                 editCardActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivities(new Intent[]{editCardActivity});
-
+                context.startActivity(editCardActivity);
             }
         });
-
     }
 
     @Override
@@ -84,9 +82,6 @@ public class EditSelectionAdapter extends
         if (cards != null){
             return cards.size();
         }
-
         return 0;
     }
-
-
 }

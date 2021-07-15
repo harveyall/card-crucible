@@ -1,6 +1,8 @@
 package edu.team04.crucible;
 
-public class Card extends Selectable {
+import java.io.Serializable;
+
+public class Card extends Selectable implements Serializable {
 
     private String category;
     private String question;
