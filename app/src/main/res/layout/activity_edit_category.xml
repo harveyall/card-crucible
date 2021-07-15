@@ -51,12 +51,11 @@
         android:id="@+id/rvEditItem"
         android:layout_width="348dp"
         android:layout_height="427dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_cardFilter" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextCategoryFilter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
