@@ -84,7 +84,7 @@ public class EditSelectionAdapter extends
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "deleted: " + card.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, String.format("DELETED:%nCategory: %s%nQuestion: %s",card.getCategory(),card.getQuestion()), Toast.LENGTH_SHORT).show();
                 cardIndex = cardList.getCardIndex(card);
                 //remove card from recycler view
                 cards.remove(cardIndex);
