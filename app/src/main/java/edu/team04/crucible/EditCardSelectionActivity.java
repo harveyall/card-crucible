@@ -53,7 +53,7 @@ public class EditCardSelectionActivity extends AppCompatActivity {
         rvEditItem.setLayoutManager(manager);
 
         /* Create adapter passing in the sample user data */
-        EditSelectionAdapter adapter = new EditSelectionAdapter(cardList);
+        EditSelectionAdapter adapter = new EditSelectionAdapter(getApplicationContext(), cardList);
         /* Attach the adapter to the recyclerview to populate items */
         rvEditItem.setAdapter(adapter);
     }

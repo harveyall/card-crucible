@@ -27,7 +27,7 @@ public class EditSelectionAdapter extends
     private List<Card> cards;
 
 
-    public EditSelectionAdapter(CardList cardList) {
+    public EditSelectionAdapter(Context context, CardList cardList) {
         this.context = context;
         this.cards = cardList.getCards();
     }
