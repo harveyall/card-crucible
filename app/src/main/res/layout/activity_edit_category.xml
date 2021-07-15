@@ -5,7 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditSelectionActivity">
-
+    <EditText
+        android:id="@+id/editTextTextCategoryFilter"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/EditTextCategory_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_edit_back_home" />
     <Button
         android:id="@+id/button_cardFilter"
         android:layout_width="200dp"
@@ -34,18 +45,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000" />
 
-    <EditText
-        android:id="@+id/editTextTextCategoryFilter"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="@string/EditTextCategory_hint"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_edit_back_home" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvEditItem"
