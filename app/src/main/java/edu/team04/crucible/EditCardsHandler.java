@@ -15,7 +15,6 @@ public class EditCardsHandler implements Runnable {
     String question;
     String answer;
     Card originalCard;
-    int index;
 
     public EditCardsHandler(Context context, Card originalCard, String category, String question, String answer) {
         this.context = context;
@@ -38,7 +37,7 @@ public class EditCardsHandler implements Runnable {
         Log.d("EditCardsHandler", "Card Question: " + this.question + " Card Answer: " + this.answer);
         CategoryList categoryList = lsMgr.loadCategoryList();
         Category cardCategory = categoryList.getCategory(this.category);
-        index = cardCategory.getCardIndex(originalCard);
+        int index = cardCategory.getCardIndex(originalCard);
         cardCategory.replaceCard(index, editedCard);
         Log.d("AddCardsHandler", "Calling LocalStorageManager to Save the Category List");
         Log.d("AddCardsHandler", "Category List is: " + categoryList.getCategories());

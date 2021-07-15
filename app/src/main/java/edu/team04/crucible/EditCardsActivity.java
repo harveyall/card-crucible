@@ -19,11 +19,11 @@ import java.util.regex.Pattern;
  * saving the changes on top of the same card through its handler.
  */
 public class EditCardsActivity extends AppCompatActivity {
+    Card card;
 
     private EditText category_field;
     private EditText question_field;
     private EditText answer_field;
-    Card card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class EditCardsActivity extends AppCompatActivity {
         answer_field = findViewById( R.id.editCardTextAnswer);
 
         card = (Card) getIntent().getSerializableExtra("CARD");
-
         category_field.setText(card.getCategory(), TextView.BufferType.NORMAL);
         question_field.setText(card.getQuestion(), TextView.BufferType.EDITABLE);
         answer_field.setText(card.getAnswer(), TextView.BufferType.EDITABLE);
