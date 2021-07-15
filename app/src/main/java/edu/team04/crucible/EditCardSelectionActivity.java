@@ -76,47 +76,4 @@ public class EditCardSelectionActivity extends AppCompatActivity {
      //TODO: this function will filter editable cards by categories
     }
 
-    /**
-     * This edit icon button leads to Edit Cards Activity.
-     * @param view
-     */
-    public void editSelectedCard(View view){
-
-        //TODO: get Card- this info we could hopefully get just by clicking on the edit button next to the card info
-        //temporarily hard coded
-        Card card = this.categoryList.getCategory(0).getCard(0);
-        //end of temporarily hard coded data
-
-        String json = gson.toJson(card);
-
-        Intent intent = new Intent(this, EditCardsActivity.class);
-        //TODO: putExtra with info category name, question, answer info
-        intent.putExtra("CARD_DATA", json);
-        startActivity(intent);
-    }
-
-    /**
-     * This trash icon button leads to Delete Cards Activity.
-     * @param view
-     */
-    public void deleteSelectedCard(View view){
-        //TODO: delete card on the same line as trash icon from Category,
-        // save edited to local storage,
-        // likely will need to reload activity after change
-    }
-
-//    public ArrayList<Card> makeCardList() {
-//        ArrayList<Card> cards = new ArrayList<>();
-//        if(categoryList != null) {
-//            for (Category category : this.categoryList.getCategories()) {
-//                for (Card card : category.getCards()) {
-//                    cards.add(card);
-//                }
-//            }
-//        }
-//        else{
-//            cards = null;
-//        }
-//        return cardList;
-//    }
 }
