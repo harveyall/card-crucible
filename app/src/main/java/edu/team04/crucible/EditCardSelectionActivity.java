@@ -21,7 +21,6 @@ import java.util.ArrayList;
  * This Activity allows the user to edit an already existing card category.
  */
 public class EditCardSelectionActivity extends AppCompatActivity {
-    Gson gson = new Gson();
     CategoryList categoryList;
     CardList cardList;
     RecyclerView rvEditItem;
