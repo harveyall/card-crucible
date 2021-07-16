@@ -21,8 +21,9 @@ import java.util.ArrayList;
  * This Activity allows the user to edit an already existing card category.
  */
 public class EditSelectionActivity extends AppCompatActivity {
-    RecyclerView rvEditItem;
-    CardView cvEditItem;
+    private RecyclerView rvEditItem;
+    private CardView cvEditItem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
