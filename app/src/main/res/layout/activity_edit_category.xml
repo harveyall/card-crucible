@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".EditSelectionActivity">
     <EditText
-        android:id="@+id/editTextTextCategoryFilter"
+        android:id="@+id/editTextCategoryFilter"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -17,18 +17,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_edit_back_home" />
+
     <Button
         android:id="@+id/button_cardFilter"
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:layout_marginTop="8dp"
-        android:onClick="filterCategories"
         android:text="@string/btn_filterCards"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextCategoryFilter" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCategoryFilter" />
 
     <Button
         android:id="@+id/button_edit_back_home"
