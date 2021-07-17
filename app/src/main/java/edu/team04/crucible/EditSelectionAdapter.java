@@ -110,7 +110,7 @@ public class EditSelectionAdapter extends
     public void filterCards(String categoryName) {
         //TODO: this function will filter editable cards by categories
         Category filteredCategory = categoryList.getCategory(categoryName);
-        if (!categoryName.isEmpty() || filteredCategory != null) {
+        if (!categoryName.isEmpty() && filteredCategory != null) {
             filteredCards = filteredCategory.getCards();
         } else {
             filteredCards = cards;
