@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_main);
-        TestData test = new TestData(this);
-        new Thread(test, "TestCategoryList").start();
+        //TestData test = new TestData(this);
+        //new Thread(test, "TestCategoryList").start();
     }
 
     /**
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // call the superclass method first
         super.onStop();
         //Notification is set at 60 seconds from entering the Main Activity.
-        int delay = 60000;
+        int delay = 30000;
         scheduleNotification(getNotification("It's Study time!"), delay);
     }
     /**
