@@ -152,6 +152,7 @@ public class StudyModeActivity extends AppCompatActivity {
 
         if(back_card_visible) {
             backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
+            back_card_visible = false;
         }
     }
 
