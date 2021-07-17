@@ -102,7 +102,7 @@ public class EditSelectionAdapter extends
                 Toast.makeText(context, String.format("DELETED:%nCategory: %s%nQuestion: %s",card.getCategory(),card.getQuestion()), Toast.LENGTH_SHORT).show();
                 cardIndex = cardList.getCardIndex(card);
                 //remove card from recycler view
-                filteredCards.remove(cardIndex);
+                cards.remove(cardIndex);
                 notifyItemRemoved(cardIndex);
 
                 //remove card from internally stored categoryList
