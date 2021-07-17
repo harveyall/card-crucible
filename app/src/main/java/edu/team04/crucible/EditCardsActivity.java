@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +23,7 @@ import java.util.regex.Pattern;
 public class EditCardsActivity extends AppCompatActivity {
     Card card;
 
-    private EditText category_field;
+    private TextView category_field;
     private EditText question_field;
     private EditText answer_field;
 
@@ -30,12 +32,12 @@ public class EditCardsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_cards);
-        category_field = findViewById( R.id.editCardTextCategory);
+        category_field = findViewById( R.id.textViewCardCategory);
         question_field = findViewById( R.id.editCardTextQuestion);
         answer_field = findViewById( R.id.editCardTextAnswer);
 
         card = (Card) getIntent().getSerializableExtra("CARD");
-        category_field.setText(card.getCategory(), TextView.BufferType.NORMAL);
+        category_field.setText(card.getCategory());
         question_field.setText(card.getQuestion(), TextView.BufferType.EDITABLE);
         answer_field.setText(card.getAnswer(), TextView.BufferType.EDITABLE);
     }
@@ -55,12 +57,9 @@ public class EditCardsActivity extends AppCompatActivity {
      * @param view view
      */
     public void commit_edited_card(View view){
-        EditText category = findViewById(R.id.editCardTextCategory);
-        EditText question = findViewById(R.id.editCardTextQuestion);
-        EditText answer = findViewById(R.id.editCardTextAnswer);
         //Checking if question is not empty.
         //TODO Test regexes with user inputs.
-        question.addTextChangedListener(new TextWatcher() {
+        question_field.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -84,7 +83,7 @@ public class EditCardsActivity extends AppCompatActivity {
             }
         });
         //Checking if answer is not empty.
-        answer.addTextChangedListener(new TextWatcher() {
+        answer_field.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -108,7 +107,7 @@ public class EditCardsActivity extends AppCompatActivity {
             }
         });
         //Calling EditCardsHandler to save the now edited card.
-        EditCardsHandler editCardsHandler = new EditCardsHandler(this, card, category.getText().toString(), question.getText().toString(), answer.getText().toString());
+        EditCardsHandler editCardsHandler = new EditCardsHandler(this, card, category_field.getText().toString(), question_field.getText().toString(), answer_field.getText().toString());
         Log.d("EditCardsActivity", "Context is: " + this);
         Log.d("EditCardsActivity", "Calling EditCardsHandler on a background thread");
         new Thread(editCardsHandler).start();

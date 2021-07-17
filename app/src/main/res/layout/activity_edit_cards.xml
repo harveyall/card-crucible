@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,27 +10,12 @@
         android:id="@+id/editCardIntro"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginTop="48dp"
         android:orientation="horizontal"
         android:text="@string/edit_card_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_add_back_home2" />
-
-    <EditText
-        android:id="@+id/editCardTextCategory"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:autofillHints="Enter Category"
-        android:ems="10"
-        android:hint="@string/EditTextCategory_hint"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCardIntro" />
 
     <EditText
         android:id="@+id/editCardTextQuestion"
@@ -45,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCardTextCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCardCategory" />
 
     <EditText
         android:id="@+id/editCardTextAnswer"
@@ -63,10 +47,12 @@
 
     <Button
         android:id="@+id/button_commitEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:onClick="commit_edited_card"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:text="@string/edit_button_text_save"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,5 +74,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000" />
+
+    <TextView
+        android:id="@+id/textViewCardCategory"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCardIntro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
