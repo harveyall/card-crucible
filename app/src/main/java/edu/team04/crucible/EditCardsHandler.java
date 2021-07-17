@@ -2,6 +2,7 @@ package edu.team04.crucible;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -43,5 +44,13 @@ public class EditCardsHandler implements Runnable {
         Log.d("AddCardsHandler", "Calling LocalStorageManager to Save the Category List");
         Log.d("AddCardsHandler", "Category List is: " + categoryList.getCategories());
         lsMgr.saveCategoryList(categoryList);
+        this.activity.runOnUiThread(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //After edited card is saved, toast message to user and return to edit card selection
+                ((EditCardsActivity)activity).send_toast("Card Edited");
+                activity.startActivity(new Intent(context, EditSelectionActivity.class));
+            }
+        }));
     }
 }
