@@ -25,6 +25,7 @@ public class EditSelectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_edit_category);
         categoryFilterInput = (EditText) findViewById(R.id.editTextCategoryFilter);
 
