@@ -28,7 +28,9 @@ public class EditSelectionAdapter extends
     private List<Card> filteredCards;
     private int cardIndex;
 
-
+    /** Constructs a EditSelectionAdapter with a specified context
+     * @param context
+     * */
     public EditSelectionAdapter(Context context) {
         this.context = context;
         this.lsm = new LocalStorageManager(context);
@@ -38,6 +40,7 @@ public class EditSelectionAdapter extends
         this.filteredCards = this.cards;
     }
 
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public CardView cv_editableItem;
         public Button editBtn;
@@ -46,6 +49,9 @@ public class EditSelectionAdapter extends
         public TextView questionText;
         public TextView answerText;
 
+        /** Constructs a ViewHolder with a specified view
+         * @param itemView
+         * */
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             cv_editableItem = (CardView) itemView.findViewById(R.id.cv_editableItem);
@@ -57,6 +63,10 @@ public class EditSelectionAdapter extends
         }
     }
 
+    /** When the viewHolder is created connect it to the specified layout.
+     * @param parent
+     * @param viewType
+     * */
     @NonNull
     @Override
     public EditSelectionAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
@@ -66,6 +76,10 @@ public class EditSelectionAdapter extends
         return viewHolder;
     }
 
+    /** Access and manipulate layout items that are associated with the set ViewHolder.
+     * @param holder
+     * @param position
+     * */
     @Override
     public void onBindViewHolder(@NonNull @NotNull EditSelectionAdapter.ViewHolder holder, int position) {
         Card card = filteredCards.get(position);
@@ -98,7 +112,7 @@ public class EditSelectionAdapter extends
             }
         });
     }
-
+    /** Return expected item count of recyclerView list* */
     @Override
     public int getItemCount() {
         if (filteredCards != null){
