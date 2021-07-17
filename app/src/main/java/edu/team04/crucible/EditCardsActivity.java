@@ -107,7 +107,7 @@ public class EditCardsActivity extends AppCompatActivity {
             }
         });
         //Calling EditCardsHandler to save the now edited card.
-        EditCardsHandler editCardsHandler = new EditCardsHandler(this, card, category_field.getText().toString(), question_field.getText().toString(), answer_field.getText().toString());
+        EditCardsHandler editCardsHandler = new EditCardsHandler(this, getApplicationContext(), card, category_field.getText().toString(), question_field.getText().toString(), answer_field.getText().toString());
         Log.d("EditCardsActivity", "Context is: " + this);
         Log.d("EditCardsActivity", "Calling EditCardsHandler on a background thread");
         new Thread(editCardsHandler).start();
