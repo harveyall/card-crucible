@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +25,7 @@ public class EditSelectionAdapter extends
     private CategoryList categoryList;
     private CardList cardList;
     private List<Card> cards;
+    private List<Card> filteredCards;
     private int cardIndex;
 
 
@@ -35,6 +35,7 @@ public class EditSelectionAdapter extends
         this.categoryList = lsm.loadCategoryList();
         this.cardList = new CardList(categoryList);
         this.cards = cardList.getCards();
+        this.filteredCards = this.cards;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -67,7 +68,7 @@ public class EditSelectionAdapter extends
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull EditSelectionAdapter.ViewHolder holder, int position) {
-        Card card = cards.get(position);
+        Card card = filteredCards.get(position);
         holder.categoryText.setText("Category: " + card.getCategory());
         holder.questionText.setText("Question: " + card.getQuestion());
         holder.answerText.setText("Answer: " + card.getAnswer());
@@ -87,7 +88,7 @@ public class EditSelectionAdapter extends
                 Toast.makeText(context, String.format("DELETED:%nCategory: %s%nQuestion: %s",card.getCategory(),card.getQuestion()), Toast.LENGTH_SHORT).show();
                 cardIndex = cardList.getCardIndex(card);
                 //remove card from recycler view
-                cards.remove(cardIndex);
+                filteredCards.remove(cardIndex);
                 notifyItemRemoved(cardIndex);
 
                 //remove card from internally stored categoryList
@@ -100,9 +101,20 @@ public class EditSelectionAdapter extends
 
     @Override
     public int getItemCount() {
-        if (cards != null){
-            return cards.size();
+        if (filteredCards != null){
+            return filteredCards.size();
         }
         return 0;
+    }
+/** Filter cards by category */
+    public void filterCards(String categoryName) {
+        //TODO: this function will filter editable cards by categories
+        Category filteredCategory = categoryList.getCategory(categoryName);
+        if (!categoryName.isEmpty() || filteredCategory != null) {
+            filteredCards = filteredCategory.getCards();
+        } else {
+            filteredCards = cards;
+        }
+        notifyDataSetChanged();
     }
 }
