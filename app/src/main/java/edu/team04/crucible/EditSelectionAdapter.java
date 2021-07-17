@@ -25,8 +25,11 @@ public class EditSelectionAdapter extends
     private CategoryList categoryList;
     private CardList cardList;
     private List<Card> cards;
-    private List<Card> filteredCards;
     private int cardIndex;
+
+    private CardList filteredList;
+    private List<Card> filteredCards;
+    private int cardFilterIndex;
 
     /** Constructs a EditSelectionAdapter with a specified context
      * @param context
@@ -38,6 +41,7 @@ public class EditSelectionAdapter extends
         this.cardList = new CardList(categoryList);
         this.cards = cardList.getCards();
         this.filteredCards = this.cards;
+        this.filteredList = new CardList(this.filteredCards);
     }
 
 
@@ -100,10 +104,16 @@ public class EditSelectionAdapter extends
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, String.format("DELETED:%nCategory: %s%nQuestion: %s",card.getCategory(),card.getQuestion()), Toast.LENGTH_SHORT).show();
-                cardIndex = cardList.getCardIndex(card);
-                //remove card from recycler view
-                cards.remove(cardIndex);
-                notifyItemRemoved(cardIndex);
+
+                //delete card from filteredList and refresh filtered cardList
+                cardFilterIndex = filteredList.getCardIndex(card);
+                filteredList.deleteCard(cardFilterIndex);
+                filteredCards = filteredList.getCards();
+
+               //remove card from recycler view
+                notifyItemRemoved(cardFilterIndex);
+
+                cards.remove(card);
 
                 //remove card from internally stored categoryList
                 Log.d("EditSelectionAdapter", "Beginning removeCardHandler thread");
@@ -126,9 +136,11 @@ public class EditSelectionAdapter extends
         Category filteredCategory = categoryList.getCategory(categoryName);
         if (!categoryName.isEmpty() && filteredCategory != null) {
             filteredCards = filteredCategory.getCards();
+            filteredList.setCards(filteredCards);
         } else {
             filteredCards = cards;
         }
         notifyDataSetChanged();
     }
+
 }
