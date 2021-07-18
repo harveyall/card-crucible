@@ -21,7 +21,7 @@ public class EditSelectionActivity extends AppCompatActivity {
     private EditText categoryFilterInput;
     private String categoryName;
 
-
+    /** Upon creation of the activity set its context view, update its theme, and set an adapter on its recyclerView*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
