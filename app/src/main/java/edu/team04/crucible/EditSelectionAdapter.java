@@ -90,6 +90,7 @@ public class EditSelectionAdapter extends
         holder.questionText.setText("Question: " + card.getQuestion());
         holder.answerText.setText("Answer: " + card.getAnswer());
         holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            /** Upon click of edit button start the editCardActivity and send it the card to be edited*/
             @Override
             public void onClick(View v) {
                 Intent editCardActivity = new Intent(context, EditCardsActivity.class);
@@ -100,6 +101,7 @@ public class EditSelectionAdapter extends
         });
 
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            /** Upon click of the delete button remove the card from both the main and filtered lists, notify of the item removal, and remove card from stored data*/
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, String.format("DELETED:%nCategory: %s%nQuestion: %s",card.getCategory(),card.getQuestion()), Toast.LENGTH_SHORT).show();
