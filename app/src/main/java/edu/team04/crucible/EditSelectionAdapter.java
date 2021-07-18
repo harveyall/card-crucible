@@ -25,7 +25,6 @@ public class EditSelectionAdapter extends
     private CategoryList categoryList;
     private CardList cardList;
     private List<Card> cards;
-    private int cardIndex;
 
     private CardList filteredList;
     private List<Card> filteredCards;
@@ -132,7 +131,6 @@ public class EditSelectionAdapter extends
     }
 /** Filter cards by category */
     public void filterCards(String categoryName) {
-        //TODO: this function will filter editable cards by categories
         Category filteredCategory = categoryList.getCategory(categoryName);
         if (!categoryName.isEmpty() && filteredCategory != null) {
             filteredCards = filteredCategory.getCards();
