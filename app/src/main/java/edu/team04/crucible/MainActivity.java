@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         new ThemeHandler(this, getApplicationContext()).updateTheme();
         setContentView(R.layout.activity_main);
-//        TestData test = new TestData(this);
-//        new Thread(test, "TestCategoryList").start();
+        TestData test = new TestData(this);
+        new Thread(test, "TestCategoryList").start();
     }
 
     /**
