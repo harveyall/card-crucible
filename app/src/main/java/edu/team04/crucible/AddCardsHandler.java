@@ -14,7 +14,7 @@ public class AddCardsHandler implements Runnable {
     String category;
     String question;
     String answer;
-
+    /** Construct an AddCardsHandler with a specified activity and context as well as a string representation of category, question, and answer input*/
         public AddCardsHandler(Activity activity, Context context, String category, String question, String answer) {
             this.activity = activity;
             Log.d("AddCardsHandler", "Activity is: " + this.activity);
