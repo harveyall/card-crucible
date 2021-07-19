@@ -26,7 +26,10 @@ public class StudyModeActivity extends AppCompatActivity {
     int size;
     int i = 0;
 
-
+    /** On creation of this activity update the theme and set the context view
+     * Get list of cards from intent
+     * Set the text of the back and front of the card and the their initial visibility
+     * * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
