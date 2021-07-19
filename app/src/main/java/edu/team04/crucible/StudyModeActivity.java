@@ -75,7 +75,7 @@ public class StudyModeActivity extends AppCompatActivity {
         btn_prev.setVisibility(View.INVISIBLE);
 
         View btn_next = findViewById(R.id.next_btn);
-        if(i > size) { //initialize next button to visible if there is more than one card
+        if(size != 1) { //initialize next button to visible if there is more than one card
             btn_next.setVisibility(View.VISIBLE);
         }else{
             btn_next.setVisibility(View.INVISIBLE);
