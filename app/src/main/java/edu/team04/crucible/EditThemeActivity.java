@@ -10,6 +10,8 @@ import android.widget.Button;
  */
 public class EditThemeActivity extends ThemeActivity implements View.OnClickListener{
 
+    /** On creation of this activity update the theme and set the context view
+     * Set an on clickListener for each button*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
