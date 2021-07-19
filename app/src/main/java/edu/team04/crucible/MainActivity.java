@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String NOTIFICATION_CHANNEL_ID = "10001";
     private final static String default_notification_channel_id = "default";
 
+    /** On creation of this activity update the theme and set the context view
+     * Store testData in localStorage*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
