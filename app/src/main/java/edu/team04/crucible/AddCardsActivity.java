@@ -19,7 +19,7 @@ public class AddCardsActivity extends AppCompatActivity{
     EditText question;
     EditText answer;
 
-
+/** On creation of this activity update the theme and set the context view*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
