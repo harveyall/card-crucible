@@ -22,6 +22,8 @@ public class StudyModeActivity extends AppCompatActivity {
     Gson gson = new Gson();
     CardList cardList;
     private boolean back_card_visible = false;
+    List<Card> cards;
+    int size;
     int i = 0;
 
 
@@ -38,6 +40,9 @@ public class StudyModeActivity extends AppCompatActivity {
         //You can view the data in the cardList in the Logcat
         Log.d("StudyModeActivity", cardList.toString());
 
+        this.cards = cardList.getCards();
+        this.size = cards.size();
+
         StudyModeHandler studyModeHandler = new StudyModeHandler(this, this, cardList);
         Thread thread1 = new Thread(studyModeHandler, "StudyModeHandler");
         Log.d("StudyModeActivity", "Context is: " + this);
@@ -46,9 +51,6 @@ public class StudyModeActivity extends AppCompatActivity {
 
         float scale = getApplicationContext().getResources().getDisplayMetrics().density;
 
-        List<Card> cards = cardList.getCards();
-
-        int size = cards.size();
         Card card = cards.get(i);
 
         String category = card.getCategory();
@@ -58,6 +60,7 @@ public class StudyModeActivity extends AppCompatActivity {
         TextView categoryText = (TextView)findViewById(R.id.category_text);
         TextView frontCard = (TextView)findViewById(R.id.card_front);
         TextView backCard = (TextView)findViewById(R.id.card_back);
+
 
         backCard.setVisibility(View.INVISIBLE);  // For Invisible/Disappear
 
@@ -69,7 +72,11 @@ public class StudyModeActivity extends AppCompatActivity {
         btn_prev.setVisibility(View.INVISIBLE);
 
         View btn_next = findViewById(R.id.next_btn);
-        btn_next.setVisibility(View.VISIBLE);
+        if(i > size) { //initialize next button to visible if there is more than one card
+            btn_next.setVisibility(View.VISIBLE);
+        }else{
+            btn_next.setVisibility(View.INVISIBLE);
+        }
     }
 
     /**
@@ -133,8 +140,6 @@ public class StudyModeActivity extends AppCompatActivity {
         View btn_next = findViewById(R.id.next_btn);
         View btn_prev = findViewById(R.id.prev_btn);
 
-        List<Card> cards = cardList.getCards();
-        int size = cards.size();
 
         if(i < size - 1) { //Needs to be for when there is no next card
             btn_next.setVisibility(View.VISIBLE);
