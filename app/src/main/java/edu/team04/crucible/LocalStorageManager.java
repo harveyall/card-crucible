@@ -19,6 +19,8 @@ public class LocalStorageManager {
     Context context;
     //TODO: Figure out how to store local file on android device
 
+    /** Construct a LocalStorageManager with a specified context
+     * @param context*/
     public LocalStorageManager(Context context){
         this.context = context;
     }
