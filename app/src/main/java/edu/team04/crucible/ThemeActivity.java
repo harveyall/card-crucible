@@ -9,7 +9,7 @@ public class ThemeActivity extends AppCompatActivity {
     private final static int THEME_BLUE = 2;
     private final static int THEME_ORANGE = 3;
 
-
+    /** On creation of this activity update the theme and set the context view * */
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
