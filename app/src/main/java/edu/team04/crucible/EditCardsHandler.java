@@ -16,7 +16,14 @@ public class EditCardsHandler implements Runnable {
     String question;
     String answer;
     Card originalCard;
-
+    /** Construct an EditCardsHandler with a specified
+     * @param activity
+     * @param context
+     * @param originalCard
+     * @param category
+     * @param question
+     * @param answer
+     * */
     public EditCardsHandler(Activity activity, Context context, Card originalCard, String category, String question, String answer) {
         this.activity = activity;
         this.context = context;
