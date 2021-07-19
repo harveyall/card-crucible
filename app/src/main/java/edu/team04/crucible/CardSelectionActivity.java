@@ -22,6 +22,9 @@ import java.util.List;
 public class CardSelectionActivity extends AppCompatActivity {
     public CategoryList categoryList;
 
+    /** On creation of this activity update the theme and set the context view
+     * Load the categoryList from localStorage and populate the listView with each category's name
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
