@@ -27,6 +27,10 @@ public class EditCardsActivity extends AppCompatActivity {
     private EditText question_field;
     private EditText answer_field;
 
+    /** On creation of this activity update the theme and set the context view
+     * Get card information from intent
+     * Find the TextView and EditTexts by id
+     * Set TextView to  category, EditText 1 to question, and EditText 2 to answer text from card*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
