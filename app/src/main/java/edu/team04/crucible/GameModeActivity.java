@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class GameModeActivity extends AppCompatActivity {
 
+    /** On creation of this activity update the theme and set the context view*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
