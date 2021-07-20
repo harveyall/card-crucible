@@ -2,7 +2,6 @@ package edu.team04.crucible;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,8 +115,6 @@ public class EditSelectionAdapter extends
 
                 cards.remove(card);
 
-                //remove card from internally stored categoryList
-                Log.d("EditSelectionAdapter", "Beginning removeCardHandler thread");
                 Thread removeCardInHandler = new Thread(new EditSelectionHandler(context, categoryList, card));
                 removeCardInHandler.start();
             }

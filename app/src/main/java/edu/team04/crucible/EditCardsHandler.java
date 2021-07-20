@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
  * This class does the behind the scenes work (Array & file operations) for the Edit Cards Activity.
@@ -16,6 +15,7 @@ public class EditCardsHandler implements Runnable {
     String question;
     String answer;
     Card originalCard;
+
     /** Construct an EditCardsHandler with a specified
      * @param activity
      * @param context

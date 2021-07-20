@@ -1,16 +1,13 @@
 package edu.team04.crucible;
 
-
-
-
 import android.content.Context;
-import android.util.Log;
 
 public class EditSelectionHandler implements Runnable{
     //This class takes care of any requests made by the EditCategoryAdapter
     Context context;
     CategoryList categoryList;
     Card cardToDelete;
+
     /** Construct an EditSelectionHandler with a specified context,
      * list of categories currently saved in local storage,
      * and a card to be deleted from that category list storage
@@ -25,7 +22,7 @@ public class EditSelectionHandler implements Runnable{
     /** When this class is created get the category in the categoryList that is associated with the card to be deleted
      * Remove the card for that category
      * Is the category is now empty, remove it from the categoryList
-     * Save the modifed categoryList
+     * Save the modified categoryList
      * */
     @Override
     public void run() {

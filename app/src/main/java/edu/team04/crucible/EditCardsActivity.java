@@ -1,6 +1,5 @@
 package edu.team04.crucible;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,12 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/*  *
+/**
  * This activity displays the card's attributes and allows the user to edit them, then
  * saving the changes on top of the same card through its handler.
  */

@@ -17,7 +17,6 @@ public class LocalStorageManager {
     Gson gson = new Gson();
     final private String FILENAME = "cardCrucible.txt";;
     Context context;
-    //TODO: Figure out how to store local file on android device
 
     /** Construct a LocalStorageManager with a specified context
      * @param context*/
@@ -63,7 +62,6 @@ public class LocalStorageManager {
      * This method saves the list of categories on the Category file from Shared Preferences.
      */
     public void saveCategoryList(CategoryList categoryList){
-        //TODO: before saving to device query available space on device
         //https://developer.android.com/training/data-storage/app-specific#query-free-space
         String json = gson.toJson(categoryList);
 

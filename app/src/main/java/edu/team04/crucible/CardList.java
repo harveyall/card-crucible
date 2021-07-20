@@ -10,7 +10,6 @@ import java.util.List;
 public class CardList {
     List<Card> cards;
 
-
     /** Constructs a CardList with an empty array list*/
     public CardList(){
         this.cards = new ArrayList<>();
@@ -96,7 +95,6 @@ public class CardList {
         return -1;
     }
 
-
     /** Return a string representation of this CardList*/
     @Override
     public String toString() {
@@ -104,7 +102,8 @@ public class CardList {
                 "cards=" + cards +
                 '}';
     }
-/*added rh*/
+
+    /*added rh*/
     public int size() {
         return 0;
     }
